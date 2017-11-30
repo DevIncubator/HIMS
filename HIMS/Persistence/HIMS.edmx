@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+	<edmx:Runtime>
+		<edmx:StorageModels>
+			<Schema Namespace="HIMS.SQLServer.Store" Alias="Self" 
+					Provider="System.Data.SqlClient" ProviderManifestToken="2012"
+					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+				<EntityContainer Name="HIMSSQLServerContainer">
+					<EntitySet Name="Sample" EntityType="Self.Sample" Schema="dbo" />
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START SSDLEntityContainerCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+				</EntityContainer>
+				<EntityType Name="Sample">
+					<Key>
+						<PropertyRef Name="SampleId"/>
+					</Key>
+					<Property Name="SampleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" DefaultValue="1"  />
+					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="25"  />
+					<Property Name="Description" Type="nvarchar" MaxLength="255"  />
+				</EntityType>
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START SSDLCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+			</Schema>
+		</edmx:StorageModels>
+		<edmx:ConceptualModels>
+			<Schema Namespace="HIMSModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm"	 xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration"  xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false" >
+				<EntityContainer Name="HIMSEntities">
+					<EntitySet Name="Sample" EntityType="Self.Sample"/>	
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START CSDLEntityContainerCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+				</EntityContainer>
+				<EntityType Name="Sample">
+					<Key>
+						<PropertyRef Name="SampleId"/>
+					</Key>
+					<Property Name="Description"  Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+					<Property Name="Name" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+					<Property Name="SampleId" Nullable="false"  Type="Int32" />
+				</EntityType>
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START CSDLCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+			</Schema>
+		</edmx:ConceptualModels>
+		<edmx:Mappings>
+			<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+				<EntityContainerMapping StorageEntityContainer="HIMSSQLServerContainer"
+										CdmEntityContainer="HIMSEntities">
+					<EntitySetMapping Name="Sample">
+						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Sample)">
+							<MappingFragment StoreEntitySet="Sample">
+								<ScalarProperty Name="SampleId" ColumnName="SampleId" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START MSLEntityContainerMappingCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+				</EntityContainerMapping>
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START MSLCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
+			</Mapping>
+		</edmx:Mappings>
+	</edmx:Runtime>
+	<!-- Designer element for auto-embedding the .edmx file into the compiled assembly as separated resource files and to validate it on build. -->
+	<edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+		<edmx:Connection>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+			</DesignerInfoPropertySet>
+		</edmx:Connection>
+		<edmx:Options>
+			<DesignerInfoPropertySet>
+				<DesignerProperty Name="ValidateOnBuild" Value="true" />
+			</DesignerInfoPropertySet>
+		</edmx:Options>	
+	<!-- __LLBLGENPRO_USER_CODE_REGION_START DesignerCustomCode -->
+	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->		
+	</edmx:Designer>
+</edmx:Edmx>
+
