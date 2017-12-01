@@ -39,10 +39,27 @@ namespace HIMS.BusinessLogic.Services
             Database.Samples.Create(sample);
             Database.Save();
         }
+        public void UpdateSample(SampleTransferModel sampleDTO)
+        {
+            // Validation
+            if (sampleDTO.Name.Length > 25)
+                throw new ValidationException($"The length of {nameof(sampleDTO.Name)} must be less then 25"
+                    , nameof(sampleDTO.Name));
+            if (sampleDTO.Description.Length > 255)
+                throw new ValidationException($"The length of {nameof(sampleDTO.Description)} must be less then 25"
+                    , nameof(sampleDTO.Description));
+
+            var sample = Database.Samples.Get(sampleDTO.SampleId);
+
+            if (sample != null)
+            {
+                Mapper.Map(sampleDTO, sample);
+                Database.Save();
+            }           
+        }
 
         public IEnumerable<SampleTransferModel> GetSamples()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Sample, SampleTransferModel>());
             return Mapper.Map<IEnumerable<Sample>, List<SampleTransferModel>>(Database.Samples.GetAll());
         }
 
@@ -55,8 +72,7 @@ namespace HIMS.BusinessLogic.Services
 
             if (sample == null)
                 throw new ValidationException($"The Sample with id = {id} was not found", String.Empty);
-
-            Mapper.Initialize(cfg => cfg.CreateMap<Sample, SampleTransferModel>());
+          
             return Mapper.Map<Sample, SampleTransferModel>(sample);
         }
 
@@ -66,6 +82,11 @@ namespace HIMS.BusinessLogic.Services
                 throw new ValidationException("The Sample's id value is not set", String.Empty);
 
             Database.Samples.Delete(id.Value);
+            Database.Save();
+        }
+
+        public void SaveChanges()
+        {
             Database.Save();
         }
 

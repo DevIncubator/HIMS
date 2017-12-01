@@ -34,11 +34,6 @@ namespace HIMS.Data.Repositories
             db.Samples.Add(sample);
         }
 
-        public void Update(Sample sample)
-        {
-            db.Entry(sample).State = EntityState.Modified;
-        }
-
         public IEnumerable<Sample> Find(Func<Sample, Boolean> predicate)
         {
             return db.Samples.Where(predicate).ToList();

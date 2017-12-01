@@ -12,6 +12,7 @@ namespace HIMS.BusinessLogic.Interfaces
         void SaveSample(SampleTransferModel sampleTM);
         SampleTransferModel GetSample(int? id);
         IEnumerable<SampleTransferModel> GetSamples();
+        void UpdateSample(SampleTransferModel sampleDTO);
         void DeleteSample(int? id);
         void Dispose();
     }
