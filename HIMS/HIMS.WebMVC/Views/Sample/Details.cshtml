@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }) |
-    @Html.ActionLink("Back to Grid", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }, new { @class = "btn btn-default" }) 
+    @Html.ActionLink("Back to Grid", "Index", null, new { @class = "btn btn-default" })
 </p>

@@ -34,5 +34,14 @@ namespace HIMS.WebMVC
             var kernel = new StandardKernel(dependencesModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
+
+        protected void Session_Start(Object sender, EventArgs e)
+        {
+            var userObject = new UserObject();
+
+            userObject.IsAdmin = User.IsInRole("admin");
+                
+            HttpContext.Current.Session.Add("__userObject", userObject);
+        }
     }
 }

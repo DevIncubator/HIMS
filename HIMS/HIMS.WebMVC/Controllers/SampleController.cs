@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using HIMS.BusinessLogic.DTO;
@@ -21,6 +18,7 @@ namespace HIMS.WebMVC.Controllers
             _sampleService = sampleService;
         }
 
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             IEnumerable<SampleTransferModel> sampleDtos = _sampleService.GetSamples();

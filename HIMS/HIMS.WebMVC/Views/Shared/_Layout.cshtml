@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using HIMS.WebMVC.Utils
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -19,7 +20,29 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Sample", "Index", "Sample")</li>
+                    <li>@Html.ActionLink("Main", "Index", "Home")</li>
+                    @if (CurrentUser.IsAdmin)
+                    {
+                        <li>@Html.ActionLink("Sample", "Index", "Sample")</li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    }
+                    else
+                    {
+                        if (CurrentUser.IsAdmin)
+                        {
+                            <li>@Html.ActionLink("Registration", "Register", "Account")</li>
+                        }
+                        <li>
+                            <a>@User.Identity.Name</a>
+                        </li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -28,7 +51,10 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - HIMS</p>
+            <p>
+                &copy; @DateTime.Now.Year - DevIncubator
+                <a target="_blank" href="http://devincubator.by/">devincubator.by</a>
+            </p>
         </footer>
     </div>
 
