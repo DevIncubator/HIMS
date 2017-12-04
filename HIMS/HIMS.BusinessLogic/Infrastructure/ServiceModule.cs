@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using HIMS.Data.Identity.Repositories;
 using HIMS.Data.Interfaces;
 using HIMS.Data.Repositories;
+using HIMS.DAL.Interfaces;
+using HIMS.DAL.Repositories;
 using Ninject.Modules;
 
 namespace HIMS.BusinessLogic.Infrastructure
@@ -22,6 +24,7 @@ namespace HIMS.BusinessLogic.Infrastructure
         public override void Load()
         {
             Bind<IUnitOfWork>().To<EFUnitOfWork>().WithConstructorArgument(_connectionString);
+            Bind<IProcedureManager>().To<ProcedureManager>().WithConstructorArgument(_connectionString);
             Bind<Data.Identity.Interfaces.IUnitOfWork>().To<IdentityUnitOfWork>().WithConstructorArgument(_identityConnectionString);
         }
     }

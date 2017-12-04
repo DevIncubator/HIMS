@@ -48,9 +48,9 @@
 					<EntitySetMapping Name="Sample">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Sample)">
 							<MappingFragment StoreEntitySet="Sample">
-								<ScalarProperty Name="SampleId" ColumnName="SampleId" />
-								<ScalarProperty Name="Name" ColumnName="Name" />
 								<ScalarProperty Name="Description" ColumnName="Description" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="SampleId" ColumnName="SampleId" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>

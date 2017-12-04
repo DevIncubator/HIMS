@@ -9,16 +9,19 @@ using HIMS.BusinessLogic.Infrastructure;
 using HIMS.Data.EntityClasses;
 using HIMS.Data.Interfaces;
 using HIMS.BusinessLogic.Interfaces;
+using HIMS.DAL.Interfaces;
 
 namespace HIMS.BusinessLogic.Services
 {
     public class SampleService : ISampleService
     {
-        IUnitOfWork Database { get; set; }
+        private IUnitOfWork Database { get; set; }
+        private IProcedureManager Pm { get; set; }
 
-        public SampleService(IUnitOfWork uow)
+        public SampleService(IUnitOfWork uow, IProcedureManager pm)
         {
             Database = uow;
+            Pm = pm;
         }
         public void SaveSample(SampleTransferModel sampleDTO)
         {
@@ -88,6 +91,11 @@ namespace HIMS.BusinessLogic.Services
         public void SaveChanges()
         {
             Database.Save();
+        }
+
+        public int GetSampleEntriesAmout(bool isAdmin = false)
+        {
+            return Pm.GetSampleEntriesAmount(isAdmin);
         }
 
         public void Dispose()

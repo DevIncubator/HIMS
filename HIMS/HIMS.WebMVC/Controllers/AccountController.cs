@@ -50,7 +50,7 @@ namespace HIMS.WebMVC.Controllers
                     {
                         IsPersistent = true
                     }, claim);
-                    return RedirectToAction("Index", "Sample");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(viewModel);

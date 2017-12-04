@@ -14,6 +14,7 @@ namespace HIMS.BusinessLogic.Interfaces
         IEnumerable<SampleTransferModel> GetSamples();
         void UpdateSample(SampleTransferModel sampleDTO);
         void DeleteSample(int? id);
+        int GetSampleEntriesAmout(bool isAdmin);
         void Dispose();
     }
 }

@@ -6,12 +6,13 @@ using AutoMapper;
 using HIMS.BusinessLogic.DTO;
 using HIMS.BusinessLogic.Interfaces;
 using HIMS.WebMVC.Models;
+using HIMS.WebMVC.Utils;
 
 namespace HIMS.WebMVC.Controllers
 {
     public class SampleController : Controller
     {
-        ISampleService _sampleService;
+        private readonly ISampleService _sampleService;
 
         public SampleController(ISampleService sampleService)
         {
@@ -22,7 +23,11 @@ namespace HIMS.WebMVC.Controllers
         public ActionResult Index()
         {
             IEnumerable<SampleTransferModel> sampleDtos = _sampleService.GetSamples();
-            var samples = Mapper.Map<IEnumerable<SampleTransferModel>, List<SampleViewModel>>(sampleDtos);
+            var samples = new SmplesListViewModel
+            {
+                Samples = Mapper.Map<IEnumerable<SampleTransferModel>, List<SampleViewModel>>(sampleDtos),
+                SamplesAmount = _sampleService.GetSampleEntriesAmout(CurrentUser.IsAdmin)
+            };
 
             return View(samples);
         }

@@ -197,14 +197,6 @@
     <Relationships />
     <InheritanceHierarchies />
   </EntityModel>
-  <SPCallDefinitions>
-    <SPCallDefinition Name="SampleEntriesAmount" ObjectID="c42edabb-c618-4ddd-ba90-7b709183f114">
-      <Parameters>
-        <Parameter Name="IsAdmin" Type="bool" />
-        <Parameter Name="Result" Type="int" Precision="10" Direction="3" />
-      </Parameters>
-    </SPCallDefinition>
-  </SPCallDefinitions>
   <TargetDatabases>
     <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
       <ConnectionElements>
@@ -220,7 +212,7 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-12-02T23:07:12.5339437Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2017-11-30T20:31:16.5369288Z">
               <Tables>
                 <Table Name="Sample">
                   <PkConstraintName Name="PK_Test" />
@@ -231,14 +223,6 @@
                   </Fields>
                 </Table>
               </Tables>
-              <StoredProcedures>
-                <StoredProcedure Name="SampleEntriesAmount">
-                  <Parameters>
-                    <Parameter Name="@isAdmin" Direction="1" Ordinal="1" DbType="2" />
-                    <Parameter Name="@result" Direction="3" Ordinal="2" DbType="8" Precision="10" />
-                  </Parameters>
-                </StoredProcedure>
-              </StoredProcedures>
             </Schema>
           </Schemas>
         </Catalog>
@@ -257,14 +241,7 @@
         </EntityMapping>
       </EntityMappings>
       <TypedViewMappings />
-      <SPCallMappings>
-        <SPCallMapping SPCallName=":SampleEntriesAmount" TargetName="HIMS:dbo:SampleEntriesAmount">
-          <FieldMappings>
-            <FieldMapping FieldName="IsAdmin" TargetFieldName="@isAdmin" />
-            <FieldMapping FieldName="Result" TargetFieldName="@result" />
-          </FieldMappings>
-        </SPCallMapping>
-      </SPCallMappings>
+      <SPCallMappings />
       <TvfCallMappings />
       <TypeConversionDefinitions />
     </MappingStore>
