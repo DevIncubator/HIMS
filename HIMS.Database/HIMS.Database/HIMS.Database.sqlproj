@@ -65,8 +65,14 @@
   <ItemGroup>
     <Build Include="Tables\Sample.sql" />
     <Build Include="StoredProcedures\SampleEntriesAmount.sql" />
+    <Build Include="Tables\UserProfile.sql" />
+    <Build Include="Tables\Direction.sql" />
+    <Build Include="Tables\UserTask.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="HIMS.Database.refactorlog" />
   </ItemGroup>
 </Project>
