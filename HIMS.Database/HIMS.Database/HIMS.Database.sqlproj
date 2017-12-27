@@ -68,6 +68,9 @@
     <Build Include="Tables\UserProfile.sql" />
     <Build Include="Tables\Direction.sql" />
     <Build Include="Tables\UserTask.sql" />
+    <Build Include="Tables\Task.sql" />
+    <Build Include="Tables\TaskTrack.sql" />
+    <Build Include="Tables\TastState.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
