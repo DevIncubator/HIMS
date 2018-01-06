@@ -5,6 +5,7 @@
 	[TrackDate] DATE NOT NULL,
 	[TrackNote] NVARCHAR(MAX) NOT NULL
 
+	CONSTRAINT [PK_TaskTrack] PRIMARY KEY ([TaskTrackId])
 	CONSTRAINT [FK_UserTaskId] FOREIGN KEY ([UserTaskId]) REFERENCES [UserTask]([UserTaskId]) ON DELETE CASCADE ON UPDATE CASCADE 
 )
 

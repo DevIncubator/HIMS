@@ -7,6 +7,7 @@
 					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
 				<EntityContainer Name="HIMSSQLServerContainer">
 					<EntitySet Name="Sample" EntityType="Self.Sample" Schema="dbo" />
+					<EntitySet Name="vUserProfile" EntityType="Self.vUserProfile" Schema="dbo" />
 	<!-- __LLBLGENPRO_USER_CODE_REGION_START SSDLEntityContainerCustomCode -->
 	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
 				</EntityContainer>
@@ -18,6 +19,24 @@
 					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="25"  />
 					<Property Name="Description" Type="nvarchar" MaxLength="255"  />
 				</EntityType>
+				<EntityType Name="vUserProfile">
+					<Key>
+						<PropertyRef Name="UserId"/>
+					</Key>
+					<Property Name="UserId" Type="int" Nullable="false"  />
+					<Property Name="FullName" Type="nvarchar" Nullable="false" MaxLength="51"  />
+					<Property Name="Email" Type="nchar" Nullable="false" MaxLength="125"  />
+					<Property Name="Direction" Type="nvarchar" Nullable="false" MaxLength="50"  />
+					<Property Name="Sex" Type="char" Nullable="false" MaxLength="1"  />
+					<Property Name="Education" Type="nvarchar" Nullable="false" MaxLength="250"  />
+					<Property Name="Age" Type="int"  />
+					<Property Name="UniversityAverageScore" Type="float"  />
+					<Property Name="MathScore" Type="float"  />
+					<Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100"  />
+					<Property Name="MobilePhone" Type="nvarchar" Nullable="false" MaxLength="15"  />
+					<Property Name="Skype" Type="varchar" MaxLength="50"  />
+					<Property Name="StartDate" Type="date" Nullable="false"  />
+				</EntityType>
 	<!-- __LLBLGENPRO_USER_CODE_REGION_START SSDLCustomCode -->
 	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
 			</Schema>
@@ -26,6 +45,7 @@
 			<Schema Namespace="HIMSModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm"	 xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration"  xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false" >
 				<EntityContainer Name="HIMSEntities">
 					<EntitySet Name="Sample" EntityType="Self.Sample"/>	
+					<EntitySet Name="VUserProfile" EntityType="Self.VUserProfile"/>	
 	<!-- __LLBLGENPRO_USER_CODE_REGION_START CSDLEntityContainerCustomCode -->
 	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
 				</EntityContainer>
@@ -36,6 +56,24 @@
 					<Property Name="Description"  Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
 					<Property Name="Name" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
 					<Property Name="SampleId" Nullable="false"  Type="Int32" />
+				</EntityType>
+				<EntityType Name="VUserProfile">
+					<Key>
+						<PropertyRef Name="UserId"/>
+					</Key>
+					<Property Name="Address" Nullable="false"  Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+					<Property Name="Age"  Type="Int32" />
+					<Property Name="Direction" Nullable="false"  Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+					<Property Name="Education" Nullable="false"  Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+					<Property Name="Email" Nullable="false"  Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+					<Property Name="FullName" Nullable="false"  Type="String" MaxLength="51" FixedLength="false" Unicode="true" />
+					<Property Name="MathScore"  Type="Double" />
+					<Property Name="MobilePhone" Nullable="false"  Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+					<Property Name="Sex" Nullable="false"  Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+					<Property Name="Skype"  Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+					<Property Name="StartDate" Nullable="false"  Type="DateTime" />
+					<Property Name="UniversityAverageScore"  Type="Double" />
+					<Property Name="UserId" Nullable="false"  Type="Int32" />
 				</EntityType>
 	<!-- __LLBLGENPRO_USER_CODE_REGION_START CSDLCustomCode -->
 	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
@@ -48,9 +86,28 @@
 					<EntitySetMapping Name="Sample">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Sample)">
 							<MappingFragment StoreEntitySet="Sample">
-								<ScalarProperty Name="Description" ColumnName="Description" />
-								<ScalarProperty Name="Name" ColumnName="Name" />
 								<ScalarProperty Name="SampleId" ColumnName="SampleId" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="VUserProfile">
+						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.VUserProfile)">
+							<MappingFragment StoreEntitySet="vUserProfile">
+								<ScalarProperty Name="UserId" ColumnName="UserId" />
+								<ScalarProperty Name="FullName" ColumnName="FullName" />
+								<ScalarProperty Name="Email" ColumnName="Email" />
+								<ScalarProperty Name="Direction" ColumnName="Direction" />
+								<ScalarProperty Name="Sex" ColumnName="Sex" />
+								<ScalarProperty Name="Education" ColumnName="Education" />
+								<ScalarProperty Name="Age" ColumnName="Age" />
+								<ScalarProperty Name="UniversityAverageScore" ColumnName="UniversityAverageScore" />
+								<ScalarProperty Name="MathScore" ColumnName="MathScore" />
+								<ScalarProperty Name="Address" ColumnName="Address" />
+								<ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+								<ScalarProperty Name="Skype" ColumnName="Skype" />
+								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
