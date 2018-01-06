@@ -70,7 +70,9 @@
     <Build Include="Tables\UserTask.sql" />
     <Build Include="Tables\Task.sql" />
     <Build Include="Tables\TaskTrack.sql" />
-    <Build Include="Tables\TastState.sql" />
+    <Build Include="Tables\TaskState.sql" />
+    <Build Include="Views\vUserProfile.sql" />
+    <Build Include="StoredProcedures\spDeleteUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
