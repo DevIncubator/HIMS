@@ -9,4 +9,11 @@ INSERT INTO [dbo].[Direction]
 	VALUES
 		('.NET', 'The .NET direction.'),
 		('Java', 'The Java direction'),
-		('Front-End', 'The Front-End direction.')
+		('Front-End', 'The Front-End direction.');
+
+INSERT INTO [dbo].[TaskState]
+			([StateName])
+	   VALUES
+			('Active'),
+			('Success'),
+			('Fail')
