@@ -9,5 +9,6 @@ namespace HIMS.DAL.Interfaces
     public interface IProcedureManager
     {
         int GetSampleEntriesAmount(bool isAdmin);
+        int DeleteUser(int userId);
     }
 }

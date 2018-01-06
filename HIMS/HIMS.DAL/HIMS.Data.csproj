@@ -54,6 +54,7 @@
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\ProcedureManager.cs" />
     <Compile Include="Repositories\SampleRepository.cs" />
+    <Compile Include="Repositories\VUserProfileRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

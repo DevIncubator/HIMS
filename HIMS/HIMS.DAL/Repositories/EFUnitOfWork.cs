@@ -13,6 +13,7 @@ namespace HIMS.Data.Repositories
     {
         private HIMSDataContext db;
         private SampleRepository _sampleRepository;
+        private VUserProfileRepository _vUserProfileRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -25,6 +26,16 @@ namespace HIMS.Data.Repositories
                 if (_sampleRepository == null)
                     _sampleRepository = new SampleRepository(db);
                 return _sampleRepository;
+            }
+        }
+
+        public IRepository<VUserProfile> VUserProfiles
+        {
+            get
+            {
+                if (_vUserProfileRepository == null)
+                    _vUserProfileRepository = new VUserProfileRepository(db);
+                return _vUserProfileRepository;
             }
         }
 

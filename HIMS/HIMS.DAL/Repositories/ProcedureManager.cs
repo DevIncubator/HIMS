@@ -23,5 +23,11 @@ namespace HIMS.DAL.Repositories
             db.CallSampleEntriesAmount(isAdmin, ref result);
             return result;
         }
+
+        public int DeleteUser(int userId)
+        {
+            int rowsAffectedToDb = db.CallSpDeleteUser(userId);
+            return rowsAffectedToDb;
+        }
     }
 }
