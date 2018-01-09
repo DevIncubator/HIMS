@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[vUserTask]
-	AS SELECT ut.UserId,
-			  t.TaskId,
+	AS SELECT ISNULL(ut.UserId, -999) AS UserId,
+			  ISNULL(t.TaskId, -999) AS TaskId,
 			  t.[Name] as TaskName,
 			  t.[Description],
 			  t.StartDate,
