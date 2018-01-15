@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using HIMS.Data.Interfaces;
 using HIMS.Data;
 using HIMS.Data.EntityClasses;
+using HIMS.DAL.Interfaces;
+using HIMS.DAL.Repositories;
 
 namespace HIMS.Data.Repositories
 {
@@ -14,6 +16,7 @@ namespace HIMS.Data.Repositories
         private HIMSDataContext db;
         private SampleRepository _sampleRepository;
         private VUserProfileRepository _vUserProfileRepository;
+        private VUserTaskRepository _vUserTaskRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -38,6 +41,8 @@ namespace HIMS.Data.Repositories
                 return _vUserProfileRepository;
             }
         }
+
+        public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
 
         public void Save()
         {
