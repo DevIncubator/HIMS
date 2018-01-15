@@ -90,7 +90,7 @@
   <CodeGenerationCyclePreferences>
     <OutputType Value="3">
       <LastUsedPreferences>
-        <DestinationRootFolder Value="D:\ItHouse\HIMS_Cur\HIMS\HIMS" />
+        <DestinationRootFolder Value="E:\Practice\HIMS2\HIMS" />
         <FrameworkName Value="Entity Framework v6" />
         <LanguageName Value="C#" />
         <PlatformName Value=".NET 4.5.2" />
@@ -184,91 +184,25 @@
       </Defaults>
     </TargetElement>
   </CodeGenerationMetaDataDefaults>
-  <EntityModel>
-    <ValueTypeDefinitions />
-    <EntityDefinitions>
-      <EntityDefinition Name="VTask" ObjectID="82691517-01d4-44c9-b79b-93508c34931d">
-        <Fields>
-          <Field Name="DeadlineDate" Type="datetime" />
-          <Field Name="Description" Type="string" MaxLength="2147483647" />
-          <Field Name="Name" Type="string" MaxLength="25" />
-          <Field Name="StartDate" Type="datetime" />
-          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
-        </Fields>
-      </EntityDefinition>
-    </EntityDefinitions>
-    <Relationships />
-    <InheritanceHierarchies />
-  </EntityModel>
-  <SPCallDefinitions>
-    <SPCallDefinition Name="SpDeleteTask" ObjectID="b4a73fb6-5772-4278-9cad-4e3976642583">
-      <Parameters>
-        <Parameter Name="TaskId" Type="int" Precision="10" />
-      </Parameters>
-    </SPCallDefinition>
-  </SPCallDefinitions>
   <TargetDatabases>
     <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
       <ConnectionElements>
         <ConnectionElement Name="ServerName" Value="localhost" />
         <ConnectionElement Name="CatalogName" Value="master" />
-        <ConnectionElement Name="UseWindowsAuthentication" Value="true" />
-        <ConnectionElement Name="UserID" Value="" />
+        <ConnectionElement Name="UserID" Value="sa" />
         <ConnectionElement Name="Password" Value="" />
       </ConnectionElements>
       <SystemSequences>
         <Sequence Name="SCOPE_IDENTITY()" />
         <Sequence Name="@@IDENTITY" />
       </SystemSequences>
-      <Catalogs>
-        <Catalog Name="HIMS.Database">
-          <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-15T17:36:42.9171709Z">
-              <Views>
-                <View Name="vTask">
-                  <Fields>
-                    <Field Name="TaskId" Ordinal="1" DbType="8" Precision="10" />
-                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
-                    <Field Name="Description" Ordinal="3" DbType="12" Length="2147483647" />
-                    <Field Name="StartDate" Ordinal="4" DbType="28" />
-                    <Field Name="DeadlineDate" Ordinal="5" DbType="28" />
-                  </Fields>
-                </View>
-              </Views>
-              <StoredProcedures>
-                <StoredProcedure Name="spDeleteTask">
-                  <Parameters>
-                    <Parameter Name="@taskId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
-                  </Parameters>
-                </StoredProcedure>
-              </StoredProcedures>
-            </Schema>
-          </Schemas>
-        </Catalog>
-      </Catalogs>
     </TargetDatabase>
   </TargetDatabases>
   <MappingStores>
     <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
-      <EntityMappings>
-        <EntityMapping EntityName=":VTask" TargetName="HIMS.Database:dbo:vTask" ActionCombination="4">
-          <FieldMappings>
-            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="Name" TargetFieldName="Name" />
-            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
-          </FieldMappings>
-        </EntityMapping>
-      </EntityMappings>
+      <EntityMappings />
       <TypedViewMappings />
-      <SPCallMappings>
-        <SPCallMapping SPCallName=":SpDeleteTask" TargetName="HIMS.Database:dbo:spDeleteTask">
-          <FieldMappings>
-            <FieldMapping FieldName="TaskId" TargetFieldName="@taskId" />
-          </FieldMappings>
-        </SPCallMapping>
-      </SPCallMappings>
+      <SPCallMappings />
       <TvfCallMappings />
       <TypeConversionDefinitions />
     </MappingStore>

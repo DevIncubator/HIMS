@@ -51,53 +51,13 @@ namespace HIMS.Data
 			throw new UnintentionalCodeFirstException();
 		}
 
-		/// <summary>Calls the stored procedure '[dbo].[SampleEntriesAmount]'</summary>
-		/// <param name="isAdmin">Parameter mapped onto the stored procedure parameter '@isAdmin'</param>
-		/// <param name="result">Parameter mapped onto the stored procedure parameter '@result'</param>
+		/// <summary>Calls the stored procedure '[dbo].[spDeleteTask]'</summary>
+		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@taskId'</param>
 		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
-		public int CallSampleEntriesAmount(System.Boolean isAdmin, ref System.Int32 result)
+		public int CallSpDeleteTask(System.Int32 taskId)
 		{
-			var cmd = CreateStoredProcCallCommand("[dbo].[SampleEntriesAmount]");
-			AddParameter(cmd, "@isAdmin", 0, ParameterDirection.Input, isAdmin);
-			AddParameter(cmd, "@result", 0, ParameterDirection.InputOutput, result);
-			var toReturn = ExecuteNonQueryCommand(cmd);
-			result = GetParameterValue<System.Int32>(cmd.Parameters[1].Value);
-			return toReturn;
-		}
-		
-		/// <summary>Calls the stored procedure '[dbo].[spDeleteUser]'</summary>
-		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@userId'</param>
-		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
-		public int CallSpDeleteUser(System.Int32 userId)
-		{
-			var cmd = CreateStoredProcCallCommand("[dbo].[spDeleteUser]");
-			AddParameter(cmd, "@userId", 0, ParameterDirection.Input, userId);
-			var toReturn = ExecuteNonQueryCommand(cmd);
-			return toReturn;
-		}
-		
-		/// <summary>Calls the stored procedure '[dbo].[spSetUserTaskAsFail]'</summary>
-		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@UserId'</param>
-		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>
-		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
-		public int CallSpSetUserTaskAsFail(System.Int32 userId, System.Int32 taskId)
-		{
-			var cmd = CreateStoredProcCallCommand("[dbo].[spSetUserTaskAsFail]");
-			AddParameter(cmd, "@UserId", 0, ParameterDirection.Input, userId);
-			AddParameter(cmd, "@TaskId", 0, ParameterDirection.Input, taskId);
-			var toReturn = ExecuteNonQueryCommand(cmd);
-			return toReturn;
-		}
-		
-		/// <summary>Calls the stored procedure '[dbo].[spSetUserTaskAsSuccess]'</summary>
-		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@UserId'</param>
-		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>
-		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
-		public int CallSpSetUserTaskAsSuccess(System.Int32 userId, System.Int32 taskId)
-		{
-			var cmd = CreateStoredProcCallCommand("[dbo].[spSetUserTaskAsSuccess]");
-			AddParameter(cmd, "@UserId", 0, ParameterDirection.Input, userId);
-			AddParameter(cmd, "@TaskId", 0, ParameterDirection.Input, taskId);
+			var cmd = CreateStoredProcCallCommand("[dbo].[spDeleteTask]");
+			AddParameter(cmd, "@taskId", 0, ParameterDirection.Input, taskId);
 			var toReturn = ExecuteNonQueryCommand(cmd);
 			return toReturn;
 		}
@@ -198,14 +158,8 @@ namespace HIMS.Data
 		
 
 		#region Class Property Declarations
-		/// <summary>Gets an object query for the entity set 'Sample', containing entity type 'Sample'</summary>
-		public DbSet<Sample> Samples { get; set; } 
-		/// <summary>Gets an object query for the entity set 'TaskState', containing entity type 'TaskState'</summary>
-		public DbSet<TaskState> TaskStates { get; set; } 
-		/// <summary>Gets an object query for the entity set 'VUserProfile', containing entity type 'VUserProfile'</summary>
-		public DbSet<VUserProfile> VUserProfiles { get; set; } 
-		/// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
-		public DbSet<VUserTask> VUserTasks { get; set; } 
+		/// <summary>Gets an object query for the entity set 'VTask', containing entity type 'VTask'</summary>
+		public DbSet<VTask> VTasks { get; set; } 
 		#endregion
 	}
 }
