@@ -76,6 +76,8 @@
     <Build Include="StoredProcedures\spSetUserTaskAsSuccess.sql" />
     <Build Include="StoredProcedures\spSetUserTaskAsFail.sql" />
     <Build Include="Views\vUserTask.sql" />
+    <Build Include="StoredProcedures\spDeleteTask.sql" />
+    <Build Include="Views\vTask.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
