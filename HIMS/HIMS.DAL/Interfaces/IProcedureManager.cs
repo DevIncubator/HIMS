@@ -10,5 +10,7 @@ namespace HIMS.DAL.Interfaces
     {
         int GetSampleEntriesAmount(bool isAdmin);
         int DeleteUser(int userId);
+        int SetUserTaskAsFail(int userId, int taskId);
+        int SetUserTaskAsSuccess(int userId, int taskId);
     }
 }

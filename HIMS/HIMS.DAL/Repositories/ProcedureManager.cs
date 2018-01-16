@@ -29,5 +29,15 @@ namespace HIMS.DAL.Repositories
             int rowsAffectedToDb = db.CallSpDeleteUser(userId);
             return rowsAffectedToDb;
         }
+
+        public int SetUserTaskAsFail(int userId, int taskId)
+        {
+            return db.CallSpSetUserTaskAsFail(userId, taskId);
+        }
+
+        public int SetUserTaskAsSuccess(int userId, int taskId)
+        {
+            return db.CallSpSetUserTaskAsSuccess(userId, taskId);
+        }
     }
 }
