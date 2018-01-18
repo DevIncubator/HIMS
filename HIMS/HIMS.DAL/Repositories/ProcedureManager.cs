@@ -24,13 +24,7 @@ namespace HIMS.DAL.Repositories
             return result;
         }
 
-        public int CallSpDeleteUser(int id) //method is useless. I did it while try to do the same code as in a Sample (Yauheni)
-        {
-            int rowsAfected = db.CallSpDeleteUser(id);
-            return rowsAfected;
-        }
-
-        public int DeleteUser(int userId)
+        public int DeleteUser(int userId)  //method is useless. I did it while try to do the same code as in a Sample (Yauheni)
         {
             int rowsAffectedToDb = db.CallSpDeleteUser(userId);
             return rowsAffectedToDb;
