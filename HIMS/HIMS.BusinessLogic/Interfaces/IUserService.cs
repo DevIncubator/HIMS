@@ -12,6 +12,7 @@ namespace HIMS.BusinessLogic.Interfaces
     public interface IUserService : IDisposable
     {
         Task<OperationDetails> Create(UserTransferModel userDto);
+        Task<OperationDetails> Delete(string id);
         Task<ClaimsIdentity> Authenticate(UserTransferModel userDto);
         Task SetInitialData(UserTransferModel adminDto, List<string> roles);
     }

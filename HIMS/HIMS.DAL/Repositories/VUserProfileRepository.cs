@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace HIMS.Data.Repositories
 {
@@ -20,6 +21,11 @@ namespace HIMS.Data.Repositories
         public void Create(VUserProfile item)
         {
             _db.VUserProfiles.Add(item);
+        }
+
+        public void Update(VUserProfile item)
+        {
+                _db.Entry(item).State = EntityState.Modified;
         }
 
         public void Delete(int id)

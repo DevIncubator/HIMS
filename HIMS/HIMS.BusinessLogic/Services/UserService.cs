@@ -49,6 +49,25 @@ namespace HIMS.BusinessLogic.Services
             }
         }
 
+        public async Task<OperationDetails> Delete(string email)
+        {
+            UserSecurity user = await Database.UserSecurityManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var result = await Database.UserSecurityManager.DeleteAsync(user);
+
+                if (result.Errors.Count() > 0)
+                    return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+
+                await Database.SaveAsync();
+                return new OperationDetails(true, "User deletion by Email was done successfully! Email: ", email);
+            }
+            else
+            {
+                return new OperationDetails(false, "The user with such Email not found! Email: ", email);
+            }
+        }
+
         public async Task<ClaimsIdentity> Authenticate(UserTransferModel userDto)
         {
             ClaimsIdentity claim = null;
