@@ -14,6 +14,6 @@ namespace HIMS.BusinessLogic.DTO
         public string Name { get; set; }
         public DateTime Start { get; set; }
         public DateTime Deadline { get; set; }
-        public TaskState Status { get; set; }
+        public string Status { get; set; }
     }
 }
