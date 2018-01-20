@@ -1,11 +1,21 @@
 ﻿@model IEnumerable<HIMS.WebMVC.Models.UserTaskViewModel>
-
+@{ int number = 1;}
 @{
     ViewBag.Title = "GetTasksForUser";
 }
-
-<table class="table">
+<style>
+    td{
+        vertical-align:middle !important;
+    }
+    .btn-sm{
+        margin:5px !important;
+    }
+</style>
+<table class="table table-responsive table-bordered">
     <tr>
+        <th>
+            #
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -15,11 +25,22 @@
         <th>
             @Html.DisplayNameFor(model => model.Deadline)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
         <th></th>
+        @if (true)//User.IsInRole("admin")
+    {
+        <th></th>
+}
+
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @(number++)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -30,10 +51,18 @@
             @Html.DisplayFor(modelItem => item.Deadline)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.Status)
         </td>
+        <td>
+            @Html.ActionLink("Track", "Edit", new { /* id=item.PrimaryKey */}, new { @class = "btn btn-primary btn-sm" })
+        </td>
+        @if (true)//User.IsInRole("admin")
+    {
+        <td style="display:flex; flex-direction:column;">
+            <button class="btn-sm btn-danger">Fail</button>
+            <button class="btn-sm btn-success">Success</button>
+        </td>
+}
     </tr>
 }
 

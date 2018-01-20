@@ -24,7 +24,8 @@ namespace HIMS.BusinessLogic.Services
 
         public IEnumerable<UserTaskTransferModel> GetAllUserTasks(int userId)
         {
-            return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(Database.VUserTasks.Find(ut => ut.UserId == userId));
+            var tasks = Database.VUserTasks.Find(ut => ut.UserId == userId).ToList();
+            return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks);
         }
 
         public UserTaskTransferModel GetUserTask(int userId, int taskId)

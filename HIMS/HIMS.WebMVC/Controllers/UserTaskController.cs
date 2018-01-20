@@ -21,8 +21,8 @@ namespace HIMS.WebMVC.Controllers
 
         public ActionResult GetTasksForUser(int id)
         {
-            var tasks = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_userTaskService.GetAllUserTasks(id));
-            return View(tasks);
+            var tasks = _userTaskService.GetAllUserTasks(id).ToList();
+            return View(Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasks));
         }
         // GET: UserTask
         public ActionResult Index()
