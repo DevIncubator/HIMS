@@ -14,9 +14,12 @@ namespace HIMS.WebMVC.Utils
                 cfg.CreateMap<Sample, SampleTransferModel>();
                 cfg.CreateMap<SampleTransferModel, Sample>();
                 cfg.CreateMap<SampleViewModel, SampleTransferModel>();
-                cfg.CreateMap<VUserProfileTransferModel, VUserProfile>();
+
                 cfg.CreateMap<VUserProfile, VUserProfileTransferModel>();
-                cfg.CreateMap<VUserProfileTransferModel, UserTransferModel>().ForMember(x => x.Id, opt => opt.Ignore());
+                cfg.CreateMap<UserProfile, UserProfileTransferModel>();
+                cfg.CreateMap<UserProfileTransferModel, UserTransferModel>().ForMember(x => x.Id, opt => opt.Ignore());
+                cfg.CreateMap<UserProfileTransferModel, UserProfile>();
+
                 cfg.CreateMap<VUserTask, UserTaskTransferModel>()
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TaskName));
                 cfg.CreateMap<UserTaskTransferModel, VUserTask>();

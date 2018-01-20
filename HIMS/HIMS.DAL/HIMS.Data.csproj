@@ -55,6 +55,7 @@
     <Compile Include="Repositories\EFUnitOfWork.cs" />
     <Compile Include="Repositories\ProcedureManager.cs" />
     <Compile Include="Repositories\SampleRepository.cs" />
+    <Compile Include="Repositories\UserProfileRepository.cs" />
     <Compile Include="Repositories\VUserProfileRepository.cs" />
     <Compile Include="Repositories\VUserTaskRepository.cs" />
   </ItemGroup>

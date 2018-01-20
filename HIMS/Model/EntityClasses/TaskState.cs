@@ -23,6 +23,7 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Initializes a new instance of the <see cref="TaskState"/> class.</summary>
 		public TaskState() : base()
 		{
+			this.UserTasks = new HashSet<UserTask>();
 			OnCreated();
 		}
 
@@ -33,6 +34,9 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Gets or sets the StateName field. </summary>
 		[DataMember]
 		public System.String StateName { get; set;}
+		/// <summary>Represents the navigator which is mapped onto the association 'UserTask.TaskState - TaskState.UserTasks (m:1)'</summary>
+		[DataMember]
+		public virtual ICollection<UserTask> UserTasks { get; set;}
 		#endregion
 	}
 }

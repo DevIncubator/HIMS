@@ -20,19 +20,12 @@ namespace HIMS.Data.Repositories
 
         public void Create(VUserProfile item)
         {
-            _db.VUserProfiles.Add(item);
-        }
-
-        public void Update(VUserProfile item)
-        {
-                _db.Entry(item).State = EntityState.Modified;
+            throw new NotImplementedException();
         }
 
         public void Delete(int id)
         {
-            VUserProfile userProfile = _db.VUserProfiles.Find(id);
-            if (userProfile != null)
-            _db.CallSpDeleteUser(id); //directly call the stored-procedure-method from LLBLGen auto generated class HIMSDataContext
+            throw new NotImplementedException();
         }
 
         public IEnumerable<VUserProfile> Find(Func<VUserProfile, bool> predicate)

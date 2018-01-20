@@ -212,10 +212,19 @@
         <Sequence Name="@@IDENTITY" />
       </SystemSequences>
       <Catalogs>
-        <Catalog Name="HIMS2.Database">
+        <Catalog Name="HIMS2.Database" SyncSource="2">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-19T09:06:57.1757812Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-06T11:29:53.2197265Z">
               <Tables>
+                <Table Name="__RefactorLog">
+                  <PkConstraintName Name="PK____Refact__D3AEFFDB03459FDF" />
+                  <Fields>
+                    <Field Name="OperationKey" Ordinal="1" IsPrimaryKey="true" DbType="25" />
+                  </Fields>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="refactoring log" />
+                  </CustomProperties>
+                </Table>
                 <Table Name="Direction">
                   <PkConstraintName Name="PK_Direction" />
                   <Fields>
@@ -250,9 +259,8 @@
                   </Fields>
                 </Table>
                 <Table Name="TaskTrack">
-                  <PkConstraintName Name="PK_TaskTrack" />
                   <Fields>
-                    <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" DbType="8" Precision="10" />
                     <Field Name="UserTaskId" Ordinal="2" DbType="8" Precision="10" />
                     <Field Name="TrackDate" Ordinal="3" DbType="28" />
                     <Field Name="TrackNote" Ordinal="4" DbType="12" Length="2147483647" />
@@ -264,7 +272,7 @@
                     <Field Name="UserId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="DirectionId" Ordinal="2" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="3" DbType="12" Length="25" />
-                    <Field Name="Email" Ordinal="4" DbType="10" Length="125" />
+                    <Field Name="Email" Ordinal="4" DbType="10" Length="10" />
                     <Field Name="LastName" Ordinal="5" DbType="12" Length="25" />
                     <Field Name="Sex" Ordinal="6" DbType="3" Length="1" />
                     <Field Name="Education" Ordinal="7" DbType="12" Length="250" />
@@ -292,8 +300,8 @@
                   <Fields>
                     <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
                     <Field Name="FullName" Ordinal="2" DbType="12" Length="51" />
-                    <Field Name="Email" Ordinal="3" DbType="10" Length="125" />
-                    <Field Name="Direction" Ordinal="4" DbType="12" Length="50" />
+                    <Field Name="Email" Ordinal="3" DbType="10" Length="10" />
+                    <Field Name="Name" Ordinal="4" DbType="12" Length="50" />
                     <Field Name="Sex" Ordinal="5" DbType="3" Length="1" />
                     <Field Name="Education" Ordinal="6" DbType="12" Length="250" />
                     <Field Name="Age" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />

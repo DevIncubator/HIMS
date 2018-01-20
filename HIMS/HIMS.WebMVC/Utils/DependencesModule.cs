@@ -11,6 +11,8 @@ namespace HIMS.WebMVC.Utils
             Bind<ISampleService>().To<SampleService>();
             Bind<IUserService>().To<UserService>();
             Bind<IUserTaskService>().To<UserTaskService>();
+            Bind<IVUserProfileService>().To<VUserProfileService>();
+            Bind<IUserProfileService>().To<UserProfileService>();
         }
     }
 }

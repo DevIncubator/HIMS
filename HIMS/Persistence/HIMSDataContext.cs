@@ -209,8 +209,20 @@ namespace HIMS.Data
 		
 
 		#region Class Property Declarations
+		/// <summary>Gets an object query for the entity set 'Direction', containing entity type 'Direction'</summary>
+		public DbSet<Direction> Directions { get; set; } 
 		/// <summary>Gets an object query for the entity set 'Sample', containing entity type 'Sample'</summary>
 		public DbSet<Sample> Samples { get; set; } 
+		/// <summary>Gets an object query for the entity set 'Task', containing entity type 'Task'</summary>
+		public DbSet<Task> Tasks { get; set; } 
+		/// <summary>Gets an object query for the entity set 'TaskState', containing entity type 'TaskState'</summary>
+		public DbSet<TaskState> TaskStates { get; set; } 
+		/// <summary>Gets an object query for the entity set 'TaskTrack', containing entity type 'TaskTrack'</summary>
+		public DbSet<TaskTrack> TaskTracks { get; set; } 
+		/// <summary>Gets an object query for the entity set 'UserProfile', containing entity type 'UserProfile'</summary>
+		public DbSet<UserProfile> UserProfiles { get; set; } 
+		/// <summary>Gets an object query for the entity set 'UserTask', containing entity type 'UserTask'</summary>
+		public DbSet<UserTask> UserTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VTask', containing entity type 'VTask'</summary>
 		public DbSet<VTask> VTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserProfile', containing entity type 'VUserProfile'</summary>

@@ -363,7 +363,7 @@
       <Catalogs>
         <Catalog Name="HIMS2.Database">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-19T09:26:09.7138671Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-19T09:24:00.1464843Z">
               <Tables>
                 <Table Name="Direction">
                   <PkConstraintName Name="PK_Direction" />

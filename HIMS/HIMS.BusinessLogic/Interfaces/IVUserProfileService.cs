@@ -10,11 +10,11 @@ namespace HIMS.BusinessLogic.Interfaces
 {
     public interface IVUserProfileService
     {
-        void SaveVUserProfile(VUserProfileTransferModel item);
+        //void SaveVUserProfile(VUserProfileTransferModel item);
         VUserProfileTransferModel GetVUserProfile(int? id);
         IEnumerable<VUserProfileTransferModel> GetVUserProfiles();
-        void UpdateVUserProfile(VUserProfileTransferModel item);
-        void DeleteVUserProfile(int? id);
+        //void UpdateVUserProfile(VUserProfileTransferModel item);
+        //void DeleteVUserProfile(int? id);
         void Dispose();
     }
 }
