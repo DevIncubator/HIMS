@@ -11,60 +11,66 @@
         margin:5px !important;
     }
 </style>
-@Html.Partial("_GetTasksForUser", Model)
-@*<table class="table table-responsive table-bordered">
-    <tr>
-        <th>
-            #
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Start)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Deadline)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th></th>
-        @if (true)//User.IsInRole("admin")
-    {
-        <th></th>
-}
+<div id="table">
+    @Html.Partial("_GetTasksForUser", Model)
+</div>
 
-    </tr>
+@section Scripts
+{
+<script>
+    $(function () {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @(number++)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deadline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Track", "Edit", new { /* id=item.PrimaryKey */}, new { @class = "btn btn-primary btn-sm" })
-        </td>
-        @if (true)//User.IsInRole("admin")
-    {
-        <td style="display:flex; flex-direction:column;">
-            <button class="btn-sm btn-danger">Fail</button>
-            <button class="btn-sm btn-success">Success</button>
-        </td>
-}
-    </tr>
-}
+        $('.setTaskAsFail').click(function () {
+            self = this;
+            setTaskAsFailHandler(self);
+        });
 
-</table>*@
+        $('.setTaskAsSuccess').click(function () {
+            self = this;
+            setTaskAsSuccessHandler(self);
+        });
+
+        function setTaskAsFailHandler(button) {
+            $.ajax({
+                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                type: 'post',
+                data: {userId : '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess:false}
+            })
+                .done(function (data) {
+                    $("#table").html(data);
+                    $('.setTaskAsFail').click(function () {
+                        self = this;
+                        setTaskAsFailHandler(self);
+                    });
+                    $('.setTaskAsSuccess').click(function () {
+                        self = this;
+                        setTaskAsSuccessHandler(self);
+                    });
+                });
+        }
+
+        function setTaskAsSuccessHandler(button) {
+             $.ajax({
+                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                type: 'post',
+                data: {userId : '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess:true}
+            })
+                .done(function (data) {
+                    $("#table").html(data);
+                    $('.setTaskAsFail').click(function () {
+                        self = this;
+                        setTaskAsFailHandler(self);
+                    });
+                    $('.setTaskAsSuccess').click(function () {
+                        self = this;
+                        setTaskAsSuccessHandler(self);
+                    });
+                });
+        }
+
+
+    });
+
+</script>
+
+}

@@ -49,8 +49,8 @@
             @if (true)//User.IsInRole("admin")
             {
                 <td style="display:flex; flex-direction:column;">
-                    <button class="btn-sm btn-danger">Fail</button>
-                    <button class="btn-sm btn-success">Success</button>
+                    <button class="btn-sm btn-danger setTaskAsFail"  data-task-id="@item.taskId">Fail</button>
+                    <button class="btn-sm btn-success setTaskAsSuccess"  data-task-id="@item.taskId">Success</button>
                 </td>
             }
         </tr>
