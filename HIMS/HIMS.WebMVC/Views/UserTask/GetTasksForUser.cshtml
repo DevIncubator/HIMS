@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<HIMS.WebMVC.Models.UserTaskViewModel>
-@{ int number = 1;}
+
 @{
     ViewBag.Title = "GetTasksForUser";
 }
@@ -11,7 +11,8 @@
         margin:5px !important;
     }
 </style>
-<table class="table table-responsive table-bordered">
+@Html.Partial("_GetTasksForUser", Model)
+@*<table class="table table-responsive table-bordered">
     <tr>
         <th>
             #
@@ -66,4 +67,4 @@
     </tr>
 }
 
-</table>
+</table>*@
