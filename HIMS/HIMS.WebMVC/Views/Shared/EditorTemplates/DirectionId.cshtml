@@ -1,0 +1,11 @@
+﻿@model HIMS.WebMVC.Models.DirectionViewModel
+
+@Html.DropDownListFor(model => model,
+                      ViewBag.DirectionId as SelectList,
+                      new { htmlAttributes = new { @class = "form-control" } })
+
+@*@model HIMS.WebMVC.Models.DirectionViewModel
+
+@Html.DropDownListFor(model => model.DirectionId, 
+                      ViewBag.DirectionId as SelectList,
+                      new { htmlAttributes = new { @class = "form-control" } })*@

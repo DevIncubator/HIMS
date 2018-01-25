@@ -23,6 +23,7 @@
                     <li>@Html.ActionLink("Main", "Index", "Home")</li>
                     @if (User.IsInRole("admin"))
                     {
+                        <li>@Html.ActionLink("User Profiles", "Index", "UserProfile")</li>
                         <li>@Html.ActionLink("Sample", "Index", "Sample")</li>
                     }
                 </ul>

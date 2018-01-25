@@ -18,6 +18,7 @@ namespace HIMS.Data.Repositories
         private VUserProfileRepository _vUserProfileRepository;
         private VUserTaskRepository _vUserTaskRepository;
         private UserProfileRepository _userProfileRepository;
+        private DirectionRepository _directionRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -50,6 +51,16 @@ namespace HIMS.Data.Repositories
                 if (_userProfileRepository == null)
                     _userProfileRepository = new UserProfileRepository(db);
                 return _userProfileRepository;
+            }
+        }
+
+        public IRepository<Direction> Directions
+        {
+            get
+            {
+                if (_directionRepository == null)
+                    _directionRepository = new DirectionRepository(db);
+                return _directionRepository;
             }
         }
 

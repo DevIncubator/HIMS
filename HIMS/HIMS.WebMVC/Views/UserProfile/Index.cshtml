@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HIMS.WebMVC.Models.UserProfileGridViewModel>
+
+@{
+    ViewBag.Title = "User Profiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Register", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Education)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th></th>
+    </tr>
+
+    @{int i = 1; }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @i
+            @{i++;}
+        </td>
+        <td>
+            @Html.ActionLink(item.FullName, "Details", new { Id = item.UserId })
+            @*@Html.DisplayFor(modelItem => item.FullName)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.ActionLink("Progress", "GetProgress", "Progress", new { id = item.UserId }, null) |
+            @Html.ActionLink("Tasks", "GetTasksForUser",  "UserTask", new { id = item.UserId }, null) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+        </td>
+    </tr>
+}
+
+</table>

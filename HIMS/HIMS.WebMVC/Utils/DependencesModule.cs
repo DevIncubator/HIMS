@@ -13,6 +13,7 @@ namespace HIMS.WebMVC.Utils
             Bind<IUserTaskService>().To<UserTaskService>();
             Bind<IVUserProfileService>().To<VUserProfileService>();
             Bind<IUserProfileService>().To<UserProfileService>();
+            Bind<IDirectionService>().To<DirectionService>();
         }
     }
 }

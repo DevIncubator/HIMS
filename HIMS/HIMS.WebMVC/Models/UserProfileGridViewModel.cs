@@ -9,11 +9,13 @@ namespace HIMS.WebMVC.Models
 {
     public class UserProfileGridViewModel
     {
-        [HiddenInput]
+        [HiddenInput(DisplayValue = false)]
         public System.Int32 UserId { get; set; }
+        [Display(Name = "Full Name")]
         public System.String FullName { get; set; }
         public System.String Direction { get; set; }
         public System.String Education { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime Start { get; set; }
         public Nullable<System.Int32> Age { get; set; }
     }
