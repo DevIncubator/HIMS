@@ -19,10 +19,20 @@ namespace HIMS.WebMVC.Controllers
             _userTaskService = userTaskService;
         }
 
-        public ActionResult GetTasksForUser(int id)
+        public ActionResult GetTasksForUser([Bind(Include ="id")]int id)
         {
             var tasks = _userTaskService.GetAllUserTasks(id).ToList();
             return View(Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasks));
+        }
+
+        [HttpPost]
+        public ActionResult SetTaskAsSuccess([Bind(Include = "userId, taskId, isSuccess")]int userId, int taskId, bool isSuccess)
+        {
+
+            _userTaskService.UpdateUserTaskStatus(userId, taskId, isSuccess);
+            var tasks = _userTaskService.GetAllUserTasks(userId).ToList();
+
+            return PartialView("_GetTasksForUser", Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasks));
         }
         // GET: UserTask
         public ActionResult Index()
