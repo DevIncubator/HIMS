@@ -20,56 +20,65 @@
 <script>
     $(function () {
 
-        $('.setTaskAsFail').click(function () {
-            self = this;
-            setTaskAsFailHandler(self);
-        });
+        @if(Model!= null && Model.Count() > 0)
+        {
+            <text>
+            $('.setTaskAsFail').click(function () {
+                self = this;
+                setTaskAsFailHandler(self);
+            });
 
-        $('.setTaskAsSuccess').click(function () {
-            self = this;
-            setTaskAsSuccessHandler(self);
-        });
+            $('.setTaskAsSuccess').click(function() {
+                self = this;
+                setTaskAsSuccessHandler(self);
+            });
 
-        function setTaskAsFailHandler(button) {
-            $.ajax({
-                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
-                type: 'post',
-                data: {userId : '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess:false}
-            })
-                .done(function (data) {
+            function setTaskAsFailHandler(button)
+            {
+                $.ajax({
+                                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                    type: 'post',
+                    data: { userId: '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess: false}
+                })
+                .done(function(data) {
                     $("#table").html(data);
-                    $('.setTaskAsFail').click(function () {
-                        self = this;
-                        setTaskAsFailHandler(self);
-                    });
-                    $('.setTaskAsSuccess').click(function () {
-                        self = this;
-                        setTaskAsSuccessHandler(self);
+                    $('.setTaskAsFail').click(function() {
+                            self = this;
+                            setTaskAsFailHandler(self);
+                        });
+                    $('.setTaskAsSuccess').click(function() {
+                            self = this;
+                            setTaskAsSuccessHandler(self);
                     });
                 });
-        }
+            }
 
-        function setTaskAsSuccessHandler(button) {
-             $.ajax({
-                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
-                type: 'post',
-                data: {userId : '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess:true}
-            })
-                .done(function (data) {
+            function setTaskAsSuccessHandler(button)
+            {
+                 $.ajax({
+                            url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                    type: 'post',
+                    data: { userId: '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess: true}
+                        })
+                .done(function(data) {
                     $("#table").html(data);
-                    $('.setTaskAsFail').click(function () {
-                        self = this;
-                        setTaskAsFailHandler(self);
-                    });
-                    $('.setTaskAsSuccess').click(function () {
-                        self = this;
-                        setTaskAsSuccessHandler(self);
-                    });
+                    $('.setTaskAsFail').click(function() {
+                            self = this;
+                            setTaskAsFailHandler(self);
+                        });
+                    $('.setTaskAsSuccess').click(function() {
+                            self = this;
+                            setTaskAsSuccessHandler(self);
+                        });
                 });
-        }
+            }
+                </Text>
+            }
+            
 
 
-    });
+
+        });
 
 </script>
 
