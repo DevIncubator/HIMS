@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using HIMS.Data.Interfaces;
 using HIMS.Data;
 using HIMS.Data.EntityClasses;
@@ -19,6 +18,8 @@ namespace HIMS.Data.Repositories
         private VUserTaskRepository _vUserTaskRepository;
         private UserProfileRepository _userProfileRepository;
         private DirectionRepository _directionRepository;
+		private VTaskRepository _vTaskRepository;
+		private TaskRepository _taskRepository;
 
         public EFUnitOfWork(string connectionString)
         {
@@ -33,6 +34,26 @@ namespace HIMS.Data.Repositories
                 return _sampleRepository;
             }
         }
+
+		public IRepository<VTask> VTasks
+		{
+			get
+			{
+				if (_vTaskRepository == null)
+					_vTaskRepository = new VTaskRepository(db);
+				return _vTaskRepository;
+			}
+		}
+
+		public IRepository<Task> Tasks
+		{
+			get
+			{
+				if (_taskRepository == null)
+					_taskRepository = new TaskRepository(db);
+				return _taskRepository;
+			}
+		}
 
         public IRepository<VUserProfile> VUserProfiles
         {
@@ -64,9 +85,9 @@ namespace HIMS.Data.Repositories
             }
         }
 
-        public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
+		public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
 
-        public void Save()
+		public void Save()
         {
             db.SaveChanges();
         }

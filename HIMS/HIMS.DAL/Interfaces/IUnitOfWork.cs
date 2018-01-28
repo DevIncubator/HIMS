@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using HIMS.DAL.Interfaces;
 using HIMS.Data.EntityClasses;
 
@@ -14,7 +13,9 @@ namespace HIMS.Data.Interfaces
         IRepository<VUserProfile> VUserProfiles { get; }
         IRepository<UserProfile> UserProfiles { get; }
         IRepository<Direction> Directions { get; }
-        IVUserTaskRepository<VUserTask> VUserTasks { get; }
-        void Save();
+		IRepository<VTask> VTasks { get; }
+		IRepository<Task> Tasks { get; }
+		IVUserTaskRepository<VUserTask> VUserTasks { get; }
+		void Save();
     }
 }
