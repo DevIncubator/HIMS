@@ -57,11 +57,13 @@ namespace HIMS.WebMVC.Controllers
                     _userProfileService.SaveUserProfile(userProfileDto);
                     return RedirectToAction("Index");
                 }
+                   
             }
             catch (RetryLimitExceededException /* dex */)
             {
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
+            ViewBag.DirectionId = GetDirections();
             return View(userProfile);
         }
 
@@ -112,7 +114,7 @@ namespace HIMS.WebMVC.Controllers
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
-
+            ViewBag.DirectionId = GetDirections();
             var userProfile = Mapper.Map<UserProfileTransferModel, UserProfileDetailsViewModel>(userProfileDto);
             return View(userProfile);
         }
