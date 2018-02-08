@@ -1,0 +1,85 @@
+﻿@model IEnumerable<HIMS.WebMVC.Models.UserTaskViewModel>
+
+@{
+    ViewBag.Title = "GetTasksForUser";
+}
+<style>
+    td{
+        vertical-align:middle !important;
+    }
+    .btn-sm{
+        margin:5px !important;
+    }
+</style>
+<div id="table">
+    @Html.Partial("_GetTasksForUser", Model)
+</div>
+
+@section Scripts
+{
+<script>
+    $(function () {
+
+        @if(Model!= null && Model.Count() > 0)
+        {
+            <text>
+            $('.setTaskAsFail').click(function () {
+                self = this;
+                setTaskAsFailHandler(self);
+            });
+
+            $('.setTaskAsSuccess').click(function() {
+                self = this;
+                setTaskAsSuccessHandler(self);
+            });
+
+            function setTaskAsFailHandler(button)
+            {
+                $.ajax({
+                                url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                    type: 'post',
+                    data: { userId: '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess: false}
+                })
+                .done(function(data) {
+                    $("#table").html(data);
+                    $('.setTaskAsFail').click(function() {
+                            self = this;
+                            setTaskAsFailHandler(self);
+                        });
+                    $('.setTaskAsSuccess').click(function() {
+                            self = this;
+                            setTaskAsSuccessHandler(self);
+                    });
+                });
+            }
+
+            function setTaskAsSuccessHandler(button)
+            {
+                 $.ajax({
+                            url: '@Url.Action("SetTaskAsSuccess", new { controller = "UserTask"})',
+                    type: 'post',
+                    data: { userId: '@Model.FirstOrDefault().userId', taskId: $(button).attr('data-task-id'), isSuccess: true}
+                        })
+                .done(function(data) {
+                    $("#table").html(data);
+                    $('.setTaskAsFail').click(function() {
+                            self = this;
+                            setTaskAsFailHandler(self);
+                        });
+                    $('.setTaskAsSuccess').click(function() {
+                            self = this;
+                            setTaskAsSuccessHandler(self);
+                        });
+                });
+            }
+                </Text>
+            }
+            
+
+
+
+        });
+
+</script>
+
+}

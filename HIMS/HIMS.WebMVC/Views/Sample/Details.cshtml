@@ -1,0 +1,34 @@
+﻿@model HIMS.WebMVC.Models.SampleViewModel
+
+@{
+    ViewBag.Title = "Details page of the Sample entry";
+}
+
+
+<h2>Details page</h2>
+
+<div>
+    <h4>Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }, new { @class = "btn btn-default" }) 
+    @Html.ActionLink("Back to Grid", "Index", null, new { @class = "btn btn-default" })
+</p>

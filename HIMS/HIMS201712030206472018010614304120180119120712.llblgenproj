@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v5.3 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="5.3" TargetFrameworkName="Entity Framework v6" UseLegacyDefaults="false">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AddNewFieldsAfterRefresh_v5" Value="true" />
+    <Property Name="AddNewFieldsAfterRelationalModelDataSync_v5" Value="true" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewViewsAsEntitiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="true" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString.{$ProviderName}" />
+    <Property Name="DefaultDeleteRuleAction" Value="1" />
+    <Property Name="DefaultUpdateRuleAction" Value="0" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForTable" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForView" Value="4" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyConstraintPattern" Value="FK_{$Guid}" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints_v5" Value="true" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale_v5" Value="true" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferSystemSequencesOverSchemaSequencesIfApplicable" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="PrimaryKeyConstraintPattern" Value="PK_{$Guid}" />
+    <Property Name="ProjectCreator" Value="Paul Antonau" />
+    <Property Name="ProjectName" Value="HIMS" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField_v5" Value="false" />
+    <Property Name="ReflectTypeOfElementFieldInTargetField_v5" Value="true" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints_v5" Value="true" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh_v5" Value="false" />
+    <Property Name="RemoveUnmappedElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRelationalModelDataSync" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequenceNameMatchingPattern" Value="SEQ_{$TableName}" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="SingularizeElementNames" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="StoreTimeLastSyncIntoProject" Value="true" />
+    <Property Name="SyncMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="SyncRelationalModelDataElementNameWithModelElementName_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="TableValuedFunctionNameStripPattern" Value="{fn_, pr_, sp_}{}" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewMappedOnResultsetPattern" Value="{$ProcFunctionName}{$ResultsetName}Result" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintPattern" Value="UC_{$Guid}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints_v5" Value="true" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh_v5" Value="false" />
+    <Property Name="UpdateCustomPropertiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <IgnoredWarnings />
+  <SavedSearchQueries />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="E:\Practice\HIMS2\HIMS" />
+        <FrameworkName Value="Entity Framework v6" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.5.2" />
+        <PresetName Value="SD.EntityFramework.v6 (DbContext API)" />
+        <RootNamespace Value="HIMS.Data" />
+        <TemplateGroup Value="General" />
+        <TemplateBindings>
+          <Binding Name="SD.EntityFramework.NET45" />
+          <Binding Name="SD.EntityFramework.Shared" />
+          <Binding Name="SD.EntityFramework.v6" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <OutputSettingValues>
+    <SettingValues>
+      <SettingValue Name="1:ProviderManifestTokenValue" Value="2012" Type="18" />
+    </SettingValues>
+  </OutputSettingValues>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="2">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="4">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="8">
+      <Defaults>
+        <Namespaces>
+          <Namespace Name="System.Runtime.Serialization" />
+          <Namespace Name="System.Xml.Serialization" />
+        </Namespaces>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="16">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="64">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="256">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="512">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="1024">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="2048">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <EntityModel>
+    <ValueTypeDefinitions />
+    <EntityDefinitions>
+      <EntityDefinition Name="Sample" ObjectID="cf67ede7-07cc-4e85-a47d-f672846c6223">
+        <Fields>
+          <Field Name="Description" Type="string" IsOptional="true" MaxLength="255" />
+          <Field Name="Name" Type="string" MaxLength="25" />
+          <Field Name="SampleId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+    </EntityDefinitions>
+    <Relationships />
+    <InheritanceHierarchies />
+  </EntityModel>
+  <TargetDatabases>
+    <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
+      <ConnectionElements>
+        <ConnectionElement Name="ServerName" Value="(localdb)\MSSQLLocalDB" />
+        <ConnectionElement Name="CatalogName" Value="master" />
+        <ConnectionElement Name="UseWindowsAuthentication" Value="true" />
+        <ConnectionElement Name="UserID" Value="" />
+        <ConnectionElement Name="Password" Value="" />
+      </ConnectionElements>
+      <SystemSequences>
+        <Sequence Name="SCOPE_IDENTITY()" />
+        <Sequence Name="@@IDENTITY" />
+      </SystemSequences>
+      <Catalogs>
+        <Catalog Name="HIMS2.Database">
+          <Schemas>
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-19T09:06:57.1757812Z">
+              <Tables>
+                <Table Name="Direction">
+                  <PkConstraintName Name="PK_Direction" />
+                  <Fields>
+                    <Field Name="DirectionId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="2147483647" />
+                  </Fields>
+                </Table>
+                <Table Name="Sample">
+                  <PkConstraintName Name="PK_Test" />
+                  <Fields>
+                    <Field Name="SampleId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="3" IsOptional="true" DbType="12" Length="255" />
+                  </Fields>
+                </Table>
+                <Table Name="Task">
+                  <PkConstraintName Name="PK_Task" />
+                  <Fields>
+                    <Field Name="TaskId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="2147483647" />
+                    <Field Name="StartDate" Ordinal="4" DbType="28" />
+                    <Field Name="DeadlineDate" Ordinal="5" DbType="28" />
+                  </Fields>
+                </Table>
+                <Table Name="TaskState">
+                  <PkConstraintName Name="PK_TaskState" />
+                  <Fields>
+                    <Field Name="StateId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="StateName" Ordinal="2" DbType="12" Length="25" />
+                  </Fields>
+                </Table>
+                <Table Name="TaskTrack">
+                  <PkConstraintName Name="PK_TaskTrack" />
+                  <Fields>
+                    <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="UserTaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="TrackDate" Ordinal="3" DbType="28" />
+                    <Field Name="TrackNote" Ordinal="4" DbType="12" Length="2147483647" />
+                  </Fields>
+                </Table>
+                <Table Name="UserProfile">
+                  <PkConstraintName Name="PK_UserProfile" />
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="DirectionId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="3" DbType="12" Length="25" />
+                    <Field Name="Email" Ordinal="4" DbType="10" Length="125" />
+                    <Field Name="LastName" Ordinal="5" DbType="12" Length="25" />
+                    <Field Name="Sex" Ordinal="6" DbType="3" Length="1" />
+                    <Field Name="Education" Ordinal="7" DbType="12" Length="250" />
+                    <Field Name="BirthDate" Ordinal="8" DbType="28" />
+                    <Field Name="UniversityAverageScore" Ordinal="9" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="MathScore" Ordinal="10" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="Address" Ordinal="11" DbType="12" Length="100" />
+                    <Field Name="MobilePhone" Ordinal="12" DbType="12" Length="15" />
+                    <Field Name="Skype" Ordinal="13" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="StartDate" Ordinal="14" DbType="28" />
+                  </Fields>
+                </Table>
+                <Table Name="UserTask">
+                  <PkConstraintName Name="PK_UserTask" />
+                  <Fields>
+                    <Field Name="UserTaskId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="UserId" Ordinal="3" DbType="8" Precision="10" />
+                    <Field Name="StateId" Ordinal="4" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+              </Tables>
+              <Views>
+                <View Name="vUserProfile">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="FullName" Ordinal="2" DbType="12" Length="51" />
+                    <Field Name="Email" Ordinal="3" DbType="10" Length="125" />
+                    <Field Name="Direction" Ordinal="4" DbType="12" Length="50" />
+                    <Field Name="Sex" Ordinal="5" DbType="3" Length="1" />
+                    <Field Name="Education" Ordinal="6" DbType="12" Length="250" />
+                    <Field Name="Age" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="UniversityAverageScore" Ordinal="8" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="MathScore" Ordinal="9" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="Address" Ordinal="10" DbType="12" Length="100" />
+                    <Field Name="MobilePhone" Ordinal="11" DbType="12" Length="15" />
+                    <Field Name="Skype" Ordinal="12" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="StartDate" Ordinal="13" DbType="28" />
+                  </Fields>
+                </View>
+              </Views>
+              <StoredProcedures>
+                <StoredProcedure Name="SampleEntriesAmount">
+                  <Parameters>
+                    <Parameter Name="@isAdmin" Direction="1" Ordinal="1" DbType="2" />
+                    <Parameter Name="@result" Direction="3" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteUser">
+                  <Parameters>
+                    <Parameter Name="@userId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+              </StoredProcedures>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="dbo:TaskTrack:FK_UserTaskId" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:UserTask:UserTaskId" FkField="dbo:TaskTrack:UserTaskId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserProfile:FK_Direction_To_UserProfile" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Direction:DirectionId" FkField="dbo:UserProfile:DirectionId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_Task" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Task:TaskId" FkField="dbo:UserTask:TaskId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_TaskState" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:TaskState:StateId" FkField="dbo:UserTask:StateId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_UserProfile" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:UserProfile:UserId" FkField="dbo:UserTask:UserId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <EntityMappings>
+        <EntityMapping EntityName=":Sample" TargetName="HIMS2.Database:dbo:Sample">
+          <FieldMappings>
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="SampleId" TargetFieldName="SampleId" SequenceToUse="SCOPE_IDENTITY()" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings />
+      <TvfCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>
