@@ -79,6 +79,7 @@
     <Build Include="Tables\TaskTrack.sql" />
     <Build Include="Tables\Direction.sql" />
     <Build Include="Views\vUserTrack.sql" />
+    <Build Include="StoredProcedures\spDeleteTaskTrack.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
