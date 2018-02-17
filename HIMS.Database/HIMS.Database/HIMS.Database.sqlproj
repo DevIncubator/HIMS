@@ -66,10 +66,8 @@
     <Build Include="Tables\Sample.sql" />
     <Build Include="StoredProcedures\SampleEntriesAmount.sql" />
     <Build Include="Tables\UserProfile.sql" />
-    <Build Include="Tables\Direction.sql" />
     <Build Include="Tables\UserTask.sql" />
     <Build Include="Tables\Task.sql" />
-    <Build Include="Tables\TaskTrack.sql" />
     <Build Include="Tables\TaskState.sql" />
     <Build Include="Views\vUserProfile.sql" />
     <Build Include="StoredProcedures\spDeleteUser.sql" />
@@ -78,6 +76,9 @@
     <Build Include="Views\vUserTask.sql" />
     <Build Include="StoredProcedures\spDeleteTask.sql" />
     <Build Include="Views\vTask.sql" />
+    <Build Include="Tables\TaskTrack.sql" />
+    <Build Include="Tables\Direction.sql" />
+    <Build Include="Views\vUserTrack.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />

@@ -35,4 +35,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="UserId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0a4a4541-6d71-45a0-b132-b70a1786c26f" ChangeDateTime="02/17/2018 08:39:02">
+    <Property Name="ElementName" Value="[dbo].[TaskTrack].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TaskTrack]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TaskTrackId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="20b7d5ec-91d0-4c13-af8b-8af33193cac2" ChangeDateTime="02/17/2018 08:42:11">
+    <Property Name="ElementName" Value="[dbo].[Direction].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Direction]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DirectionId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7b0e001f-d57b-49f6-97fe-afbff22dd1c9" ChangeDateTime="02/17/2018 10:02:42">
+    <Property Name="ElementName" Value="[dbo].[FK_TaskTrack_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[TaskTrack]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_TaskTrack_ToTask]" />
+  </Operation>
 </Operations>
