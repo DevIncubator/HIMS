@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[vUserTrack]
 	AS SELECT 
-		[UserProfile].[UserId],
+		ISNULL([UserProfile].[UserId], -999) AS UserId, --for Entity Framework primary key
 		[Task].[TaskId],
 		[Task].[Name],
 		[TaskTrack].[TaskTrackId],
