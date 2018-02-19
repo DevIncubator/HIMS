@@ -23,6 +23,7 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Initializes a new instance of the <see cref="Task"/> class.</summary>
 		public Task() : base()
 		{
+			this.TaskTracks = new HashSet<TaskTrack>();
 			this.UserTasks = new HashSet<UserTask>();
 			OnCreated();
 		}
@@ -43,6 +44,9 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Gets or sets the TaskId field. </summary>
 		[DataMember]
 		public System.Int32 TaskId { get; set;}
+		/// <summary>Represents the navigator which is mapped onto the association 'TaskTrack.Task - Task.TaskTracks (m:1)'</summary>
+		[DataMember]
+		public virtual ICollection<TaskTrack> TaskTracks { get; set;}
 		/// <summary>Represents the navigator which is mapped onto the association 'UserTask.Task - Task.UserTasks (m:1)'</summary>
 		[DataMember]
 		public virtual ICollection<UserTask> UserTasks { get; set;}

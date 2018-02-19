@@ -39,9 +39,9 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Gets or sets the UserTaskId field. </summary>
 		[DataMember]
 		public System.Int32 UserTaskId { get; set;}
-		/// <summary>Represents the navigator which is mapped onto the association 'TaskTrack.UserTask - UserTask.TaskTracks (m:1)'</summary>
+		/// <summary>Represents the navigator which is mapped onto the association 'TaskTrack.Task - Task.TaskTracks (m:1)'</summary>
 		[DataMember]
-		public virtual UserTask UserTask { get; set;}
+		public virtual Task Task { get; set;}
 		#endregion
 	}
 }
