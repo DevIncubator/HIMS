@@ -30,17 +30,19 @@ namespace HIMS.DAL.Repositories
 
         public void Create(Direction item)
         {
-            throw new NotImplementedException();
+            db.Directions.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Direction item = db.Directions.Find(id);
+            if (item != null)
+                db.Directions.Remove(item);
         }
 
         public IEnumerable<Direction> Find(Func<Direction, bool> predicate)
         {
-            throw new NotImplementedException();
+            return db.Directions.Where(predicate).ToList();
         }
     }
 }
