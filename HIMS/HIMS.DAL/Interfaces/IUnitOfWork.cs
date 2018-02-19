@@ -12,10 +12,11 @@ namespace HIMS.Data.Interfaces
         IRepository<Sample> Samples { get; }
         IRepository<VUserProfile> VUserProfiles { get; }
         IRepository<UserProfile> UserProfiles { get; }
-        IRepository<Direction> Directions { get; }
 		IRepository<VTask> VTasks { get; }
 		IRepository<Task> Tasks { get; }
-		IVUserTaskRepository<VUserTask> VUserTasks { get; }
-		void Save();
+        IRepository<TaskTrack> TaskTracks { get; }
+        IRepository<Direction> Directions { get; }
+        IVUserTaskRepository<VUserTask> VUserTasks { get; }
+        void Save();
     }
 }

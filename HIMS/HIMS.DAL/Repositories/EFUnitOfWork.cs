@@ -14,12 +14,16 @@ namespace HIMS.Data.Repositories
     {
         private HIMSDataContext db;
         private SampleRepository _sampleRepository;
+        private UserProfileRepository _userProfileRepository;
+		private TaskRepository _taskRepository;
+        private TaskTrackRepository _taskTrackRepository;
+        private DirectionRepository _directionRepository;
+
         private VUserProfileRepository _vUserProfileRepository;
         private VUserTaskRepository _vUserTaskRepository;
-        private UserProfileRepository _userProfileRepository;
-        private DirectionRepository _directionRepository;
-		private VTaskRepository _vTaskRepository;
-		private TaskRepository _taskRepository;
+        private VTaskRepository _vTaskRepository;
+        private VUserTrackRepository _vUserTrackRepository;
+
 
         public EFUnitOfWork(string connectionString)
         {
@@ -85,9 +89,45 @@ namespace HIMS.Data.Repositories
             }
         }
 
+        public IRepository<TaskTrack> TaskTrack
+        {
+            get
+            {
+                if(_taskTrackRepository == null)
+                    _taskTrackRepository = new TaskTrackRepository(db);
+                return _taskTrackRepository;
+            }
+        }
+
 		public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
 
-		public void Save()
+        public IRepository<Direction> Direction
+        {
+            get
+            {
+                if (_directionRepository == null)
+                    _directionRepository = new DirectionRepository(db);
+                return _directionRepository;
+            }
+        }
+
+        public IVUserTaskRepository<VUserTrack> VUserTrack
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IRepository<TaskTrack> TaskTracks
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public void Save()
         {
             db.SaveChanges();
         }
