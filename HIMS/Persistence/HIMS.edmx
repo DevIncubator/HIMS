@@ -3,7 +3,7 @@
 	<edmx:Runtime>
 		<edmx:StorageModels>
 			<Schema Namespace="HIMS.SQLServer.Store" Alias="Self" 
-					Provider="System.Data.SqlClient" ProviderManifestToken="2008"
+					Provider="System.Data.SqlClient" ProviderManifestToken="2012"
 					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
 				<EntityContainer Name="HIMSSQLServerContainer">
 					<EntitySet Name="Direction" EntityType="Self.Direction" Schema="dbo" />
@@ -16,9 +16,10 @@
 					<EntitySet Name="vTask" EntityType="Self.vTask" Schema="dbo" />
 					<EntitySet Name="vUserProfile" EntityType="Self.vUserProfile" Schema="dbo" />
 					<EntitySet Name="vUserTask" EntityType="Self.vUserTask" Schema="dbo" />
-					<AssociationSet Name="FK_UserTaskId" Association="Self.FK_UserTaskId">
+					<EntitySet Name="vUserTrack" EntityType="Self.vUserTrack" Schema="dbo" />
+					<AssociationSet Name="FK_TaskTrack_ToTask" Association="Self.FK_TaskTrack_ToTask">
 						<End Role="TaskTrack" EntitySet="TaskTrack"/>
-						<End Role="UserTask" EntitySet="UserTask"/>
+						<End Role="Task" EntitySet="Task"/>
 					</AssociationSet>
 					<AssociationSet Name="FK_Direction_To_UserProfile" Association="Self.FK_Direction_To_UserProfile">
 						<End Role="UserProfile" EntitySet="UserProfile"/>
@@ -44,7 +45,7 @@
 						<PropertyRef Name="DirectionId"/>
 					</Key>
 					<Property Name="DirectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" DefaultValue="1"  />
-					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50"  />
+					<Property Name="Name" Type="nvarchar" Nullable="false"  />
 					<Property Name="Description" Type="nvarchar" Nullable="false"  />
 				</EntityType>
 				<EntityType Name="Sample">
@@ -76,10 +77,10 @@
 					<Key>
 						<PropertyRef Name="TaskTrackId"/>
 					</Key>
-					<Property Name="TaskTrackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" DefaultValue="1"  />
-					<Property Name="UserTaskId" Type="int" Nullable="false"  />
-					<Property Name="TrackDate" Type="date" Nullable="false"  />
+					<Property Name="TaskTrackId" Type="int" Nullable="false"  />
+					<Property Name="TrackDate" Type="datetime" Nullable="false"  />
 					<Property Name="TrackNote" Type="nvarchar" Nullable="false"  />
+					<Property Name="UserTaskId" Type="int" Nullable="false"  />
 				</EntityType>
 				<EntityType Name="UserProfile">
 					<Key>
@@ -126,7 +127,7 @@
 					<Property Name="UserId" Type="int" Nullable="false"  />
 					<Property Name="FullName" Type="nvarchar" Nullable="false" MaxLength="51"  />
 					<Property Name="Email" Type="nchar" Nullable="false" MaxLength="125"  />
-					<Property Name="Direction" Type="nvarchar" Nullable="false" MaxLength="50"  />
+					<Property Name="Direction" Type="nvarchar" Nullable="false"  />
 					<Property Name="Sex" Type="char" Nullable="false" MaxLength="1"  />
 					<Property Name="Education" Type="nvarchar" Nullable="false" MaxLength="250"  />
 					<Property Name="Age" Type="int"  />
@@ -140,7 +141,6 @@
 				<EntityType Name="vUserTask">
 					<Key>
 						<PropertyRef Name="UserId"/>
-						<PropertyRef Name="TaskId"/>
 					</Key>
 					<Property Name="UserId" Type="int" Nullable="false"  />
 					<Property Name="TaskId" Type="int" Nullable="false"  />
@@ -150,12 +150,23 @@
 					<Property Name="DeadlineDate" Type="date" Nullable="false"  />
 					<Property Name="State" Type="nvarchar" Nullable="false" MaxLength="25"  />
 				</EntityType>
-				<Association Name="FK_UserTaskId">
+				<EntityType Name="vUserTrack">
+					<Key>
+						<PropertyRef Name="UserId"/>
+					</Key>
+					<Property Name="UserId" Type="int" Nullable="false"  />
+					<Property Name="TaskId" Type="int" Nullable="false"  />
+					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="25"  />
+					<Property Name="TaskTrackId" Type="int" Nullable="false"  />
+					<Property Name="TrackNote" Type="nvarchar" Nullable="false"  />
+					<Property Name="TrackDate" Type="datetime" Nullable="false"  />
+				</EntityType>
+				<Association Name="FK_TaskTrack_ToTask">
 					<End Role="TaskTrack" Type="Self.TaskTrack" Multiplicity="*" />
-					<End Role="UserTask" Type="Self.UserTask" Multiplicity="1" />
+					<End Role="Task" Type="Self.Task" Multiplicity="1" />
 					<ReferentialConstraint>
-						<Principal Role="UserTask">
-							<PropertyRef Name="UserTaskId"/>
+						<Principal Role="Task">
+							<PropertyRef Name="TaskId"/>
 						</Principal>
 						<Dependent Role="TaskTrack">
 							<PropertyRef Name="UserTaskId"/>
@@ -227,9 +238,14 @@
 					<EntitySet Name="VTask" EntityType="Self.VTask"/>	
 					<EntitySet Name="VUserProfile" EntityType="Self.VUserProfile"/>	
 					<EntitySet Name="VUserTask" EntityType="Self.VUserTask"/>	
+					<EntitySet Name="VUserTrack" EntityType="Self.VUserTrack"/>	
 					<AssociationSet Name="UserProfile_Direction_Direction_UserProfiles" Association="Self.UserProfile_Direction_Direction_UserProfiles">
 						<End Role="UserProfile" EntitySet="UserProfile"/>
 						<End Role="Direction" EntitySet="Direction"/>
+					</AssociationSet>
+					<AssociationSet Name="TaskTrack_Task_Task_TaskTracks" Association="Self.TaskTrack_Task_Task_TaskTracks">
+						<End Role="TaskTrack" EntitySet="TaskTrack"/>
+						<End Role="Task" EntitySet="Task"/>
 					</AssociationSet>
 					<AssociationSet Name="UserTask_Task_Task_UserTasks" Association="Self.UserTask_Task_Task_UserTasks">
 						<End Role="UserTask" EntitySet="UserTask"/>
@@ -238,10 +254,6 @@
 					<AssociationSet Name="UserTask_TaskState_TaskState_UserTasks" Association="Self.UserTask_TaskState_TaskState_UserTasks">
 						<End Role="UserTask" EntitySet="UserTask"/>
 						<End Role="TaskState" EntitySet="TaskState"/>
-					</AssociationSet>
-					<AssociationSet Name="TaskTrack_UserTask_UserTask_TaskTracks" Association="Self.TaskTrack_UserTask_UserTask_TaskTracks">
-						<End Role="TaskTrack" EntitySet="TaskTrack"/>
-						<End Role="UserTask" EntitySet="UserTask"/>
 					</AssociationSet>
 					<AssociationSet Name="UserTask_UserProfile_UserProfile_UserTasks" Association="Self.UserTask_UserProfile_UserProfile_UserTasks">
 						<End Role="UserTask" EntitySet="UserTask"/>
@@ -256,7 +268,7 @@
 					</Key>
 					<Property Name="Description" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<Property Name="DirectionId" Nullable="false"  Type="Int32" />
-					<Property Name="Name" Nullable="false"  Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+					<Property Name="Name" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<NavigationProperty Name="UserProfiles" Relationship="Self.UserProfile_Direction_Direction_UserProfiles" FromRole="Direction" ToRole="UserProfile" />
 				</EntityType>
 				<EntityType Name="Sample">
@@ -276,6 +288,7 @@
 					<Property Name="Name" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
 					<Property Name="StartDate" Nullable="false"  Type="DateTime" />
 					<Property Name="TaskId" Nullable="false"  Type="Int32" />
+					<NavigationProperty Name="TaskTracks" Relationship="Self.TaskTrack_Task_Task_TaskTracks" FromRole="Task" ToRole="TaskTrack" />
 					<NavigationProperty Name="UserTasks" Relationship="Self.UserTask_Task_Task_UserTasks" FromRole="Task" ToRole="UserTask" />
 				</EntityType>
 				<EntityType Name="TaskState">
@@ -294,7 +307,7 @@
 					<Property Name="TrackDate" Nullable="false"  Type="DateTime" />
 					<Property Name="TrackNote" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<Property Name="UserTaskId" Nullable="false"  Type="Int32" />
-					<NavigationProperty Name="UserTask" Relationship="Self.TaskTrack_UserTask_UserTask_TaskTracks" FromRole="TaskTrack" ToRole="UserTask" />
+					<NavigationProperty Name="Task" Relationship="Self.TaskTrack_Task_Task_TaskTracks" FromRole="TaskTrack" ToRole="Task" />
 				</EntityType>
 				<EntityType Name="UserProfile">
 					<Key>
@@ -327,7 +340,6 @@
 					<Property Name="UserTaskId" Nullable="false"  Type="Int32" />
 					<NavigationProperty Name="Task" Relationship="Self.UserTask_Task_Task_UserTasks" FromRole="UserTask" ToRole="Task" />
 					<NavigationProperty Name="TaskState" Relationship="Self.UserTask_TaskState_TaskState_UserTasks" FromRole="UserTask" ToRole="TaskState" />
-					<NavigationProperty Name="TaskTracks" Relationship="Self.TaskTrack_UserTask_UserTask_TaskTracks" FromRole="UserTask" ToRole="TaskTrack" />
 					<NavigationProperty Name="UserProfile" Relationship="Self.UserTask_UserProfile_UserProfile_UserTasks" FromRole="UserTask" ToRole="UserProfile" />
 				</EntityType>
 				<EntityType Name="VTask">
@@ -346,7 +358,7 @@
 					</Key>
 					<Property Name="Address" Nullable="false"  Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
 					<Property Name="Age"  Type="Int32" />
-					<Property Name="Direction" Nullable="false"  Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+					<Property Name="Direction" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<Property Name="Education" Nullable="false"  Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
 					<Property Name="Email" Nullable="false"  Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
 					<Property Name="FullName" Nullable="false"  Type="String" MaxLength="51" FixedLength="false" Unicode="true" />
@@ -360,7 +372,6 @@
 				</EntityType>
 				<EntityType Name="VUserTask">
 					<Key>
-						<PropertyRef Name="TaskId"/>
 						<PropertyRef Name="UserId"/>
 					</Key>
 					<Property Name="DeadlineDate" Nullable="false"  Type="DateTime" />
@@ -369,6 +380,17 @@
 					<Property Name="State" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
 					<Property Name="TaskId" Nullable="false"  Type="Int32" />
 					<Property Name="TaskName" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+					<Property Name="UserId" Nullable="false"  Type="Int32" />
+				</EntityType>
+				<EntityType Name="VUserTrack">
+					<Key>
+						<PropertyRef Name="UserId"/>
+					</Key>
+					<Property Name="Name" Nullable="false"  Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+					<Property Name="TaskId" Nullable="false"  Type="Int32" />
+					<Property Name="TaskTrackId" Nullable="false"  Type="Int32" />
+					<Property Name="TrackDate" Nullable="false"  Type="DateTime" />
+					<Property Name="TrackNote" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<Property Name="UserId" Nullable="false"  Type="Int32" />
 				</EntityType>
 				<Association Name="UserProfile_Direction_Direction_UserProfiles">
@@ -380,6 +402,18 @@
 						</Principal>
 						<Dependent Role="UserProfile">
 							<PropertyRef Name="DirectionId" />
+						</Dependent>
+					</ReferentialConstraint>	
+				</Association>
+				<Association Name="TaskTrack_Task_Task_TaskTracks">
+					<End Role="TaskTrack" Type="Self.TaskTrack" Multiplicity="*" />
+					<End Role="Task" Type="Self.Task" Multiplicity="1" />
+					<ReferentialConstraint>
+						<Principal Role="Task">
+							<PropertyRef Name="TaskId" />
+						</Principal>
+						<Dependent Role="TaskTrack">
+							<PropertyRef Name="UserTaskId" />
 						</Dependent>
 					</ReferentialConstraint>	
 				</Association>
@@ -404,18 +438,6 @@
 						</Principal>
 						<Dependent Role="UserTask">
 							<PropertyRef Name="StateId" />
-						</Dependent>
-					</ReferentialConstraint>	
-				</Association>
-				<Association Name="TaskTrack_UserTask_UserTask_TaskTracks">
-					<End Role="TaskTrack" Type="Self.TaskTrack" Multiplicity="*" />
-					<End Role="UserTask" Type="Self.UserTask" Multiplicity="1" />
-					<ReferentialConstraint>
-						<Principal Role="UserTask">
-							<PropertyRef Name="UserTaskId" />
-						</Principal>
-						<Dependent Role="TaskTrack">
-							<PropertyRef Name="UserTaskId" />
 						</Dependent>
 					</ReferentialConstraint>	
 				</Association>
@@ -451,9 +473,9 @@
 					<EntitySetMapping Name="Sample">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Sample)">
 							<MappingFragment StoreEntitySet="Sample">
-								<ScalarProperty Name="Description" ColumnName="Description" />
-								<ScalarProperty Name="Name" ColumnName="Name" />
 								<ScalarProperty Name="SampleId" ColumnName="SampleId" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
@@ -480,9 +502,9 @@
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.TaskTrack)">
 							<MappingFragment StoreEntitySet="TaskTrack">
 								<ScalarProperty Name="TaskTrackId" ColumnName="TaskTrackId" />
-								<ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
 								<ScalarProperty Name="TrackDate" ColumnName="TrackDate" />
 								<ScalarProperty Name="TrackNote" ColumnName="TrackNote" />
+								<ScalarProperty Name="UserTaskId" ColumnName="UserTaskId" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
@@ -530,19 +552,19 @@
 					<EntitySetMapping Name="VUserProfile">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.VUserProfile)">
 							<MappingFragment StoreEntitySet="vUserProfile">
-								<ScalarProperty Name="Address" ColumnName="Address" />
-								<ScalarProperty Name="Age" ColumnName="Age" />
-								<ScalarProperty Name="Direction" ColumnName="Direction" />
-								<ScalarProperty Name="Education" ColumnName="Education" />
-								<ScalarProperty Name="Email" ColumnName="Email" />
+								<ScalarProperty Name="UserId" ColumnName="UserId" />
 								<ScalarProperty Name="FullName" ColumnName="FullName" />
-								<ScalarProperty Name="MathScore" ColumnName="MathScore" />
-								<ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+								<ScalarProperty Name="Email" ColumnName="Email" />
+								<ScalarProperty Name="Direction" ColumnName="Direction" />
 								<ScalarProperty Name="Sex" ColumnName="Sex" />
+								<ScalarProperty Name="Education" ColumnName="Education" />
+								<ScalarProperty Name="Age" ColumnName="Age" />
+								<ScalarProperty Name="UniversityAverageScore" ColumnName="UniversityAverageScore" />
+								<ScalarProperty Name="MathScore" ColumnName="MathScore" />
+								<ScalarProperty Name="Address" ColumnName="Address" />
+								<ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
 								<ScalarProperty Name="Skype" ColumnName="Skype" />
 								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
-								<ScalarProperty Name="UniversityAverageScore" ColumnName="UniversityAverageScore" />
-								<ScalarProperty Name="UserId" ColumnName="UserId" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
@@ -556,6 +578,18 @@
 								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
 								<ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
 								<ScalarProperty Name="State" ColumnName="State" />
+							</MappingFragment>
+						</EntityTypeMapping>
+					</EntitySetMapping>
+					<EntitySetMapping Name="VUserTrack">
+						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.VUserTrack)">
+							<MappingFragment StoreEntitySet="vUserTrack">
+								<ScalarProperty Name="UserId" ColumnName="UserId" />
+								<ScalarProperty Name="TaskId" ColumnName="TaskId" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="TaskTrackId" ColumnName="TaskTrackId" />
+								<ScalarProperty Name="TrackNote" ColumnName="TrackNote" />
+								<ScalarProperty Name="TrackDate" ColumnName="TrackDate" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
