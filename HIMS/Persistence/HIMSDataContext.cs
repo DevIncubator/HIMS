@@ -76,6 +76,17 @@ namespace HIMS.Data
 			return toReturn;
 		}
 		
+		/// <summary>Calls the stored procedure '[dbo].[spDeleteTaskTrack]'</summary>
+		/// <param name="taskTrackId">Parameter mapped onto the stored procedure parameter '@TaskTrackId'</param>
+		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
+		public int CallSpDeleteTaskTrack(System.Int32 taskTrackId)
+		{
+			var cmd = CreateStoredProcCallCommand("[dbo].[spDeleteTaskTrack]");
+			AddParameter(cmd, "@TaskTrackId", 0, ParameterDirection.Input, taskTrackId);
+			var toReturn = ExecuteNonQueryCommand(cmd);
+			return toReturn;
+		}
+		
 		/// <summary>Calls the stored procedure '[dbo].[spDeleteUser]'</summary>
 		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@userId'</param>
 		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
@@ -204,6 +215,7 @@ namespace HIMS.Data
 		/// <summary>Initializes this instance</summary>
 		private void Initialize()
 		{
+			this.Configuration.LazyLoadingEnabled = false;
 			OnContextCreated();
 		}
 		
@@ -229,6 +241,8 @@ namespace HIMS.Data
 		public DbSet<VUserProfile> VUserProfiles { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
 		public DbSet<VUserTask> VUserTasks { get; set; } 
+		/// <summary>Gets an object query for the entity set 'VUserTrack', containing entity type 'VUserTrack'</summary>
+		public DbSet<VUserTrack> VUserTracks { get; set; } 
 		#endregion
 	}
 }
