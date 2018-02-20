@@ -2,8 +2,9 @@
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 	<edmx:Runtime>
 		<edmx:StorageModels>
+            <!-- Error fix: change 2012 to 2008 -->
 			<Schema Namespace="HIMS.SQLServer.Store" Alias="Self" 
-					Provider="System.Data.SqlClient" ProviderManifestToken="2012"
+					Provider="System.Data.SqlClient" ProviderManifestToken="2008"
 					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
 				<EntityContainer Name="HIMSSQLServerContainer">
 					<EntitySet Name="Direction" EntityType="Self.Direction" Schema="dbo" />
