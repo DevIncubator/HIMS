@@ -44,5 +44,10 @@ namespace HIMS.DAL.Repositories
 		{
 			return db.CallSpDeleteTask(taskId);
 		}
+
+        public int DeleteTaskTrack(int taskTrackId)
+        {
+            return db.CallSpDeleteTaskTrack(taskTrackId);
+        }
     }
 }
