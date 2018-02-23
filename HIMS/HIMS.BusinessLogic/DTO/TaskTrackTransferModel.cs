@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HIMS.BusinessLogic.DTO
 {
-    class TaskTrackTransferModel
+    public class TaskTrackTransferModel
     {
         public int TaskTrackId { get; set; }
         public DateTime TrackDate { get; set; }
