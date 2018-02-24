@@ -73,7 +73,7 @@
     <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Interfaces\IDirectionService.cs" />
     <Compile Include="Interfaces\ISampleService.cs" />
-    <Compile Include="Interfaces\ITaskTrack.cs" />
+    <Compile Include="Interfaces\ITaskTrackService.cs" />
     <Compile Include="Interfaces\IUserProfileService.cs" />
     <Compile Include="Interfaces\IVUserProfileService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
