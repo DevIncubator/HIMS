@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
+    <Compile Include="Controllers\TaskTrackController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\UserTaskController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +209,8 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SampleViewModel.cs" />
     <Compile Include="Models\SmplesListViewModel.cs" />
+    <Compile Include="Models\TaskTracksListViewModel.cs" />
+    <Compile Include="Models\TaskTrackViewModel.cs" />
     <Compile Include="Models\UserProfileDetailsViewModel.cs" />
     <Compile Include="Models\UserProfileGridViewModel.cs" />
     <Compile Include="Models\UserTaskViewModel.cs" />
@@ -311,6 +314,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\TaskTrack\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
