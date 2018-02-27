@@ -238,9 +238,11 @@ namespace HIMS.Data
 		/// <summary>Gets an object query for the entity set 'VTask', containing entity type 'VTask'</summary>
 		public DbSet<VTask> VTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserProfile', containing entity type 'VUserProfile'</summary>
-		public DbSet<VUserProfile> VUserProfiles { get; set; } 
-		/// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
-		public DbSet<VUserTask> VUserTasks { get; set; } 
+		public DbSet<VUserProfile> VUserProfiles { get; set; }
+        /// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
+        public DbSet<VUserProgress> VUserProgress { get; set; }
+        /// <summary>Gets an object query for the entity set 'VUserProgress', containing entity type 'VUserProgress'</summary>
+        public DbSet<VUserTask> VUserTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserTrack', containing entity type 'VUserTrack'</summary>
 		public DbSet<VUserTrack> VUserTracks { get; set; } 
 		#endregion

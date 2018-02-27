@@ -59,8 +59,10 @@
     <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Repositories\TaskTrackRepository.cs" />
     <Compile Include="Repositories\UserProfileRepository.cs" />
+    <Compile Include="Repositories\UserTaskRepository.cs" />
     <Compile Include="Repositories\VTaskRepository.cs" />
     <Compile Include="Repositories\VUserProfileRepository.cs" />
+    <Compile Include="Repositories\VUserProgressRepository.cs" />
     <Compile Include="Repositories\VUserTaskRepository.cs" />
     <Compile Include="Repositories\VUserTrackRepository.cs" />
   </ItemGroup>
