@@ -310,11 +310,15 @@
     <Content Include="Views\UserProfile\Details.cshtml" />
     <Content Include="Views\UserProfile\Delete.cshtml" />
     <Content Include="Views\UserProfile\Create.cshtml" />
+    <Content Include="Views\TaskTrack\Index.cshtml" />
+    <Content Include="Views\TaskTrack\Create.cshtml" />
+    <Content Include="Views\TaskTrack\Details.cshtml" />
+    <Content Include="Views\TaskTrack\Delete.cshtml" />
+    <Content Include="Views\TaskTrack\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\TaskTrack\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
