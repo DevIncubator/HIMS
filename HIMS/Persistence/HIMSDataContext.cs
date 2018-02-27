@@ -66,12 +66,12 @@ namespace HIMS.Data
 		}
 		
 		/// <summary>Calls the stored procedure '[dbo].[spDeleteTask]'</summary>
-		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@taskId'</param>
+		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>
 		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
 		public int CallSpDeleteTask(System.Int32 taskId)
 		{
 			var cmd = CreateStoredProcCallCommand("[dbo].[spDeleteTask]");
-			AddParameter(cmd, "@taskId", 0, ParameterDirection.Input, taskId);
+			AddParameter(cmd, "@TaskId", 0, ParameterDirection.Input, taskId);
 			var toReturn = ExecuteNonQueryCommand(cmd);
 			return toReturn;
 		}
@@ -238,9 +238,11 @@ namespace HIMS.Data
 		/// <summary>Gets an object query for the entity set 'VTask', containing entity type 'VTask'</summary>
 		public DbSet<VTask> VTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserProfile', containing entity type 'VUserProfile'</summary>
-		public DbSet<VUserProfile> VUserProfiles { get; set; } 
-		/// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
-		public DbSet<VUserTask> VUserTasks { get; set; } 
+		public DbSet<VUserProfile> VUserProfiles { get; set; }
+        /// <summary>Gets an object query for the entity set 'VUserTask', containing entity type 'VUserTask'</summary>
+        public DbSet<VUserProgress> VUserProgress { get; set; }
+        /// <summary>Gets an object query for the entity set 'VUserProgress', containing entity type 'VUserProgress'</summary>
+        public DbSet<VUserTask> VUserTasks { get; set; } 
 		/// <summary>Gets an object query for the entity set 'VUserTrack', containing entity type 'VUserTrack'</summary>
 		public DbSet<VUserTrack> VUserTracks { get; set; } 
 		#endregion

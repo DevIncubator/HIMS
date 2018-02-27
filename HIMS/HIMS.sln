@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HIMS.Presentation", "HIMS.Presentation", "{AA89E160-D0F8-4C6E-BD5F-B1C94383A82B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0", "0", "{AA89E160-D0F8-4C6E-BD5F-B1C94383A82B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HIMS.Data", "HIMS.Data", "{256EBFBE-C3B6-4557-8DCC-6922A109E534}"
 EndProject
