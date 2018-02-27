@@ -8,6 +8,5 @@ namespace HIMS.WebMVC.Models
     public class TaskTracksListViewModel
     {
         public IEnumerable<TaskTrackViewModel> TaskTracks { get; set; }
-        public int TaskTracksAmount { get; set; }
     }
 }
