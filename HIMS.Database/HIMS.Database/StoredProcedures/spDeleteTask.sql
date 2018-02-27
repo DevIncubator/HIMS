@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spDeleteTask]
-	@taskId int
+	@TaskId int
 AS
-	DELETE Task WHERE TaskId=@taskId
+	DELETE Task WHERE Task.TaskId= @TaskId
 GO

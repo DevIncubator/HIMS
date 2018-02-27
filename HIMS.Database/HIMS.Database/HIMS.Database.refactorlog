@@ -56,4 +56,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_TaskTrack_ToTask]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="80157d7f-4dbc-4ae7-b50b-733c26193c66" ChangeDateTime="02/26/2018 23:56:12">
+    <Property Name="ElementName" Value="[dbo].[Task].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Task]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TaskId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="65bc3ccd-f2ee-436c-b13e-ee507c739007" ChangeDateTime="02/26/2018 23:57:20">
+    <Property Name="ElementName" Value="[dbo].[Task].[S]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Task]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDate" />
+  </Operation>
 </Operations>
