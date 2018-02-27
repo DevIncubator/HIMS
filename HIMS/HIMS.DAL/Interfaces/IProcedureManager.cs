@@ -13,5 +13,6 @@ namespace HIMS.DAL.Interfaces
         int SetUserTaskAsFail(int userId, int taskId);
         int SetUserTaskAsSuccess(int userId, int taskId);
 		int DeleteTask(int taskId);
+        int DeleteTaskTrack(int taskTrackId);
     }
 }
