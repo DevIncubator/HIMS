@@ -13,7 +13,7 @@ using HIMS.Data.EntityClasses;
 
 namespace HIMS.BusinessLogic.Services
 {
-    public class TaskTrackService : ITaskTrack
+    public class TaskTrackService : ITaskTrackService
     {
         private IUnitOfWork Database { get; set; }
         private IProcedureManager Pm { get; set; }
@@ -25,6 +25,7 @@ namespace HIMS.BusinessLogic.Services
         }
         public IEnumerable<TaskTrackTransferModel> GetTaskTracks(int UserId)
         {
+            
             return Mapper.Map<IEnumerable<TaskTrack>, List<TaskTrackTransferModel>>(Database.TaskTracks.GetAll());
         }
 

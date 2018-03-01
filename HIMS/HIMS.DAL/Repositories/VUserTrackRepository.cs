@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using HIMS.Data;
 using HIMS.Data.EntityClasses;
 using HIMS.Data.Interfaces;
+using HIMS.DAL.Interfaces;
 
 namespace HIMS.DAL.Repositories
 {
-    public class VUserTrackRepository : IRepository<VUserTrack>
+    public class VUserTrackRepository : IVUserTrackRepository<VUserTrack>
     {
         private HIMSDataContext _db;
 
@@ -33,14 +34,19 @@ namespace HIMS.DAL.Repositories
             return _db.VUserTracks.Where(predicate).ToList();
         }
 
-        public VUserTrack Get(int id)
+        public IEnumerable<VUserTrack> GetByUserId(int UserId)
         {
-            return _db.VUserTracks.Find(id);
+            return _db.VUserTracks.Where(item => item.UserId == UserId).ToList();
         }
 
         public IEnumerable<VUserTrack> GetAll()
         {
             return _db.VUserTracks;
+        }
+
+        public VUserTrack Get(int id)
+        {
+            return _db.VUserTracks.Find(id);
         }
     }
 }

@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
+    <Compile Include="Controllers\TaskTrackController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\UserTaskController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +209,8 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SampleViewModel.cs" />
     <Compile Include="Models\SmplesListViewModel.cs" />
+    <Compile Include="Models\TaskTracksListViewModel.cs" />
+    <Compile Include="Models\TaskTrackViewModel.cs" />
     <Compile Include="Models\UserProfileDetailsViewModel.cs" />
     <Compile Include="Models\UserProfileGridViewModel.cs" />
     <Compile Include="Models\UserTaskViewModel.cs" />
@@ -307,6 +310,11 @@
     <Content Include="Views\UserProfile\Details.cshtml" />
     <Content Include="Views\UserProfile\Delete.cshtml" />
     <Content Include="Views\UserProfile\Create.cshtml" />
+    <Content Include="Views\TaskTrack\Index.cshtml" />
+    <Content Include="Views\TaskTrack\Create.cshtml" />
+    <Content Include="Views\TaskTrack\Details.cshtml" />
+    <Content Include="Views\TaskTrack\Delete.cshtml" />
+    <Content Include="Views\TaskTrack\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

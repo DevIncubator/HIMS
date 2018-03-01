@@ -1,0 +1,53 @@
+﻿@model HIMS.WebMVC.Models.TaskTracksListViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>This is your Task Tracks Manage Grid</h2>
+
+<p>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Task
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TaskTracks)
+        {
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(modelItem => item.TaskTrackId)
+                </th>
+                <td>
+                    @Html.ActionLink(item.Name, "Details", new { id = item.TaskId })
+                </td>
+                <td>
+                    @Html.ActionLink(item.TrackNote, "Details", new { id = item.TaskTrackId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrackDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TaskTrackId }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TaskTrackId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+</table>

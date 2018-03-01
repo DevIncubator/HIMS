@@ -1,0 +1,40 @@
+﻿@model HIMS.WebMVC.Models.TaskTrackViewModel
+@{
+    ViewBag.Title = "Details page of the Task Track entry";
+}
+
+<h2>Details page</h2>
+
+<div>
+    <h4>Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaskName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackNote)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaskTrackId }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to Grid", "Index", null, new { @class = "btn btn-default" })
+</p>
