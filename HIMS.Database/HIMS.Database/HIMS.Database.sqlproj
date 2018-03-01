@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{441476e1-b83f-45a2-9154-af0bf7c77321}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -67,12 +67,10 @@
     <Build Include="StoredProcedures\SampleEntriesAmount.sql" />
     <Build Include="Tables\UserProfile.sql" />
     <Build Include="Tables\UserTask.sql" />
-    <Build Include="Tables\TaskState.sql" />
     <Build Include="Views\vUserProfile.sql" />
     <Build Include="StoredProcedures\spDeleteUser.sql" />
     <Build Include="StoredProcedures\spSetUserTaskAsSuccess.sql" />
     <Build Include="StoredProcedures\spSetUserTaskAsFail.sql" />
-    <Build Include="Views\vUserTask.sql" />
     <Build Include="Tables\TaskTrack.sql" />
     <Build Include="Tables\Direction.sql" />
     <Build Include="Views\vUserTrack.sql" />
@@ -80,6 +78,8 @@
     <Build Include="Tables\Task.sql" />
     <Build Include="Views\vTask.sql" />
     <Build Include="StoredProcedures\spDeleteTask.sql" />
+    <Build Include="Tables\TaskState.sql" />
+    <Build Include="Views\vUserTask.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />
