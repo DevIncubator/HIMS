@@ -36,10 +36,13 @@
                     @Html.DisplayFor(modelItem => item.TaskTrackId)
                 </th>
                 <td>
-                    @Html.ActionLink(item.TaskName, "Details", new { id = item.UserTaskId })
+                    @Html.ActionLink(item.Name, "Details", new { id = item.TaskId })
                 </td>
                 <td>
                     @Html.ActionLink(item.TrackNote, "Details", new { id = item.TaskTrackId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrackDate)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TaskTrackId }, new { @class = "btn btn-default" })
