@@ -144,7 +144,9 @@ namespace HIMS.Data.Repositories
         {
             get
             {
-                throw new NotImplementedException();
+                if(_taskTrackRepository == null)
+                    _taskTrackRepository = new TaskTrackRepository(db);
+                return _taskTrackRepository;
             }
         }
 
