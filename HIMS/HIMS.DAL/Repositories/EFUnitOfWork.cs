@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HIMS.Data.Interfaces;
-using HIMS.Data;
-using HIMS.Data.EntityClasses;
-using HIMS.DAL.Interfaces;
+﻿using HIMS.DAL.Interfaces;
 using HIMS.DAL.Repositories;
+using HIMS.Data.EntityClasses;
+using HIMS.Data.Interfaces;
+using System;
 
 namespace HIMS.Data.Repositories
 {
@@ -15,11 +11,14 @@ namespace HIMS.Data.Repositories
         private HIMSDataContext db;
         private SampleRepository _sampleRepository;
         private UserProfileRepository _userProfileRepository;
+
+        private UserTaskRepository _userTaskRepository;
         private TaskTrackRepository _taskTrackRepository;
         private DirectionRepository _directionRepository;
         private TaskRepository _taskRepository;
 
         private VUserProfileRepository _vUserProfileRepository;
+        private VUserProgressRepository _vUserProgressRepository;
         private VUserTaskRepository _vUserTaskRepository;
         private VUserTrackRepository _vUserTrackRepository;
         private VTaskRepository _vTaskRepository;
@@ -75,6 +74,16 @@ namespace HIMS.Data.Repositories
             }
         }
 
+        public IRepository<VUserProgress> VUserProgress
+        {
+            get
+            {
+                if (_vUserProgressRepository == null)
+                    _vUserProgressRepository = new VUserProgressRepository(db);
+                return _vUserProgressRepository;
+            }
+        }
+
         public IRepository<UserProfile> UserProfiles
         {
             get
@@ -82,6 +91,16 @@ namespace HIMS.Data.Repositories
                 if (_userProfileRepository == null)
                     _userProfileRepository = new UserProfileRepository(db);
                 return _userProfileRepository;
+            }
+        }
+
+        public IRepository<UserTask> UserTask
+        {
+            get
+            {
+                if (_userTaskRepository == null)
+                    _userTaskRepository = new UserTaskRepository(db);
+                return _userTaskRepository;
             }
         }
 
