@@ -15,14 +15,14 @@ namespace HIMS.Data.Repositories
         private HIMSDataContext db;
         private SampleRepository _sampleRepository;
         private UserProfileRepository _userProfileRepository;
-		private TaskRepository _taskRepository;
         private TaskTrackRepository _taskTrackRepository;
         private DirectionRepository _directionRepository;
+        private TaskRepository _taskRepository;
 
         private VUserProfileRepository _vUserProfileRepository;
         private VUserTaskRepository _vUserTaskRepository;
-        private VTaskRepository _vTaskRepository;
         private VUserTrackRepository _vUserTrackRepository;
+        private VTaskRepository _vTaskRepository;
 
 
         public EFUnitOfWork(string connectionString)
@@ -38,26 +38,32 @@ namespace HIMS.Data.Repositories
                 return _sampleRepository;
             }
         }
+        public IRepository<VTask> VTasks
+        {
+            get
+            {
+                if (_vTaskRepository == null)
+                {
+                    _vTaskRepository = new VTaskRepository(db);
+                }
+                return _vTaskRepository;
+            }
+        }
 
-		public IRepository<VTask> VTasks
-		{
-			get
-			{
-				if (_vTaskRepository == null)
-					_vTaskRepository = new VTaskRepository(db);
-				return _vTaskRepository;
-			}
-		}
+        public IRepository<Task> Tasks
+        {
+            get
+            {
+                if (_taskRepository == null)
+                
+                    _taskRepository = new TaskRepository(db);
+                
+                return _taskRepository;
+            }
+        }
+      
 
-		public IRepository<Task> Tasks
-		{
-			get
-			{
-				if (_taskRepository == null)
-					_taskRepository = new TaskRepository(db);
-				return _taskRepository;
-			}
-		}
+
 
         public IRepository<VUserProfile> VUserProfiles
         {
@@ -98,7 +104,7 @@ namespace HIMS.Data.Repositories
                 return _taskTrackRepository;
             }
         }
-
+    
 		public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
 
         public IRepository<Direction> Direction
@@ -118,7 +124,7 @@ namespace HIMS.Data.Repositories
                 throw new NotImplementedException();
             }
         }
-
+      
         public IRepository<TaskTrack> TaskTracks
         {
             get
