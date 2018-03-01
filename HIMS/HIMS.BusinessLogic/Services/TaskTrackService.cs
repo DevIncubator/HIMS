@@ -25,6 +25,7 @@ namespace HIMS.BusinessLogic.Services
         }
         public IEnumerable<TaskTrackTransferModel> GetTaskTracks(int UserId)
         {
+            
             return Mapper.Map<IEnumerable<TaskTrack>, List<TaskTrackTransferModel>>(Database.TaskTracks.GetAll());
         }
 

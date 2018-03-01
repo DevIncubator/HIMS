@@ -12,5 +12,6 @@ namespace HIMS.BusinessLogic.Interfaces
         void UpdateTaskTrack(TaskTrackTransferModel item);
         void DeleteTaskTrack(int? id);
         TaskTrackTransferModel GetTaskTrack(int? id);
+
     }
 }

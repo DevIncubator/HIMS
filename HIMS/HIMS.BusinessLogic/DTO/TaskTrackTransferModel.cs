@@ -12,6 +12,7 @@ namespace HIMS.BusinessLogic.DTO
         public DateTime TrackDate { get; set; }
         public string TrackNote { get; set; }
         public int UserTaskId { get; set; }
+        public string TaskName { get; set; }
 
     }
 }
