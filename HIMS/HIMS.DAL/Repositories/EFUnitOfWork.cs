@@ -119,6 +119,9 @@ namespace HIMS.Data.Repositories
 
 		public IVUserTaskRepository<VUserTask> VUserTasks => _vUserTaskRepository == null ? new VUserTaskRepository(db) : _vUserTaskRepository;
 
+        public IVUserTrackRepository<VUserTrack> VUserTracks =>
+            _vUserTrackRepository == null ? new VUserTrackRepository(db) : _vUserTrackRepository;
+
         public IRepository<Direction> Direction
         {
             get
