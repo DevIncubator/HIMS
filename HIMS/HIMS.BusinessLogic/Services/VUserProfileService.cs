@@ -42,5 +42,15 @@ namespace HIMS.BusinessLogic.Services
         {
             Database.Dispose();
         }
+
+        public VUserProfileTransferModel GetVUserProfile(string Email)
+        {
+            if (Email == null)
+                throw new ValidationException("The VUserProfile's Email value is not set", String.Empty);
+
+
+            var user = Database.VUserProfiles.GetByUserEmail(Email).First();
+            return Mapper.Map<VUserProfile, VUserProfileTransferModel>(user);
+        }
     }
 }

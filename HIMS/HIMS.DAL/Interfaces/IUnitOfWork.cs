@@ -10,7 +10,7 @@ namespace HIMS.Data.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Sample> Samples { get; }
-        IRepository<VUserProfile> VUserProfiles { get; }
+        IVUserProfileRepository<VUserProfile> VUserProfiles { get; }
         IRepository<UserProfile> UserProfiles { get; }
 		IRepository<VTask> VTasks { get; }
 		IRepository<Task> Tasks { get; }

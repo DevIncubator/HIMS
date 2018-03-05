@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using HIMS.DAL.Interfaces;
 
 namespace HIMS.Data.Repositories
 {
-    public class VUserProfileRepository : IRepository<VUserProfile>
+    public class VUserProfileRepository : IVUserProfileRepository<VUserProfile>
     {
         private HIMSDataContext _db;
 
@@ -31,6 +32,11 @@ namespace HIMS.Data.Repositories
         public IEnumerable<VUserProfile> Find(Func<VUserProfile, bool> predicate)
         {
             return _db.VUserProfiles.Where(predicate);
+        }
+
+        public IEnumerable<VUserProfile> GetByUserEmail(string Email)
+        {
+            return _db.VUserProfiles.Where(item => item.Email == Email).ToList();
         }
 
         public VUserProfile Get(int id)

@@ -64,7 +64,7 @@ namespace HIMS.Data.Repositories
 
 
 
-        public IRepository<VUserProfile> VUserProfiles
+        public IVUserProfileRepository<VUserProfile> VUserProfiles
         {
             get
             {

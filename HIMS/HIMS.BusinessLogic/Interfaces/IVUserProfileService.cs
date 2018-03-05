@@ -12,6 +12,7 @@ namespace HIMS.BusinessLogic.Interfaces
     {
         //void SaveVUserProfile(VUserProfileTransferModel item);
         VUserProfileTransferModel GetVUserProfile(int? id);
+        VUserProfileTransferModel GetVUserProfile(string Email);
         IEnumerable<VUserProfileTransferModel> GetVUserProfiles();
         //void UpdateVUserProfile(VUserProfileTransferModel item);
         //void DeleteVUserProfile(int? id);

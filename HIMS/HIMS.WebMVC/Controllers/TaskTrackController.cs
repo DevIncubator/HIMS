@@ -16,11 +16,13 @@ namespace HIMS.WebMVC.Controllers
     {
         private readonly ITaskTrackService _taskTrackService;
         private readonly IVUserTrackService _vUserTrackService;
+        private readonly IVUserProfileService _vUserProfileService;
 
-        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService)
+        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService)
         {
             _taskTrackService = taskTrackService;
             _vUserTrackService = vUerTrackService;
+            _vUserProfileService = vUserProfileService;
         }
 
         public ActionResult Edit(int? id)
@@ -158,11 +160,22 @@ namespace HIMS.WebMVC.Controllers
         }
 
         public ActionResult Index(int? userId)
-        {
-            var taskTracksDTO = _vUserTrackService.GetVUserTrack(userId);
+        {   
+            IEnumerable<VUserTrackTransferModel> taskTracksDto;
+            if (userId.HasValue)
+            {
+                taskTracksDto = _vUserTrackService.GetVUserTrack(userId);
+            }
+            else
+            {
+                var userIdentityName = User.Identity.Name;
+                var user = _vUserProfileService.GetVUserProfile(userIdentityName);
+                taskTracksDto = _vUserTrackService.GetVUserTrack(user.UserId);
+            }
+            
             var taskTracks = new TaskTracksListViewModel
             {
-                TaskTracks = Mapper.Map<IEnumerable<VUserTrackTransferModel>, List<TaskTrackViewModel>>(taskTracksDTO)
+                TaskTracks = Mapper.Map<IEnumerable<VUserTrackTransferModel>, List<TaskTrackViewModel>>(taskTracksDto)
             };
             return View(taskTracks);
         }
