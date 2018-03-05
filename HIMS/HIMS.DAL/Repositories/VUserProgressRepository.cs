@@ -28,17 +28,17 @@ namespace HIMS.DAL.Repositories
 
         public IEnumerable<VUserProgress> Find(Func<VUserProgress, bool> predicate)
         {
-            return db.VUserProgress.Where(predicate);
+            return db.VUserProgresses.Where(predicate);
         }
 
         public VUserProgress Get(int id)
         {
-            return db.VUserProgress.Find(id);
+            return db.VUserProgresses.Find(id);
         }
 
         public IEnumerable<VUserProgress> GetAll()
         {
-            return db.VUserProgress;
+            return db.VUserProgresses;
         }
     }
 }

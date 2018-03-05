@@ -388,7 +388,7 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-05T20:27:59.1573842Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-05T20:13:52.5522201Z">
               <Tables>
                 <Table Name="__RefactorLog">
                   <PkConstraintName Name="PK____Refact__D3AEFFDB4081553A" />
@@ -595,6 +595,91 @@
             </ForeignKeyConstraint>
           </ForeignKeyConstraints>
         </Catalog>
+        <Catalog Name="HIMS.Database">
+          <Schemas>
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-01-16T07:44:13.6146293Z">
+              <Tables>
+                <Table Name="Sample">
+                  <PkConstraintName Name="PK_Test" />
+                  <Fields>
+                    <Field Name="SampleId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="3" IsOptional="true" DbType="12" Length="255" />
+                  </Fields>
+                </Table>
+              </Tables>
+              <Views>
+                <View Name="vTask">
+                  <Fields>
+                    <Field Name="TaskId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="2147483647" />
+                    <Field Name="StartDate" Ordinal="4" DbType="28" />
+                    <Field Name="DeadlineDate" Ordinal="5" DbType="28" />
+                  </Fields>
+                </View>
+                <View Name="vUserProfile">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="FullName" Ordinal="2" DbType="12" Length="51" />
+                    <Field Name="Email" Ordinal="3" DbType="10" Length="125" />
+                    <Field Name="Direction" Ordinal="4" DbType="12" Length="50" />
+                    <Field Name="Sex" Ordinal="5" DbType="3" Length="1" />
+                    <Field Name="Education" Ordinal="6" DbType="12" Length="250" />
+                    <Field Name="Age" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="UniversityAverageScore" Ordinal="8" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="MathScore" Ordinal="9" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="Address" Ordinal="10" DbType="12" Length="100" />
+                    <Field Name="MobilePhone" Ordinal="11" DbType="12" Length="15" />
+                    <Field Name="Skype" Ordinal="12" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="StartDate" Ordinal="13" DbType="28" />
+                  </Fields>
+                </View>
+                <View Name="vUserTask">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="TaskName" Ordinal="3" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="4" DbType="12" Length="2147483647" />
+                    <Field Name="StartDate" Ordinal="5" DbType="28" />
+                    <Field Name="DeadlineDate" Ordinal="6" DbType="28" />
+                    <Field Name="State" Ordinal="7" DbType="12" Length="25" />
+                  </Fields>
+                </View>
+              </Views>
+              <StoredProcedures>
+                <StoredProcedure Name="SampleEntriesAmount">
+                  <Parameters>
+                    <Parameter Name="@isAdmin" Direction="1" Ordinal="1" DbType="2" />
+                    <Parameter Name="@result" Direction="3" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteTask">
+                  <Parameters>
+                    <Parameter Name="@taskId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteUser">
+                  <Parameters>
+                    <Parameter Name="@userId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spSetUserTaskAsFail">
+                  <Parameters>
+                    <Parameter Name="@UserId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                    <Parameter Name="@TaskId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spSetUserTaskAsSuccess">
+                  <Parameters>
+                    <Parameter Name="@UserId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                    <Parameter Name="@TaskId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+              </StoredProcedures>
+            </Schema>
+          </Schemas>
+        </Catalog>
       </Catalogs>
     </TargetDatabase>
   </TargetDatabases>
@@ -608,7 +693,7 @@
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":Sample" TargetName="HIMS:dbo:Sample">
+        <EntityMapping EntityName=":Sample" TargetName="HIMS.Database:dbo:Sample">
           <FieldMappings>
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
@@ -664,7 +749,7 @@
             <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" SequenceToUse="SCOPE_IDENTITY()" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":VTask" TargetName="HIMS:dbo:vTask" ActionCombination="4">
+        <EntityMapping EntityName=":VTask" TargetName="HIMS.Database:dbo:vTask" ActionCombination="4">
           <FieldMappings>
             <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
@@ -673,7 +758,7 @@
             <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" SequenceToUse="SCOPE_IDENTITY()" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":VUserProfile" TargetName="HIMS:dbo:vUserProfile" ActionCombination="4">
+        <EntityMapping EntityName=":VUserProfile" TargetName="HIMS.Database:dbo:vUserProfile" ActionCombination="4">
           <FieldMappings>
             <FieldMapping FieldName="Address" TargetFieldName="Address" />
             <FieldMapping FieldName="Age" TargetFieldName="Age" />
@@ -701,7 +786,7 @@
             <FieldMapping FieldName="UserName" TargetFieldName="UserName" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":VUserTask" TargetName="HIMS:dbo:vUserTask" ActionCombination="4">
+        <EntityMapping EntityName=":VUserTask" TargetName="HIMS.Database:dbo:vUserTask" ActionCombination="4">
           <FieldMappings>
             <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
             <FieldMapping FieldName="Description" TargetFieldName="Description" />

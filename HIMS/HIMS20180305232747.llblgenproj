@@ -388,7 +388,7 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-05T20:27:59.1573842Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-05T20:26:29.8706779Z">
               <Tables>
                 <Table Name="__RefactorLog">
                   <PkConstraintName Name="PK____Refact__D3AEFFDB4081553A" />
@@ -608,13 +608,6 @@
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":Sample" TargetName="HIMS:dbo:Sample">
-          <FieldMappings>
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="Name" TargetFieldName="Name" />
-            <FieldMapping FieldName="SampleId" TargetFieldName="SampleId" SequenceToUse="SCOPE_IDENTITY()" />
-          </FieldMappings>
-        </EntityMapping>
         <EntityMapping EntityName=":Task" TargetName="HIMS:dbo:Task">
           <FieldMappings>
             <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
@@ -664,32 +657,6 @@
             <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" SequenceToUse="SCOPE_IDENTITY()" />
           </FieldMappings>
         </EntityMapping>
-        <EntityMapping EntityName=":VTask" TargetName="HIMS:dbo:vTask" ActionCombination="4">
-          <FieldMappings>
-            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="Name" TargetFieldName="Name" />
-            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" SequenceToUse="SCOPE_IDENTITY()" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName=":VUserProfile" TargetName="HIMS:dbo:vUserProfile" ActionCombination="4">
-          <FieldMappings>
-            <FieldMapping FieldName="Address" TargetFieldName="Address" />
-            <FieldMapping FieldName="Age" TargetFieldName="Age" />
-            <FieldMapping FieldName="Direction" TargetFieldName="Direction" />
-            <FieldMapping FieldName="Education" TargetFieldName="Education" />
-            <FieldMapping FieldName="Email" TargetFieldName="Email" />
-            <FieldMapping FieldName="FullName" TargetFieldName="FullName" />
-            <FieldMapping FieldName="MathScore" TargetFieldName="MathScore" />
-            <FieldMapping FieldName="MobilePhone" TargetFieldName="MobilePhone" />
-            <FieldMapping FieldName="Sex" TargetFieldName="Sex" />
-            <FieldMapping FieldName="Skype" TargetFieldName="Skype" />
-            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="UniversityAverageScore" TargetFieldName="UniversityAverageScore" />
-            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
-          </FieldMappings>
-        </EntityMapping>
         <EntityMapping EntityName=":VUserProgress" TargetName="HIMS:dbo:vUserProgress" ActionCombination="4">
           <FieldMappings>
             <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
@@ -699,17 +666,6 @@
             <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
             <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
             <FieldMapping FieldName="UserName" TargetFieldName="UserName" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName=":VUserTask" TargetName="HIMS:dbo:vUserTask" ActionCombination="4">
-          <FieldMappings>
-            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
-            <FieldMapping FieldName="Description" TargetFieldName="Description" />
-            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="State" TargetFieldName="State" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
-            <FieldMapping FieldName="TaskName" TargetFieldName="TaskName" />
-            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":VUserTrack" TargetName="HIMS:dbo:vUserTrack" ActionCombination="4">
