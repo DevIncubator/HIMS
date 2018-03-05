@@ -48,7 +48,7 @@ namespace HIMS.BusinessLogic.Services
 
             if (item != null)
             {
-                Mapper.Map(itemDTO, item);
+                item = Mapper.Map<TaskTrackTransferModel, TaskTrack>(itemDTO);
                 Database.Save();
             }
         }

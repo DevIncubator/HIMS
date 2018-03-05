@@ -50,15 +50,14 @@ namespace HIMS.WebMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadGateway);
             }
 
-            var taskTrackDTO = _taskTrackService.GetTaskTrack(id);
+            var taskTrackDTO = _vUserTrackService.Get(id);
 
             if (TryUpdateModel(taskTrackDTO, "",
                 new string[] {nameof(taskTrackDTO.TrackNote) }))
             {
                 try
                 {
-                    _taskTrackService.UpdateTaskTrack(taskTrackDTO);
-
+                    _vUserTrackService.UpdateUserTrack(taskTrackDTO);
                     return RedirectToAction("Index");
 
                 }
@@ -68,7 +67,7 @@ namespace HIMS.WebMVC.Controllers
                 }
             }
 
-            var taskTrack = Mapper.Map<TaskTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
             return View(taskTrack);
         }
 
@@ -121,14 +120,14 @@ namespace HIMS.WebMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            TaskTrackTransferModel taskTrackDTO = _taskTrackService.GetTaskTrack(id);
+            var taskTrackDto = _vUserTrackService.Get(id.Value);
 
-            if (taskTrackDTO == null)
+            if (taskTrackDto == null)
             {
                 return HttpNotFound();
             }
 
-            var taskTrack = Mapper.Map<TaskTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDto);
             return View(taskTrack);
         }
 
@@ -158,7 +157,7 @@ namespace HIMS.WebMVC.Controllers
             return View(taskTrack);
         }
 
-        public ActionResult Index(int userId)
+        public ActionResult Index(int? userId)
         {
             var taskTracksDTO = _vUserTrackService.GetVUserTrack(userId);
             var taskTracks = new TaskTracksListViewModel

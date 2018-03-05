@@ -43,5 +43,17 @@ namespace HIMS.BusinessLogic.Services
             return Mapper.Map<IEnumerable<VUserTrack>, List<VUserTrackTransferModel>>(Database.VUserTracks.GetByUserId(UserId.Value));
 
         }
+
+        public void UpdateUserTrack(VUserTrackTransferModel itemDto)
+        {
+            var item = Database.VUserTracks.Get(itemDto.TaskTrackId);
+            itemDto.TrackDate = DateTime.Now;
+
+            if (item != null)
+            {
+                Mapper.Map(itemDto, item);
+                Database.Save();
+            }
+        }
     }
 }
