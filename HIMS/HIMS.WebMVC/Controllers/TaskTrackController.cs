@@ -25,7 +25,7 @@ namespace HIMS.WebMVC.Controllers
             _vUserProfileService = vUserProfileService;
         }
 
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id) 
         {
             if (id == null)
             {
@@ -133,8 +133,9 @@ namespace HIMS.WebMVC.Controllers
             return View(taskTrack);
         }
 
-        public ActionResult Create(int taskId)
+        public ActionResult Create(UserTaskTransferModel model)
         {
+            ViewBag.TaskName = model.Name;
             return View();
         }
 

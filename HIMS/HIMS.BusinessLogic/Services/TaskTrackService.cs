@@ -33,7 +33,7 @@ namespace HIMS.BusinessLogic.Services
         {
             var item = new TaskTrack
             {
-                TrackDate = itemDTO.TrackDate,
+                TrackDate = DateTime.Now,
                 TrackNote = itemDTO.TrackNote,
                 UserTaskId = itemDTO.UserTaskId
             };
