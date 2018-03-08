@@ -1,0 +1,29 @@
+﻿@model IEnumerable<HIMS.WebMVC.Models.UserProgressViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Task</th>
+            <th>Note</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.UserProgress)
+        {
+            <tr>
+                <td>11</td>
+                <td>@Html.ActionLink(item.UserProgress, "Details", new { id = item.TaskId })</td>
+                <td>@Html.DisplayFor(modelItem => item.TrackNote)</td>
+                <td>@Html.DisplayFor(modelItem => item.TrackDate)</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,13 +1,12 @@
-﻿using HIMS.Data;
+﻿using HIMS.DAL.Interfaces;
+using HIMS.Data;
 using HIMS.Data.EntityClasses;
-using HIMS.Data.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace HIMS.DAL.Repositories
 {
-    public class VUserProgressRepository : IRepository<VUserProgress>
+    public class VUserProgressRepository : IVUserProgressRepository
     {
         private HIMSDataContext db;
 
@@ -16,29 +15,9 @@ namespace HIMS.DAL.Repositories
             db = context;
         }
 
-        public void Create(VUserProgress item)
+        public IEnumerable<VUserProgress> GetProgressByUserId(int id)
         {
-            db.Set<VUserProgress>().Add(item);
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<VUserProgress> Find(Func<VUserProgress, bool> predicate)
-        {
-            return db.VUserProgresses.Where(predicate);
-        }
-
-        public VUserProgress Get(int id)
-        {
-            return db.VUserProgresses.Find(id);
-        }
-
-        public IEnumerable<VUserProgress> GetAll()
-        {
-            return db.VUserProgresses;
+            return db.VUserProgresses.Where(p => p.UserId == id);
         }
     }
 }

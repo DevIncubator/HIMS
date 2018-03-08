@@ -23,11 +23,11 @@ namespace HIMS.Data.Repositories
         private VUserTrackRepository _vUserTrackRepository;
         private VTaskRepository _vTaskRepository;
 
-
         public EFUnitOfWork(string connectionString)
         {
             db = new HIMSDataContext(connectionString);
         }
+
         public IRepository<Sample> Samples
         {
             get
@@ -37,6 +37,7 @@ namespace HIMS.Data.Repositories
                 return _sampleRepository;
             }
         }
+
         public IRepository<VTask> VTasks
         {
             get
@@ -59,10 +60,7 @@ namespace HIMS.Data.Repositories
                 
                 return _taskRepository;
             }
-        }
-      
-
-
+        }    
 
         public IVUserProfileRepository<VUserProfile> VUserProfiles
         {
@@ -74,7 +72,7 @@ namespace HIMS.Data.Repositories
             }
         }
 
-        public IRepository<VUserProgress> VUserProgress
+        public IVUserProgressRepository VUserProgress
         {
             get
             {

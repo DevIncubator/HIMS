@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IVUserProfileRepository.cs" />
+    <Compile Include="Interfaces\IVUserProgressRepository.cs" />
     <Compile Include="Interfaces\IVUserTaskRepository.cs" />
     <Compile Include="Interfaces\IVUserTrackRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

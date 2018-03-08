@@ -200,6 +200,7 @@
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Controllers\TaskTrackController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Controllers\UserProgressController.cs" />
     <Compile Include="Controllers\UserTaskController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,6 +214,8 @@
     <Compile Include="Models\TaskTrackViewModel.cs" />
     <Compile Include="Models\UserProfileDetailsViewModel.cs" />
     <Compile Include="Models\UserProfileGridViewModel.cs" />
+    <Compile Include="Models\UserProgressListViewModel.cs" />
+    <Compile Include="Models\UserProgressViewModel.cs" />
     <Compile Include="Models\UserTaskViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\AutoMapperConfig.cs" />
@@ -315,6 +318,7 @@
     <Content Include="Views\TaskTrack\Details.cshtml" />
     <Content Include="Views\TaskTrack\Delete.cshtml" />
     <Content Include="Views\TaskTrack\Edit.cshtml" />
+    <Content Include="Views\UserProgress\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
