@@ -90,7 +90,7 @@
   <CodeGenerationCyclePreferences>
     <OutputType Value="3">
       <LastUsedPreferences>
-        <DestinationRootFolder Value="C:\Users\personal\Documents\Visual Studio 2015\Projects\HIMS\HIMS" />
+        <DestinationRootFolder Value="D:\HIMS\HIMS" />
         <FrameworkName Value="Entity Framework v6" />
         <LanguageName Value="C#" />
         <PlatformName Value=".NET 4.5.2" />
@@ -187,21 +187,21 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="Direction" ObjectID="c080eca9-f99f-4acc-8ef0-513b2a7727a5">
+      <EntityDefinition Name="Direction" ObjectID="9edcf195-4813-4db5-8674-039a43adc65b">
         <Fields>
           <Field Name="Description" Type="string" MaxLength="2147483647" />
           <Field Name="DirectionId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="Name" Type="string" MaxLength="2147483647" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Sample" ObjectID="3d34acf0-5339-44f5-a543-f5d6dd21cd9e">
+      <EntityDefinition Name="Sample" ObjectID="269d52c3-9338-4a18-b1ec-b63bff8fe67e">
         <Fields>
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="255" />
           <Field Name="Name" Type="string" MaxLength="25" />
           <Field Name="SampleId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Task" ObjectID="daaae229-00fe-4b26-9beb-8fa5ef09ee9a">
+      <EntityDefinition Name="Task" ObjectID="28a8eebb-aff0-4f4f-a6f5-4a7fa59b5189">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
@@ -210,13 +210,13 @@
           <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="TaskState" ObjectID="f68c2b50-f274-41c1-8b5a-865af0964501">
+      <EntityDefinition Name="TaskState" ObjectID="f72a3769-27a5-40d6-bd40-66af0e0bd081">
         <Fields>
           <Field Name="StateId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="StateName" Type="string" MaxLength="25" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="TaskTrack" ObjectID="9a0213ca-f68b-4e09-8b0f-179ba855c503">
+      <EntityDefinition Name="TaskTrack" ObjectID="79c52f52-1891-4827-8cad-e76696cec76e">
         <Fields>
           <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="TrackDate" Type="datetime" />
@@ -224,7 +224,7 @@
           <Field Name="UserTaskId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserProfile" ObjectID="aa9962be-90fd-49d8-9884-03bf1b15dcdb">
+      <EntityDefinition Name="UserProfile" ObjectID="8dcce33a-8a27-4a8c-b700-a8e4159014f8">
         <Fields>
           <Field Name="Address" Type="string" MaxLength="100" />
           <Field Name="BirthDate" Type="datetime" />
@@ -242,7 +242,7 @@
           <Field Name="UserId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserTask" ObjectID="a479e85d-0152-42d7-8c58-814a485be250">
+      <EntityDefinition Name="UserTask" ObjectID="e1adb031-d33d-4bfc-9ceb-b0c1cd780cc5">
         <Fields>
           <Field Name="StateId" Type="int" Precision="10" />
           <Field Name="TaskId" Type="int" Precision="10" />
@@ -250,20 +250,20 @@
           <Field Name="UserTaskId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VTask" ObjectID="4b5a549d-a579-43b3-9c04-656c2fedf83a">
+      <EntityDefinition Name="VTask" ObjectID="e8fc555d-01c0-4c2c-b62e-d640d0965c28">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
-          <Field Name="Name" Type="string" MaxLength="25" />
+          <Field Name="Name" Type="string" MaxLength="50" />
           <Field Name="StartDate" Type="datetime" />
           <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserProfile" ObjectID="07a1e7a5-e78f-4054-b70b-573a952d74fb">
+      <EntityDefinition Name="VUserProfile" ObjectID="7b9baa52-1f09-4b84-a722-1ccb087ca10b">
         <Fields>
           <Field Name="Address" Type="string" MaxLength="100" />
           <Field Name="Age" Type="int" IsOptional="true" Precision="10" />
-          <Field Name="Direction" Type="string" MaxLength="50" />
+          <Field Name="Direction" Type="string" MaxLength="2147483647" />
           <Field Name="Education" Type="string" MaxLength="250" />
           <Field Name="Email" Type="string" MaxLength="125" />
           <Field Name="FullName" Type="string" MaxLength="51" />
@@ -276,36 +276,36 @@
           <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserProgress" ObjectID="16cd882a-5fc8-4b2f-b6a0-b432ac8a639b">
+      <EntityDefinition Name="VUserProgress" ObjectID="62a2e377-eb6f-4c6e-9239-29f0de8ca56e">
         <Fields>
-          <Field Name="TaskId" Type="int" Precision="10" />
+          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="TaskName" Type="string" MaxLength="50" />
           <Field Name="TaskTrackId" Type="int" Precision="10" />
           <Field Name="TrackDate" Type="datetime" />
           <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
-          <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="UserId" Type="int" Precision="10" />
           <Field Name="UserName" Type="string" MaxLength="25" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserTask" ObjectID="3f2e1385-2771-4e00-b15d-fe6088a048d1">
+      <EntityDefinition Name="VUserTask" ObjectID="6e97d60a-bb4b-468d-aa21-109a1304eed9">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
           <Field Name="StartDate" Type="datetime" />
           <Field Name="State" Type="string" MaxLength="25" />
-          <Field Name="TaskId" Type="int" Precision="10" />
-          <Field Name="TaskName" Type="string" MaxLength="25" />
-          <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskName" Type="string" MaxLength="50" />
+          <Field Name="UserId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserTrack" ObjectID="9e839bf5-13e8-4b84-ba96-f9efa6eff60f">
+      <EntityDefinition Name="VUserTrack" ObjectID="7e112ff7-3cfb-4d2c-8294-2e552fca64c8">
         <Fields>
           <Field Name="Name" Type="string" MaxLength="50" />
           <Field Name="TaskId" Type="int" Precision="10" />
-          <Field Name="TaskTrackId" Type="int" Precision="10" />
+          <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="TrackDate" Type="datetime" />
           <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
-          <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="UserId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
     </EntityDefinitions>
@@ -376,8 +376,9 @@
   <TargetDatabases>
     <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
       <ConnectionElements>
-        <ConnectionElement Name="ServerName" Value="DESKTOP-VGR8LQF\SQLEXPRESS" />
+        <ConnectionElement Name="ServerName" Value="(localdb)\MSSQLLocalDB" />
         <ConnectionElement Name="CatalogName" Value="master" />
+        <ConnectionElement Name="UseWindowsAuthentication" Value="true" />
         <ConnectionElement Name="UserID" Value="sa" />
         <ConnectionElement Name="Password" Value="" />
       </ConnectionElements>
@@ -388,10 +389,10 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-05T20:27:59.1573842Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-08T18:46:04.416582Z">
               <Tables>
                 <Table Name="__RefactorLog">
-                  <PkConstraintName Name="PK____Refact__D3AEFFDB4081553A" />
+                  <PkConstraintName Name="PK____Refact__D3AEFFDB5464FA5E" />
                   <Fields>
                     <Field Name="OperationKey" Ordinal="1" IsPrimaryKey="true" DbType="25" />
                   </Fields>
@@ -400,7 +401,7 @@
                   </CustomProperties>
                 </Table>
                 <Table Name="Direction">
-                  <PkConstraintName Name="PK__Directio__876847C6AD2B00EE" />
+                  <PkConstraintName Name="PK__tmp_ms_x__876847C694F69B80" />
                   <Fields>
                     <Field Name="DirectionId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="2" DbType="12" Length="2147483647" />
@@ -416,7 +417,7 @@
                   </Fields>
                 </Table>
                 <Table Name="Task">
-                  <PkConstraintName Name="PK__Task__7C6949B19747AE76" />
+                  <PkConstraintName Name="PK__tmp_ms_x__7C6949B155FFB909" />
                   <Fields>
                     <Field Name="TaskId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
@@ -433,7 +434,7 @@
                   </Fields>
                 </Table>
                 <Table Name="TaskTrack">
-                  <PkConstraintName Name="PK__TaskTrac__9041AE7B97B0442F" />
+                  <PkConstraintName Name="PK__TaskTrac__9041AE7BE67D45DB" />
                   <Fields>
                     <Field Name="TaskTrackId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="TrackDate" Ordinal="2" DbType="4" />
@@ -621,7 +622,7 @@
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
             <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":TaskState" TargetName="HIMS:dbo:TaskState">
@@ -632,7 +633,7 @@
         </EntityMapping>
         <EntityMapping EntityName=":TaskTrack" TargetName="HIMS:dbo:TaskTrack">
           <FieldMappings>
-            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" />
             <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
             <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
             <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" />
@@ -670,7 +671,7 @@
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
             <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":VUserProfile" TargetName="HIMS:dbo:vUserProfile" ActionCombination="4">
@@ -687,7 +688,7 @@
             <FieldMapping FieldName="Skype" TargetFieldName="Skype" />
             <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
             <FieldMapping FieldName="UniversityAverageScore" TargetFieldName="UniversityAverageScore" />
-            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":VUserProgress" TargetName="HIMS:dbo:vUserProgress" ActionCombination="4">
@@ -709,7 +710,7 @@
             <FieldMapping FieldName="State" TargetFieldName="State" />
             <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
             <FieldMapping FieldName="TaskName" TargetFieldName="TaskName" />
-            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":VUserTrack" TargetName="HIMS:dbo:vUserTrack" ActionCombination="4">
@@ -719,7 +720,7 @@
             <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" />
             <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
             <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
-            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
           </FieldMappings>
         </EntityMapping>
       </EntityMappings>
