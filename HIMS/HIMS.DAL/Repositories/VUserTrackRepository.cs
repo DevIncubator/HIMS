@@ -36,7 +36,7 @@ namespace HIMS.DAL.Repositories
 
         public IEnumerable<VUserTrack> GetByUserId(int UserId)
         {
-            return _db.VUserTracks.Where(item => item.UserId == UserId).ToList();
+            return _db.VUserTracks.Where(item => item.UserId == UserId);
         }
 
         public IEnumerable<VUserTrack> GetAll()
@@ -47,6 +47,11 @@ namespace HIMS.DAL.Repositories
         public VUserTrack Get(int id)
         {
             return _db.VUserTracks.Find(id);
+        }
+
+        public IEnumerable<VUserTrack> GetByTaskTrackId(int taskTrackId)
+        {
+            return _db.VUserTracks.Where(item => item.TaskTrackId == taskTrackId);
         }
     }
 }

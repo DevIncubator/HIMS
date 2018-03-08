@@ -7,6 +7,6 @@ namespace HIMS.WebMVC.Models
 {
     public class TaskTracksListViewModel
     {
-        public IEnumerable<TaskTrackViewModel> TaskTracks { get; set; }
+        public IEnumerable<VUserTrackViewModel> TaskTracks { get; set; }
     }
 }

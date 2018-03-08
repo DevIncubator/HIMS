@@ -39,7 +39,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
 
-            var item = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var item = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDTO);
             return View(item);
         }
 
@@ -69,7 +69,7 @@ namespace HIMS.WebMVC.Controllers
                 }
             }
 
-            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDTO);
             return View(taskTrack);
         }
 
@@ -85,14 +85,14 @@ namespace HIMS.WebMVC.Controllers
                 ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
             }
 
-            TaskTrackTransferModel taskTrackDTO = _taskTrackService.GetTaskTrack(id);
+            VUserTrackTransferModel userTrack = _vUserTrackService.GetByTaskTrack(id.Value);
 
-            if (taskTrackDTO == null)
+            if (userTrack == null)
             {
                 return HttpNotFound();
             }
 
-            var taskTrack = Mapper.Map<TaskTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, VUserTrackViewModel>(userTrack);
 
             return View(taskTrack);
 
@@ -133,15 +133,17 @@ namespace HIMS.WebMVC.Controllers
             return View(taskTrack);
         }
 
-        public ActionResult Create(UserTaskTransferModel model)
+        public ActionResult Create(/*UserTaskTransferModel model*/)
         {
-            ViewBag.TaskName = model.Name;
+            //ViewBag.TaskName = model.Name;
+            //TaskTrackViewModel viewModel = new TaskTrackViewModel();
+            //viewModel.UserTaskId = model.;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Note")] TaskTrackViewModel taskTrack)
+        public ActionResult Create([Bind(Include = "TrackNote")] TaskTrackViewModel taskTrack)
         {
             try
             {
@@ -176,7 +178,7 @@ namespace HIMS.WebMVC.Controllers
             
             var taskTracks = new TaskTracksListViewModel
             {
-                TaskTracks = Mapper.Map<IEnumerable<VUserTrackTransferModel>, List<TaskTrackViewModel>>(taskTracksDto)
+                TaskTracks = Mapper.Map<IEnumerable<VUserTrackTransferModel>, List<VUserTrackViewModel>>(taskTracksDto)
             };
             return View(taskTracks);
         }
