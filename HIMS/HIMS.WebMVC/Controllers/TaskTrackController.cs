@@ -39,7 +39,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
 
-            var item = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var item = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDTO);
             return View(item);
         }
 
@@ -69,7 +69,7 @@ namespace HIMS.WebMVC.Controllers
                 }
             }
 
-            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDTO);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDTO);
             return View(taskTrack);
         }
 

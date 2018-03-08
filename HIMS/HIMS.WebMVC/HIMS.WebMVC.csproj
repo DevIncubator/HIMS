@@ -210,6 +210,7 @@
     <Compile Include="Models\SampleViewModel.cs" />
     <Compile Include="Models\SmplesListViewModel.cs" />
     <Compile Include="Models\TaskTrackDeleteViewModel.cs" />
+    <Compile Include="Models\TaskTrackEditViewModel.cs" />
     <Compile Include="Models\TaskTracksListViewModel.cs" />
     <Compile Include="Models\TaskTrackViewModel.cs" />
     <Compile Include="Models\UserProfileDetailsViewModel.cs" />
