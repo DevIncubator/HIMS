@@ -16,6 +16,7 @@ namespace HIMS.WebMVC.Utils
             Bind<IDirectionService>().To<DirectionService>();
             Bind<ITaskTrackService>().To<TaskTrackService>();
             Bind<IVUserTrackService>().To<VUserTrackService>();
+            Bind<IVUserProgressService>().To<VUserProgressService>();
         }
     }
 }
