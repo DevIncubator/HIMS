@@ -1,4 +1,4 @@
-﻿@model HIMS.WebMVC.Models.TaskTrackViewModel
+﻿@model HIMS.WebMVC.Models.VUserTrackViewModel
 
 @{
     ViewBag.Title = "Delete page of the Sample entry";
@@ -8,15 +8,15 @@
 <p class="error">@ViewBag.ErrorMessage</p>
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Sample</h4>
+    <h4>Task track</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TaskName)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.TaskName)
+            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>
