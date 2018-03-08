@@ -48,5 +48,10 @@ namespace HIMS.DAL.Repositories
         {
             return _db.VUserTracks.Find(id);
         }
+
+        public IEnumerable<VUserTrack> GetByTaskTrackId(int taskTrackId)
+        {
+            return _db.VUserTracks.Where(item => item.TaskTrackId == taskTrackId);
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace HIMS.BusinessLogic.Interfaces
         IEnumerable<VUserTrackTransferModel> GetVUserTrack(int? id);
         VUserTrackTransferModel Get(int? id);
         void UpdateUserTrack(VUserTrackTransferModel item);
+        VUserTrackTransferModel GetByTaskTrack(int? id);
         void Dispose();
     }
 }
