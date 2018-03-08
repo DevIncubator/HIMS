@@ -36,7 +36,7 @@ namespace HIMS.DAL.Repositories
 
         public IEnumerable<VUserTrack> GetByUserId(int UserId)
         {
-            return _db.VUserTracks.Where(item => item.UserId == UserId).ToList();
+            return _db.VUserTracks.Where(item => item.UserId == UserId);
         }
 
         public IEnumerable<VUserTrack> GetAll()
