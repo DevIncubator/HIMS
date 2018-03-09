@@ -18,26 +18,35 @@ namespace HIMS.WebMVC.Controllers
             _vUserProfileService = vUserProfileService;
         }
 
+        [HttpPost]
         public ActionResult Index(int? userId)
         {
-            IEnumerable<VUserProgressTransferModel> userProgressDTO;
+            IEnumerable<VUserProgressTransferModel> userProgressDTO = null;
+            string userName = "";
 
             if (userId.HasValue)
             {
                 userProgressDTO = _vUserProgressService.GetProgressByUserId(userId.Value);
+                userName = _vUserProgressService.GetUserNameById(userId.Value);
             }
             else
             {
                 var userIdentityName = User.Identity.Name;
                 var user = _vUserProfileService.GetVUserProfile(userIdentityName);
-                userProgressDTO = _vUserProgressService.GetProgressByUserId(user.UserId);
+                if (user != null)
+                {
+                    userProgressDTO = _vUserProgressService.GetProgressByUserId(user.UserId);
+                    userName = _vUserProgressService.GetUserNameById(user.UserId);
+                }
             }
 
             var userProgress = new UserProgressListViewModel
             {
-                UserProgressList = Mapper.Map<IEnumerable<VUserProgressTransferModel>, List<UserProgressViewModel>>(userProgressDTO)
+                UserProgressList = Mapper.Map<IEnumerable<VUserProgressTransferModel>, List<UserProgressViewModel>>(userProgressDTO),
+                UserName = userName
             };
 
+            ViewBag.Title = $"{userName}'s progress";
             return View(userProgress);
         }
     }

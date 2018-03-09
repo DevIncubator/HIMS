@@ -57,8 +57,12 @@
             @Html.DisplayFor(modelItem => item.Age)
         </td>
         <td>
-            @Html.ActionLink("Progress", "GetProgress", "Progress", new { id = item.UserId }, null) |
-            @Html.ActionLink("Tasks", "GetTasksForUser",  "UserTask", new { id = item.UserId }, null) |
+            @using (Html.BeginForm("Index", "UserProgress", FormMethod.Post, new { style="display:inline-block" }))
+            {
+                @Html.HiddenFor(userId => item.UserId)
+                <a href="#" onclick="$(this).closest('form').submit()">Progress</a>
+            }
+            | @Html.ActionLink("Tasks", "GetTasksForUser",  "UserTask", new { id = item.UserId }, null) |
             @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
         </td>

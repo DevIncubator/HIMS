@@ -6,5 +6,6 @@ namespace HIMS.DAL.Interfaces
     public interface IVUserProgressRepository
     {
         IEnumerable<VUserProgress> GetProgressByUserId(int id);
+        string GetUserNameById(int id);
     }
 }

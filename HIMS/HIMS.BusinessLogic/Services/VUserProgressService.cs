@@ -20,5 +20,10 @@ namespace HIMS.BusinessLogic.Services
         {
             return Mapper.Map<IEnumerable<VUserProgress>, List<VUserProgressTransferModel>>(Database.VUserProgress.GetProgressByUserId(id));
         }
+
+        public string GetUserNameById(int id)
+        {
+            return Database.VUserProgress.GetUserNameById(id);
+        }
     }
 }

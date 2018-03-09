@@ -1,29 +1,36 @@
 ﻿@model HIMS.WebMVC.Models.UserProgressListViewModel
 
-@{
-    ViewBag.Title = "Index";
-}
+@if (Model.UserName != null)
+{
+    ViewBag.Title = $"{Model.UserName}'s progress";
 
-<h2>Index</h2>
+    <h2>@(ViewBag.Title + ":")</h2>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Task</th>
-            <th>Note</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.UserProgressList)
-        {
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>11</td>
-                <td>@Html.ActionLink(item.UserProgress, "Details", new { id = item.TaskId })</td>
-                <td>@Html.DisplayFor(modelItem => item.TrackNote)</td>
-                <td>@Html.DisplayFor(modelItem => item.TrackDate)</td>
+                <th class="text-center">#</th>
+                <th class="text-center">Task</th>
+                <th class="text-center">Note</th>
+                <th class="text-center">Date</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.UserProgressList.Count(); i++)
+            {
+                <tr>
+                    <td class="text-center">@(i + 1)</td>
+                    <!-- TODO: Make a valid ActionLink for task detail page by task id -->
+                    <td class="text-center">@Html.ActionLink(Model.UserProgressList.ElementAt(i).TaskName, "Details", new { id = Model.UserProgressList.ElementAt(i).TaskId })</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackNote)</td>
+                    <td class="text-center">@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackDate)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    ViewBag.Title = "This user has no progress yet.";
+    <h2>@ViewBag.Title</h2>
+}
