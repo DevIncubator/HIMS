@@ -35,7 +35,7 @@ namespace HIMS.WebMVC.Controllers
 
             var userProgress = new UserProgressListViewModel
             {
-                UserProgress = Mapper.Map<IEnumerable<VUserProgressTransferModel>, List<UserProgressViewModel>>(userProgressDTO)
+                UserProgressList = Mapper.Map<IEnumerable<VUserProgressTransferModel>, List<UserProgressViewModel>>(userProgressDTO)
             };
 
             return View(userProgress);
