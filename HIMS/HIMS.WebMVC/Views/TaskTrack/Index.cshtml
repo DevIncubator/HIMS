@@ -1,7 +1,7 @@
 ﻿@model HIMS.WebMVC.Models.TaskTracksListViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Task Tracks Manage Grid";
 }
 
 <h2>This is your Task Tracks Manage Grid</h2>
@@ -25,11 +25,15 @@
         </tr>
     </thead>
     <tbody>
+    @{
+        int viewIndex = 0;
+    }
         @foreach (var item in Model.TaskTracks)
         {
+            viewIndex++;
             <tr>
                 <th scope="row">
-                    @Html.DisplayFor(modelItem => item.TaskTrackId)
+                    @viewIndex
                 </th>
                 <td>
                     @Html.ActionLink(item.Name, "Details", "Task", new { id = item.TaskId }, null)
@@ -46,4 +50,5 @@
                 </td>
             </tr>
         }
+
 </table>

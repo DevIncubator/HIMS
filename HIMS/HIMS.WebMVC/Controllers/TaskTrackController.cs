@@ -106,9 +106,8 @@ namespace HIMS.WebMVC.Controllers
             {
                 _taskTrackService.DeleteTaskTrack(id);
             }
-            catch (RetryLimitExceededException/* dex */)
+            catch (RetryLimitExceededException)
             {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
             return RedirectToAction("Index");
@@ -129,7 +128,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
 
-            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackViewModel>(taskTrackDto);
+            var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDto);
             return View(taskTrack);
         }
 

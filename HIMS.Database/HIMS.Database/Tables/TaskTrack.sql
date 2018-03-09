@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TaskTrack]
 (
-	[TaskTrackId] INT NOT NULL PRIMARY KEY, 
+	[TaskTrackId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
     [TrackDate] DATETIME NOT NULL, 
     [TrackNote] NVARCHAR(MAX) NOT NULL, 
     [UserTaskId] INT NOT NULL, 

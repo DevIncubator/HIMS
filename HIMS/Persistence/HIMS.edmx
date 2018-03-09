@@ -78,7 +78,7 @@
 					<Key>
 						<PropertyRef Name="TaskTrackId"/>
 					</Key>
-					<Property Name="TaskTrackId" Type="int" Nullable="false"  />
+					<Property Name="TaskTrackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" DefaultValue="1"  />
 					<Property Name="TrackDate" Type="datetime" Nullable="false"  />
 					<Property Name="TrackNote" Type="nvarchar" Nullable="false"  />
 					<Property Name="UserTaskId" Type="int" Nullable="false"  />
@@ -141,7 +141,7 @@
 				</EntityType>
 				<EntityType Name="vUserProgress">
 					<Key>
-						<PropertyRef Name="TaskId"/>
+						<PropertyRef Name="TaskTrackId"/>
 					</Key>
 					<Property Name="UserId" Type="int" Nullable="false"  />
 					<Property Name="TaskId" Type="int" Nullable="false"  />
@@ -253,18 +253,6 @@
 					<EntitySet Name="VUserProgress" EntityType="Self.VUserProgress"/>	
 					<EntitySet Name="VUserTask" EntityType="Self.VUserTask"/>	
 					<EntitySet Name="VUserTrack" EntityType="Self.VUserTrack"/>	
-					<AssociationSet Name="UserTask_Task_Task_UserTasks" Association="Self.UserTask_Task_Task_UserTasks">
-						<End Role="UserTask" EntitySet="UserTask"/>
-						<End Role="Task" EntitySet="Task"/>
-					</AssociationSet>
-					<AssociationSet Name="UserTask_UserProfile_UserProfile_UserTasks" Association="Self.UserTask_UserProfile_UserProfile_UserTasks">
-						<End Role="UserTask" EntitySet="UserTask"/>
-						<End Role="UserProfile" EntitySet="UserProfile"/>
-					</AssociationSet>
-					<AssociationSet Name="UserTask_TaskState_TaskState_UserTasks" Association="Self.UserTask_TaskState_TaskState_UserTasks">
-						<End Role="UserTask" EntitySet="UserTask"/>
-						<End Role="TaskState" EntitySet="TaskState"/>
-					</AssociationSet>
 					<AssociationSet Name="UserProfile_Direction_Direction_UserProfiles" Association="Self.UserProfile_Direction_Direction_UserProfiles">
 						<End Role="UserProfile" EntitySet="UserProfile"/>
 						<End Role="Direction" EntitySet="Direction"/>
@@ -272,6 +260,18 @@
 					<AssociationSet Name="TaskTrack_Task_Task_TaskTracks" Association="Self.TaskTrack_Task_Task_TaskTracks">
 						<End Role="TaskTrack" EntitySet="TaskTrack"/>
 						<End Role="Task" EntitySet="Task"/>
+					</AssociationSet>
+					<AssociationSet Name="UserTask_Task_Task_UserTasks" Association="Self.UserTask_Task_Task_UserTasks">
+						<End Role="UserTask" EntitySet="UserTask"/>
+						<End Role="Task" EntitySet="Task"/>
+					</AssociationSet>
+					<AssociationSet Name="UserTask_TaskState_TaskState_UserTasks" Association="Self.UserTask_TaskState_TaskState_UserTasks">
+						<End Role="UserTask" EntitySet="UserTask"/>
+						<End Role="TaskState" EntitySet="TaskState"/>
+					</AssociationSet>
+					<AssociationSet Name="UserTask_UserProfile_UserProfile_UserTasks" Association="Self.UserTask_UserProfile_UserProfile_UserTasks">
+						<End Role="UserTask" EntitySet="UserTask"/>
+						<End Role="UserProfile" EntitySet="UserProfile"/>
 					</AssociationSet>
 	<!-- __LLBLGENPRO_USER_CODE_REGION_START CSDLEntityContainerCustomCode -->
 	<!-- __LLBLGENPRO_USER_CODE_REGION_END -->
@@ -386,7 +386,7 @@
 				</EntityType>
 				<EntityType Name="VUserProgress">
 					<Key>
-						<PropertyRef Name="TaskId"/>
+						<PropertyRef Name="TaskTrackId"/>
 					</Key>
 					<Property Name="TaskId" Nullable="false"  Type="Int32" />
 					<Property Name="TaskName" Nullable="false"  Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -419,42 +419,6 @@
 					<Property Name="TrackNote" Nullable="false"  Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
 					<Property Name="UserId" Nullable="false"  Type="Int32" />
 				</EntityType>
-				<Association Name="UserTask_Task_Task_UserTasks">
-					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
-					<End Role="Task" Type="Self.Task" Multiplicity="1" />
-					<ReferentialConstraint>
-						<Principal Role="Task">
-							<PropertyRef Name="TaskId" />
-						</Principal>
-						<Dependent Role="UserTask">
-							<PropertyRef Name="TaskId" />
-						</Dependent>
-					</ReferentialConstraint>	
-				</Association>
-				<Association Name="UserTask_UserProfile_UserProfile_UserTasks">
-					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
-					<End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-					<ReferentialConstraint>
-						<Principal Role="UserProfile">
-							<PropertyRef Name="UserId" />
-						</Principal>
-						<Dependent Role="UserTask">
-							<PropertyRef Name="UserId" />
-						</Dependent>
-					</ReferentialConstraint>	
-				</Association>
-				<Association Name="UserTask_TaskState_TaskState_UserTasks">
-					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
-					<End Role="TaskState" Type="Self.TaskState" Multiplicity="1" />
-					<ReferentialConstraint>
-						<Principal Role="TaskState">
-							<PropertyRef Name="StateId" />
-						</Principal>
-						<Dependent Role="UserTask">
-							<PropertyRef Name="StateId" />
-						</Dependent>
-					</ReferentialConstraint>	
-				</Association>
 				<Association Name="UserProfile_Direction_Direction_UserProfiles">
 					<End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
 					<End Role="Direction" Type="Self.Direction" Multiplicity="1" />
@@ -476,6 +440,42 @@
 						</Principal>
 						<Dependent Role="TaskTrack">
 							<PropertyRef Name="UserTaskId" />
+						</Dependent>
+					</ReferentialConstraint>	
+				</Association>
+				<Association Name="UserTask_Task_Task_UserTasks">
+					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
+					<End Role="Task" Type="Self.Task" Multiplicity="1" />
+					<ReferentialConstraint>
+						<Principal Role="Task">
+							<PropertyRef Name="TaskId" />
+						</Principal>
+						<Dependent Role="UserTask">
+							<PropertyRef Name="TaskId" />
+						</Dependent>
+					</ReferentialConstraint>	
+				</Association>
+				<Association Name="UserTask_TaskState_TaskState_UserTasks">
+					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
+					<End Role="TaskState" Type="Self.TaskState" Multiplicity="1" />
+					<ReferentialConstraint>
+						<Principal Role="TaskState">
+							<PropertyRef Name="StateId" />
+						</Principal>
+						<Dependent Role="UserTask">
+							<PropertyRef Name="StateId" />
+						</Dependent>
+					</ReferentialConstraint>	
+				</Association>
+				<Association Name="UserTask_UserProfile_UserProfile_UserTasks">
+					<End Role="UserTask" Type="Self.UserTask" Multiplicity="*" />
+					<End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+					<ReferentialConstraint>
+						<Principal Role="UserProfile">
+							<PropertyRef Name="UserId" />
+						</Principal>
+						<Dependent Role="UserTask">
+							<PropertyRef Name="UserId" />
 						</Dependent>
 					</ReferentialConstraint>	
 				</Association>

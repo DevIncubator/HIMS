@@ -187,21 +187,21 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="Direction" ObjectID="9edcf195-4813-4db5-8674-039a43adc65b">
+      <EntityDefinition Name="Direction" ObjectID="45ba294e-962f-48c1-b3e2-241fcb77d8e1">
         <Fields>
           <Field Name="Description" Type="string" MaxLength="2147483647" />
           <Field Name="DirectionId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="Name" Type="string" MaxLength="2147483647" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Sample" ObjectID="269d52c3-9338-4a18-b1ec-b63bff8fe67e">
+      <EntityDefinition Name="Sample" ObjectID="0f0166de-07c6-44ff-8f63-191b1dcccaac">
         <Fields>
           <Field Name="Description" Type="string" IsOptional="true" MaxLength="255" />
           <Field Name="Name" Type="string" MaxLength="25" />
           <Field Name="SampleId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Task" ObjectID="28a8eebb-aff0-4f4f-a6f5-4a7fa59b5189">
+      <EntityDefinition Name="Task" ObjectID="b7abdb21-e602-4901-996e-b9c75e4d31bd">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
@@ -210,21 +210,21 @@
           <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="TaskState" ObjectID="f72a3769-27a5-40d6-bd40-66af0e0bd081">
+      <EntityDefinition Name="TaskState" ObjectID="aa5c0ae1-4301-4fd1-a315-4ea989a528ce">
         <Fields>
           <Field Name="StateId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="StateName" Type="string" MaxLength="25" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="TaskTrack" ObjectID="79c52f52-1891-4827-8cad-e76696cec76e">
+      <EntityDefinition Name="TaskTrack" ObjectID="a5882093-70a3-431a-82a6-a7944d1e868f">
         <Fields>
-          <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskTrackId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
           <Field Name="TrackDate" Type="datetime" />
           <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
           <Field Name="UserTaskId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserProfile" ObjectID="8dcce33a-8a27-4a8c-b700-a8e4159014f8">
+      <EntityDefinition Name="UserProfile" ObjectID="c8957a93-44df-4dc7-8983-9f010080dbb2">
         <Fields>
           <Field Name="Address" Type="string" MaxLength="100" />
           <Field Name="BirthDate" Type="datetime" />
@@ -242,7 +242,7 @@
           <Field Name="UserId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="UserTask" ObjectID="e1adb031-d33d-4bfc-9ceb-b0c1cd780cc5">
+      <EntityDefinition Name="UserTask" ObjectID="95729f43-1f03-4b27-9739-69ea3ad7038f">
         <Fields>
           <Field Name="StateId" Type="int" Precision="10" />
           <Field Name="TaskId" Type="int" Precision="10" />
@@ -250,7 +250,7 @@
           <Field Name="UserTaskId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VTask" ObjectID="e8fc555d-01c0-4c2c-b62e-d640d0965c28">
+      <EntityDefinition Name="VTask" ObjectID="6b601fd7-ab59-40c7-b6be-c517371271eb">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
@@ -259,7 +259,7 @@
           <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserProfile" ObjectID="7b9baa52-1f09-4b84-a722-1ccb087ca10b">
+      <EntityDefinition Name="VUserProfile" ObjectID="83f838c0-b530-48a9-a57c-2a15ba057c7c">
         <Fields>
           <Field Name="Address" Type="string" MaxLength="100" />
           <Field Name="Age" Type="int" IsOptional="true" Precision="10" />
@@ -276,18 +276,18 @@
           <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserProgress" ObjectID="62a2e377-eb6f-4c6e-9239-29f0de8ca56e">
+      <EntityDefinition Name="VUserProgress" ObjectID="92fadd52-3764-4117-80a7-2e27dce1e743">
         <Fields>
-          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskId" Type="int" Precision="10" />
           <Field Name="TaskName" Type="string" MaxLength="50" />
-          <Field Name="TaskTrackId" Type="int" Precision="10" />
+          <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
           <Field Name="TrackDate" Type="datetime" />
           <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
           <Field Name="UserId" Type="int" Precision="10" />
           <Field Name="UserName" Type="string" MaxLength="25" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserTask" ObjectID="6e97d60a-bb4b-468d-aa21-109a1304eed9">
+      <EntityDefinition Name="VUserTask" ObjectID="a004c135-459d-4b0f-bf7c-f3e51c747523">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
@@ -298,7 +298,7 @@
           <Field Name="UserId" Type="int" Precision="10" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="VUserTrack" ObjectID="7e112ff7-3cfb-4d2c-8294-2e552fca64c8">
+      <EntityDefinition Name="VUserTrack" ObjectID="451fcde3-2bce-489a-8ba7-822cc9b9b8bb">
         <Fields>
           <Field Name="Name" Type="string" MaxLength="50" />
           <Field Name="TaskId" Type="int" Precision="10" />
@@ -339,34 +339,34 @@
     <InheritanceHierarchies />
   </EntityModel>
   <SPCallDefinitions>
-    <SPCallDefinition Name="SampleEntriesAmount" ObjectID="9229e255-83c1-4dbf-9011-f73249001b09">
+    <SPCallDefinition Name="SampleEntriesAmount" ObjectID="6e50581c-79a5-4ee5-bc0b-eb49f57ef1d5">
       <Parameters>
         <Parameter Name="IsAdmin" Type="bool" />
         <Parameter Name="Result" Type="int" Precision="10" Direction="3" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="SpDeleteTask" ObjectID="c7498deb-5641-44b1-b0e5-e228df4c9797">
+    <SPCallDefinition Name="SpDeleteTask" ObjectID="e0f2df43-7ba1-4f2b-88fa-c11a61fccc30">
       <Parameters>
         <Parameter Name="TaskId" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="SpDeleteTaskTrack" ObjectID="113fe895-7a3f-418c-bd24-d3793ec4e10d">
+    <SPCallDefinition Name="SpDeleteTaskTrack" ObjectID="112e3057-bba4-4b93-ac42-580b7b98a597">
       <Parameters>
         <Parameter Name="TaskTrackId" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="SpDeleteUser" ObjectID="1ac996b1-1072-440c-989e-20d760e828ff">
+    <SPCallDefinition Name="SpDeleteUser" ObjectID="43473333-d27a-4f0e-9c4b-350001ca2431">
       <Parameters>
         <Parameter Name="UserId" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="SpSetUserTaskAsFail" ObjectID="feeb2491-4988-4e75-ab70-816ba384cdbc">
+    <SPCallDefinition Name="SpSetUserTaskAsFail" ObjectID="1c4580f4-c551-466c-9754-bf237a9d1938">
       <Parameters>
         <Parameter Name="TaskId" Type="int" Precision="10" />
         <Parameter Name="UserId" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
-    <SPCallDefinition Name="SpSetUserTaskAsSuccess" ObjectID="9f6614be-5bf2-4415-9376-5fc97ea56bd5">
+    <SPCallDefinition Name="SpSetUserTaskAsSuccess" ObjectID="2b1575db-06ea-4cf4-99e4-5477b599869e">
       <Parameters>
         <Parameter Name="TaskId" Type="int" Precision="10" />
         <Parameter Name="UserId" Type="int" Precision="10" />
@@ -379,7 +379,7 @@
         <ConnectionElement Name="ServerName" Value="(localdb)\MSSQLLocalDB" />
         <ConnectionElement Name="CatalogName" Value="master" />
         <ConnectionElement Name="UseWindowsAuthentication" Value="true" />
-        <ConnectionElement Name="UserID" Value="sa" />
+        <ConnectionElement Name="UserID" Value="" />
         <ConnectionElement Name="Password" Value="" />
       </ConnectionElements>
       <SystemSequences>
@@ -389,7 +389,7 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-08T18:46:04.416582Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-09T07:16:12.8230191Z">
               <Tables>
                 <Table Name="__RefactorLog">
                   <PkConstraintName Name="PK____Refact__D3AEFFDB5464FA5E" />
@@ -434,9 +434,9 @@
                   </Fields>
                 </Table>
                 <Table Name="TaskTrack">
-                  <PkConstraintName Name="PK__TaskTrac__9041AE7BE67D45DB" />
+                  <PkConstraintName Name="PK__tmp_ms_x__9041AE7BDEC64784" />
                   <Fields>
-                    <Field Name="TaskTrackId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="TrackDate" Ordinal="2" DbType="4" />
                     <Field Name="TrackNote" Ordinal="3" DbType="12" Length="2147483647" />
                     <Field Name="UserTaskId" Ordinal="4" DbType="8" Precision="10" />
@@ -538,6 +538,70 @@
                     <Parameter Name="@result" Direction="3" Ordinal="2" DbType="8" Precision="10" />
                   </Parameters>
                 </StoredProcedure>
+                <StoredProcedure Name="sp_alterdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_creatediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_dropdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagramdefinition">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagrams">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_renamediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@new_diagramname" Direction="1" Ordinal="3" DbType="12" Length="128" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_upgraddiagrams">
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
                 <StoredProcedure Name="spDeleteTask">
                   <Parameters>
                     <Parameter Name="@TaskId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
@@ -633,7 +697,7 @@
         </EntityMapping>
         <EntityMapping EntityName=":TaskTrack" TargetName="HIMS:dbo:TaskTrack">
           <FieldMappings>
-            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" />
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
             <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
             <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" />
