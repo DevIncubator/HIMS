@@ -30,15 +30,7 @@ namespace HIMS.DAL.Repositories
             return rowsAffectedToDb;
         }
 
-        public int SetUserTaskAsFail(int userId, int taskId)
-        {
-            return db.CallSpSetUserTaskAsFail(userId, taskId);
-        }
-
-        public int SetUserTaskAsSuccess(int userId, int taskId)
-        {
-            return db.CallSpSetUserTaskAsSuccess(userId, taskId);
-        }
+        
 
 		public int DeleteTask(int taskId)
 		{
