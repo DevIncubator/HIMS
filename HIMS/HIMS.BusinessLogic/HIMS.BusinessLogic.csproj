@@ -80,7 +80,6 @@
     <Compile Include="Interfaces\IVUserProgressService.cs" />
     <Compile Include="Interfaces\IVUserProfileService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
-    <Compile Include="Interfaces\IUserTaskService.cs" />
     <Compile Include="Interfaces\IVUserTaskService.cs" />
     <Compile Include="Interfaces\IVUserTrackService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\VUserProfileService.cs" />
-    <Compile Include="Services\UserTaskService.cs" />
     <Compile Include="Services\VUserProgressService.cs" />
     <Compile Include="Services\VUserTrackService.cs" />
   </ItemGroup>
