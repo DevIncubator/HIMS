@@ -16,5 +16,6 @@ namespace HIMS.Data.Interfaces
         IVUserProgressRepository VUserProgress { get; }
         IVUserTrackRepository<VUserTrack> VUserTracks { get; }
         void Save();
+        IVUserTaskRepository<VUserTask> VUserTasks { get; }
     }
 }
