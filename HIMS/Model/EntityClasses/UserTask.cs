@@ -23,6 +23,7 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Initializes a new instance of the <see cref="UserTask"/> class.</summary>
 		public UserTask() : base()
 		{
+			this.TaskTracks = new HashSet<TaskTrack>();
 			OnCreated();
 		}
 
@@ -45,6 +46,9 @@ namespace HIMS.Data.EntityClasses
 		/// <summary>Represents the navigator which is mapped onto the association 'UserTask.TaskState - TaskState.UserTasks (m:1)'</summary>
 		[DataMember]
 		public virtual TaskState TaskState { get; set;}
+		/// <summary>Represents the navigator which is mapped onto the association 'TaskTrack.UserTask - UserTask.TaskTracks (m:1)'</summary>
+		[DataMember]
+		public virtual ICollection<TaskTrack> TaskTracks { get; set;}
 		/// <summary>Represents the navigator which is mapped onto the association 'UserTask.UserProfile - UserProfile.UserTasks (m:1)'</summary>
 		[DataMember]
 		public virtual UserProfile UserProfile { get; set;}

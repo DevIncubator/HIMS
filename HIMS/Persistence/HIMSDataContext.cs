@@ -65,6 +65,19 @@ namespace HIMS.Data
 			return toReturn;
 		}
 		
+		/// <summary>Calls the stored procedure '[dbo].[SetUserTaskAsActive]'</summary>
+		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@UserId'</param>
+		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>
+		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
+		public int CallSetUserTaskAsActive(System.Int32 userId, System.Int32 taskId)
+		{
+			var cmd = CreateStoredProcCallCommand("[dbo].[SetUserTaskAsActive]");
+			AddParameter(cmd, "@UserId", 0, ParameterDirection.Input, userId);
+			AddParameter(cmd, "@TaskId", 0, ParameterDirection.Input, taskId);
+			var toReturn = ExecuteNonQueryCommand(cmd);
+			return toReturn;
+		}
+		
 		/// <summary>Calls the stored procedure '[dbo].[spDeleteTask]'</summary>
 		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>
 		/// <returns>The number of rows affected, as reported by ADO.NET</returns>

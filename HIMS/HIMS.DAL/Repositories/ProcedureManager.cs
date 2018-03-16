@@ -46,6 +46,11 @@ namespace HIMS.DAL.Repositories
             return db.CallSpSetUserTaskAsSuccess(userId, taskId);
         }
 
+        public int SetUserTaskAsActive(int userId, int taskId)
+        {
+            return db.CallSetUserTaskAsActive(userId, taskId);
+        }
+
         public int SetUserTaskAsFail(int userId, int taskId)
         {
             return db.CallSpSetUserTaskAsFail(userId, taskId);

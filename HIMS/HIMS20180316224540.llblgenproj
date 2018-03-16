@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v5.3 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="5.3" TargetFrameworkName="Entity Framework v6" UseLegacyDefaults="false">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AddNewFieldsAfterRefresh_v5" Value="true" />
+    <Property Name="AddNewFieldsAfterRelationalModelDataSync_v5" Value="true" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh_v5" Value="false" />
+    <Property Name="AddNewViewsAsEntitiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="true" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString.{$ProviderName}" />
+    <Property Name="DefaultDeleteRuleAction" Value="1" />
+    <Property Name="DefaultUpdateRuleAction" Value="0" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForTable" Value="0" />
+    <Property Name="EntityActionCombinationDefaultForView" Value="4" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyConstraintPattern" Value="FK_{$Guid}" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints_v5" Value="true" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale_v5" Value="true" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferSystemSequencesOverSchemaSequencesIfApplicable" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="PrimaryKeyConstraintPattern" Value="PK_{$Guid}" />
+    <Property Name="ProjectCreator" Value="Paul Antonau" />
+    <Property Name="ProjectName" Value="HIMS" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField_v5" Value="false" />
+    <Property Name="ReflectTypeOfElementFieldInTargetField_v5" Value="true" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints_v5" Value="true" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh_v5" Value="false" />
+    <Property Name="RemoveUnmappedElementsAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRelationalModelDataSync" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequenceNameMatchingPattern" Value="SEQ_{$TableName}" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="SingularizeElementNames" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="StoreTimeLastSyncIntoProject" Value="true" />
+    <Property Name="SyncMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="SyncRelationalModelDataElementNameWithModelElementName_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh_v5" Value="false" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="TableValuedFunctionNameStripPattern" Value="{fn_, pr_, sp_}{}" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewMappedOnResultsetPattern" Value="{$ProcFunctionName}{$ResultsetName}Result" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintPattern" Value="UC_{$Guid}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints_v5" Value="true" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh_v5" Value="false" />
+    <Property Name="UpdateCustomPropertiesAfterRelationalModelDataSync_v5" Value="false" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <IgnoredWarnings />
+  <SavedSearchQueries />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="D:\HIMS\HIMS" />
+        <FrameworkName Value="Entity Framework v6" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.5.2" />
+        <PresetName Value="SD.EntityFramework.v6 (DbContext API)" />
+        <RootNamespace Value="HIMS.Data" />
+        <TemplateGroup Value="General" />
+        <TemplateBindings>
+          <Binding Name="SD.EntityFramework.NET45" />
+          <Binding Name="SD.EntityFramework.Shared" />
+          <Binding Name="SD.EntityFramework.v6" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <OutputSettingValues>
+    <SettingValues>
+      <SettingValue Name="1:ProviderManifestTokenValue" Value="2012" Type="18" />
+    </SettingValues>
+  </OutputSettingValues>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="2">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="4">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="8">
+      <Defaults>
+        <Namespaces>
+          <Namespace Name="System.Runtime.Serialization" />
+          <Namespace Name="System.Xml.Serialization" />
+        </Namespaces>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="16">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="Serializable" />
+          <Attribute Value="DataContract(IsReference$=$true)" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="64">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="256">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="512">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="1024">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+    <TargetElement Type="2048">
+      <Defaults>
+        <Attributes>
+          <Attribute Value="DataMember" />
+        </Attributes>
+      </Defaults>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <EntityModel>
+    <ValueTypeDefinitions />
+    <EntityDefinitions>
+      <EntityDefinition Name="Direction" ObjectID="45ba294e-962f-48c1-b3e2-241fcb77d8e1">
+        <Fields>
+          <Field Name="Description" Type="string" MaxLength="2147483647" />
+          <Field Name="DirectionId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+          <Field Name="Name" Type="string" MaxLength="2147483647" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Sample" ObjectID="0f0166de-07c6-44ff-8f63-191b1dcccaac">
+        <Fields>
+          <Field Name="Description" Type="string" IsOptional="true" MaxLength="255" />
+          <Field Name="Name" Type="string" MaxLength="25" />
+          <Field Name="SampleId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Task" ObjectID="b7abdb21-e602-4901-996e-b9c75e4d31bd">
+        <Fields>
+          <Field Name="DeadlineDate" Type="datetime" />
+          <Field Name="Description" Type="string" MaxLength="255" />
+          <Field Name="Name" Type="string" MaxLength="50" />
+          <Field Name="StartDate" Type="datetime" />
+          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="TaskState" ObjectID="aa5c0ae1-4301-4fd1-a315-4ea989a528ce">
+        <Fields>
+          <Field Name="StateId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+          <Field Name="StateName" Type="string" MaxLength="25" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="TaskTrack" ObjectID="a5882093-70a3-431a-82a6-a7944d1e868f">
+        <Fields>
+          <Field Name="TaskTrackId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TrackDate" Type="datetime" />
+          <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
+          <Field Name="UserTaskId" Type="int" Precision="10" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="UserProfile" ObjectID="c8957a93-44df-4dc7-8983-9f010080dbb2">
+        <Fields>
+          <Field Name="Address" Type="string" MaxLength="100" />
+          <Field Name="BirthDate" Type="datetime" />
+          <Field Name="DirectionId" Type="int" Precision="10" />
+          <Field Name="Education" Type="string" MaxLength="250" />
+          <Field Name="Email" Type="string" MaxLength="125" />
+          <Field Name="LastName" Type="string" MaxLength="25" />
+          <Field Name="MathScore" Type="double" IsOptional="true" Precision="38" />
+          <Field Name="MobilePhone" Type="string" MaxLength="15" />
+          <Field Name="Name" Type="string" MaxLength="25" />
+          <Field Name="Sex" Type="string" MaxLength="1" />
+          <Field Name="Skype" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="StartDate" Type="datetime" />
+          <Field Name="UniversityAverageScore" Type="double" IsOptional="true" Precision="38" />
+          <Field Name="UserId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="UserTask" ObjectID="95729f43-1f03-4b27-9739-69ea3ad7038f">
+        <Fields>
+          <Field Name="StateId" Type="int" Precision="10" />
+          <Field Name="TaskId" Type="int" Precision="10" />
+          <Field Name="UserId" Type="int" Precision="10" />
+          <Field Name="UserTaskId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="VTask" ObjectID="6b601fd7-ab59-40c7-b6be-c517371271eb">
+        <Fields>
+          <Field Name="DeadlineDate" Type="datetime" />
+          <Field Name="Description" Type="string" MaxLength="255" />
+          <Field Name="Name" Type="string" MaxLength="50" />
+          <Field Name="StartDate" Type="datetime" />
+          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="VUserProfile" ObjectID="83f838c0-b530-48a9-a57c-2a15ba057c7c">
+        <Fields>
+          <Field Name="Address" Type="string" MaxLength="100" />
+          <Field Name="Age" Type="int" IsOptional="true" Precision="10" />
+          <Field Name="Direction" Type="string" MaxLength="2147483647" />
+          <Field Name="Education" Type="string" MaxLength="250" />
+          <Field Name="Email" Type="string" MaxLength="125" />
+          <Field Name="FullName" Type="string" MaxLength="51" />
+          <Field Name="MathScore" Type="double" IsOptional="true" Precision="38" />
+          <Field Name="MobilePhone" Type="string" MaxLength="15" />
+          <Field Name="Sex" Type="string" MaxLength="1" />
+          <Field Name="Skype" Type="string" IsOptional="true" MaxLength="50" />
+          <Field Name="StartDate" Type="datetime" />
+          <Field Name="UniversityAverageScore" Type="double" IsOptional="true" Precision="38" />
+          <Field Name="UserId" Type="int" Precision="10" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="VUserProgress" ObjectID="92fadd52-3764-4117-80a7-2e27dce1e743">
+        <Fields>
+          <Field Name="TaskId" Type="int" Precision="10" />
+          <Field Name="TaskName" Type="string" MaxLength="50" />
+          <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TrackDate" Type="datetime" />
+          <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
+          <Field Name="UserId" Type="int" Precision="10" />
+          <Field Name="UserName" Type="string" MaxLength="25" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="VUserTask" ObjectID="a004c135-459d-4b0f-bf7c-f3e51c747523">
+        <Fields>
+          <Field Name="DeadlineDate" Type="datetime" />
+          <Field Name="Description" Type="string" MaxLength="255" />
+          <Field Name="StartDate" Type="datetime" />
+          <Field Name="State" Type="string" MaxLength="25" />
+          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskName" Type="string" MaxLength="50" />
+          <Field Name="UserId" Type="int" Precision="10" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="VUserTrack" ObjectID="451fcde3-2bce-489a-8ba7-822cc9b9b8bb">
+        <Fields>
+          <Field Name="Name" Type="string" MaxLength="50" />
+          <Field Name="TaskId" Type="int" Precision="10" />
+          <Field Name="TaskTrackId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TrackDate" Type="datetime" />
+          <Field Name="TrackNote" Type="string" MaxLength="2147483647" />
+          <Field Name="UserId" Type="int" Precision="10" />
+        </Fields>
+      </EntityDefinition>
+    </EntityDefinitions>
+    <Relationships>
+      <NormalRelationship Name="TaskTrack.Task-Task.TaskTracks" Start=":TaskTrack" End=":Task" StartNavigator="Task" EndNavigator="TaskTracks" Type="4" UpdateRuleAction="1" DeleteRuleAction="1">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="UserTaskId" PkField="TaskId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="UserProfile.Direction-Direction.UserProfiles" Start=":UserProfile" End=":Direction" StartNavigator="Direction" EndNavigator="UserProfiles" Type="4" UpdateRuleAction="1" DeleteRuleAction="1">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="DirectionId" PkField="DirectionId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="UserTask.Task-Task.UserTasks" Start=":UserTask" End=":Task" StartNavigator="Task" EndNavigator="UserTasks" Type="4" UpdateRuleAction="1" DeleteRuleAction="1">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="TaskId" PkField="TaskId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="UserTask.TaskState-TaskState.UserTasks" Start=":UserTask" End=":TaskState" StartNavigator="TaskState" EndNavigator="UserTasks" Type="4" UpdateRuleAction="1" DeleteRuleAction="1">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="StateId" PkField="StateId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="UserTask.UserProfile-UserProfile.UserTasks" Start=":UserTask" End=":UserProfile" StartNavigator="UserProfile" EndNavigator="UserTasks" Type="4" UpdateRuleAction="1" DeleteRuleAction="1">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="UserId" PkField="UserId" />
+        </FieldRelationships>
+      </NormalRelationship>
+    </Relationships>
+    <InheritanceHierarchies />
+  </EntityModel>
+  <SPCallDefinitions>
+    <SPCallDefinition Name="SampleEntriesAmount" ObjectID="6e50581c-79a5-4ee5-bc0b-eb49f57ef1d5">
+      <Parameters>
+        <Parameter Name="IsAdmin" Type="bool" />
+        <Parameter Name="Result" Type="int" Precision="10" Direction="3" />
+      </Parameters>
+    </SPCallDefinition>
+    <SPCallDefinition Name="SpDeleteTask" ObjectID="e0f2df43-7ba1-4f2b-88fa-c11a61fccc30">
+      <Parameters>
+        <Parameter Name="TaskId" Type="int" Precision="10" />
+      </Parameters>
+    </SPCallDefinition>
+    <SPCallDefinition Name="SpDeleteTaskTrack" ObjectID="112e3057-bba4-4b93-ac42-580b7b98a597">
+      <Parameters>
+        <Parameter Name="TaskTrackId" Type="int" Precision="10" />
+      </Parameters>
+    </SPCallDefinition>
+    <SPCallDefinition Name="SpDeleteUser" ObjectID="43473333-d27a-4f0e-9c4b-350001ca2431">
+      <Parameters>
+        <Parameter Name="UserId" Type="int" Precision="10" />
+      </Parameters>
+    </SPCallDefinition>
+    <SPCallDefinition Name="SpSetUserTaskAsFail" ObjectID="1c4580f4-c551-466c-9754-bf237a9d1938">
+      <Parameters>
+        <Parameter Name="TaskId" Type="int" Precision="10" />
+        <Parameter Name="UserId" Type="int" Precision="10" />
+      </Parameters>
+    </SPCallDefinition>
+    <SPCallDefinition Name="SpSetUserTaskAsSuccess" ObjectID="2b1575db-06ea-4cf4-99e4-5477b599869e">
+      <Parameters>
+        <Parameter Name="TaskId" Type="int" Precision="10" />
+        <Parameter Name="UserId" Type="int" Precision="10" />
+      </Parameters>
+    </SPCallDefinition>
+  </SPCallDefinitions>
+  <TargetDatabases>
+    <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE" SyncSource="2">
+      <ConnectionElements>
+        <ConnectionElement Name="ServerName" Value="(localdb)\MSSQLLocalDB" />
+        <ConnectionElement Name="CatalogName" Value="master" />
+        <ConnectionElement Name="UseWindowsAuthentication" Value="true" />
+        <ConnectionElement Name="UserID" Value="" />
+        <ConnectionElement Name="Password" Value="" />
+      </ConnectionElements>
+      <SystemSequences>
+        <Sequence Name="SCOPE_IDENTITY()" />
+        <Sequence Name="@@IDENTITY" />
+      </SystemSequences>
+      <Catalogs>
+        <Catalog Name="HIMS">
+          <Schemas>
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-09T07:16:12.8230191Z">
+              <Tables>
+                <Table Name="__RefactorLog">
+                  <PkConstraintName Name="PK____Refact__D3AEFFDB5464FA5E" />
+                  <Fields>
+                    <Field Name="OperationKey" Ordinal="1" IsPrimaryKey="true" DbType="25" />
+                  </Fields>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="refactoring log" />
+                  </CustomProperties>
+                </Table>
+                <Table Name="Direction">
+                  <PkConstraintName Name="PK__tmp_ms_x__876847C694F69B80" />
+                  <Fields>
+                    <Field Name="DirectionId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="2147483647" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="2147483647" />
+                  </Fields>
+                </Table>
+                <Table Name="Sample">
+                  <PkConstraintName Name="PK_Test" />
+                  <Fields>
+                    <Field Name="SampleId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="25" />
+                    <Field Name="Description" Ordinal="3" IsOptional="true" DbType="12" Length="255" />
+                  </Fields>
+                </Table>
+                <Table Name="Task">
+                  <PkConstraintName Name="PK__tmp_ms_x__7C6949B155FFB909" />
+                  <Fields>
+                    <Field Name="TaskId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="255" />
+                    <Field Name="StartDate" Ordinal="4" DbType="4" />
+                    <Field Name="DeadlineDate" Ordinal="5" DbType="4" />
+                  </Fields>
+                </Table>
+                <Table Name="TaskState">
+                  <PkConstraintName Name="PK_TaskState" />
+                  <Fields>
+                    <Field Name="StateId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="StateName" Ordinal="2" DbType="12" Length="25" />
+                  </Fields>
+                </Table>
+                <Table Name="TaskTrack">
+                  <PkConstraintName Name="PK__tmp_ms_x__9041AE7BDEC64784" />
+                  <Fields>
+                    <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TrackDate" Ordinal="2" DbType="4" />
+                    <Field Name="TrackNote" Ordinal="3" DbType="12" Length="2147483647" />
+                    <Field Name="UserTaskId" Ordinal="4" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="UserProfile">
+                  <PkConstraintName Name="PK_UserProfile" />
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="DirectionId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="3" DbType="12" Length="25" />
+                    <Field Name="Email" Ordinal="4" DbType="10" Length="125" />
+                    <Field Name="LastName" Ordinal="5" DbType="12" Length="25" />
+                    <Field Name="Sex" Ordinal="6" DbType="3" Length="1" />
+                    <Field Name="Education" Ordinal="7" DbType="12" Length="250" />
+                    <Field Name="BirthDate" Ordinal="8" DbType="28" />
+                    <Field Name="UniversityAverageScore" Ordinal="9" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="MathScore" Ordinal="10" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="Address" Ordinal="11" DbType="12" Length="100" />
+                    <Field Name="MobilePhone" Ordinal="12" DbType="12" Length="15" />
+                    <Field Name="Skype" Ordinal="13" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="StartDate" Ordinal="14" DbType="28" />
+                  </Fields>
+                </Table>
+                <Table Name="UserTask">
+                  <PkConstraintName Name="PK_UserTask" />
+                  <Fields>
+                    <Field Name="UserTaskId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="UserId" Ordinal="3" DbType="8" Precision="10" />
+                    <Field Name="StateId" Ordinal="4" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+              </Tables>
+              <Views>
+                <View Name="vTask">
+                  <Fields>
+                    <Field Name="TaskId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Description" Ordinal="3" DbType="12" Length="255" />
+                    <Field Name="StartDate" Ordinal="4" DbType="4" />
+                    <Field Name="DeadlineDate" Ordinal="5" DbType="4" />
+                  </Fields>
+                </View>
+                <View Name="vUserProfile">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="FullName" Ordinal="2" DbType="12" Length="51" />
+                    <Field Name="Email" Ordinal="3" DbType="10" Length="125" />
+                    <Field Name="Direction" Ordinal="4" DbType="12" Length="2147483647" />
+                    <Field Name="Sex" Ordinal="5" DbType="3" Length="1" />
+                    <Field Name="Education" Ordinal="6" DbType="12" Length="250" />
+                    <Field Name="Age" Ordinal="7" IsOptional="true" DbType="8" Precision="10" />
+                    <Field Name="UniversityAverageScore" Ordinal="8" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="MathScore" Ordinal="9" IsOptional="true" DbType="6" Precision="38" />
+                    <Field Name="Address" Ordinal="10" DbType="12" Length="100" />
+                    <Field Name="MobilePhone" Ordinal="11" DbType="12" Length="15" />
+                    <Field Name="Skype" Ordinal="12" IsOptional="true" DbType="24" Length="50" />
+                    <Field Name="StartDate" Ordinal="13" DbType="28" />
+                  </Fields>
+                </View>
+                <View Name="vUserProgress">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="TaskTrackId" Ordinal="3" DbType="8" Precision="10" />
+                    <Field Name="UserName" Ordinal="4" DbType="12" Length="25" />
+                    <Field Name="TaskName" Ordinal="5" DbType="12" Length="50" />
+                    <Field Name="TrackNote" Ordinal="6" DbType="12" Length="2147483647" />
+                    <Field Name="TrackDate" Ordinal="7" DbType="4" />
+                  </Fields>
+                </View>
+                <View Name="vUserTask">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="TaskName" Ordinal="3" DbType="12" Length="50" />
+                    <Field Name="Description" Ordinal="4" DbType="12" Length="255" />
+                    <Field Name="StartDate" Ordinal="5" DbType="4" />
+                    <Field Name="DeadlineDate" Ordinal="6" DbType="4" />
+                    <Field Name="State" Ordinal="7" DbType="12" Length="25" />
+                  </Fields>
+                </View>
+                <View Name="vUserTrack">
+                  <Fields>
+                    <Field Name="UserId" Ordinal="1" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="2" DbType="8" Precision="10" />
+                    <Field Name="Name" Ordinal="3" DbType="12" Length="50" />
+                    <Field Name="TaskTrackId" Ordinal="4" DbType="8" Precision="10" />
+                    <Field Name="TrackNote" Ordinal="5" DbType="12" Length="2147483647" />
+                    <Field Name="TrackDate" Ordinal="6" DbType="4" />
+                  </Fields>
+                </View>
+              </Views>
+              <StoredProcedures>
+                <StoredProcedure Name="SampleEntriesAmount">
+                  <Parameters>
+                    <Parameter Name="@isAdmin" Direction="1" Ordinal="1" DbType="2" />
+                    <Parameter Name="@result" Direction="3" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_alterdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_creatediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@version" Direction="1" Ordinal="3" DbType="8" Precision="10" />
+                    <Parameter Name="@definition" Direction="1" Ordinal="4" DbType="23" Length="2147483647" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_dropdiagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagramdefinition">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_helpdiagrams">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_renamediagram">
+                  <Parameters>
+                    <Parameter Name="@diagramname" Direction="1" Ordinal="1" DbType="12" Length="128" />
+                    <Parameter Name="@owner_id" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                    <Parameter Name="@new_diagramname" Direction="1" Ordinal="3" DbType="12" Length="128" />
+                  </Parameters>
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="sp_upgraddiagrams">
+                  <CustomProperties>
+                    <CustomProperty Name="microsoft_database_tools_support" Value="1" />
+                  </CustomProperties>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteTask">
+                  <Parameters>
+                    <Parameter Name="@TaskId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteTaskTrack">
+                  <Parameters>
+                    <Parameter Name="@TaskTrackId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spDeleteUser">
+                  <Parameters>
+                    <Parameter Name="@userId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spSetUserTaskAsFail">
+                  <Parameters>
+                    <Parameter Name="@UserId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                    <Parameter Name="@TaskId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spSetUserTaskAsSuccess">
+                  <Parameters>
+                    <Parameter Name="@UserId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                    <Parameter Name="@TaskId" Direction="1" Ordinal="2" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+              </StoredProcedures>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="dbo:TaskTrack:FK_TaskTrack_ToTask" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Task:TaskId" FkField="dbo:TaskTrack:UserTaskId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserProfile:FK_Direction_To_UserProfile" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Direction:DirectionId" FkField="dbo:UserProfile:DirectionId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_Task" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Task:TaskId" FkField="dbo:UserTask:TaskId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_TaskState" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:TaskState:StateId" FkField="dbo:UserTask:StateId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:UserTask:FK_UserTask_To_UserProfile" UpdateRuleAction="1" DeleteRuleAction="1">
+              <FieldPairs>
+                <FieldPair PkField="dbo:UserProfile:UserId" FkField="dbo:UserTask:UserId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <EntityMappings>
+        <EntityMapping EntityName=":Direction" TargetName="HIMS:dbo:Direction">
+          <FieldMappings>
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="DirectionId" TargetFieldName="DirectionId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Sample" TargetName="HIMS:dbo:Sample">
+          <FieldMappings>
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="SampleId" TargetFieldName="SampleId" SequenceToUse="SCOPE_IDENTITY()" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Task" TargetName="HIMS:dbo:Task">
+          <FieldMappings>
+            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":TaskState" TargetName="HIMS:dbo:TaskState">
+          <FieldMappings>
+            <FieldMapping FieldName="StateId" TargetFieldName="StateId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="StateName" TargetFieldName="StateName" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":TaskTrack" TargetName="HIMS:dbo:TaskTrack">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
+            <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
+            <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":UserProfile" TargetName="HIMS:dbo:UserProfile">
+          <FieldMappings>
+            <FieldMapping FieldName="Address" TargetFieldName="Address" />
+            <FieldMapping FieldName="BirthDate" TargetFieldName="BirthDate" />
+            <FieldMapping FieldName="DirectionId" TargetFieldName="DirectionId" />
+            <FieldMapping FieldName="Education" TargetFieldName="Education" />
+            <FieldMapping FieldName="Email" TargetFieldName="Email" />
+            <FieldMapping FieldName="LastName" TargetFieldName="LastName" />
+            <FieldMapping FieldName="MathScore" TargetFieldName="MathScore" />
+            <FieldMapping FieldName="MobilePhone" TargetFieldName="MobilePhone" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="Sex" TargetFieldName="Sex" />
+            <FieldMapping FieldName="Skype" TargetFieldName="Skype" />
+            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
+            <FieldMapping FieldName="UniversityAverageScore" TargetFieldName="UniversityAverageScore" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" SequenceToUse="SCOPE_IDENTITY()" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":UserTask" TargetName="HIMS:dbo:UserTask">
+          <FieldMappings>
+            <FieldMapping FieldName="StateId" TargetFieldName="StateId" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+            <FieldMapping FieldName="UserTaskId" TargetFieldName="UserTaskId" SequenceToUse="SCOPE_IDENTITY()" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":VTask" TargetName="HIMS:dbo:vTask" ActionCombination="4">
+          <FieldMappings>
+            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":VUserProfile" TargetName="HIMS:dbo:vUserProfile" ActionCombination="4">
+          <FieldMappings>
+            <FieldMapping FieldName="Address" TargetFieldName="Address" />
+            <FieldMapping FieldName="Age" TargetFieldName="Age" />
+            <FieldMapping FieldName="Direction" TargetFieldName="Direction" />
+            <FieldMapping FieldName="Education" TargetFieldName="Education" />
+            <FieldMapping FieldName="Email" TargetFieldName="Email" />
+            <FieldMapping FieldName="FullName" TargetFieldName="FullName" />
+            <FieldMapping FieldName="MathScore" TargetFieldName="MathScore" />
+            <FieldMapping FieldName="MobilePhone" TargetFieldName="MobilePhone" />
+            <FieldMapping FieldName="Sex" TargetFieldName="Sex" />
+            <FieldMapping FieldName="Skype" TargetFieldName="Skype" />
+            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
+            <FieldMapping FieldName="UniversityAverageScore" TargetFieldName="UniversityAverageScore" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":VUserProgress" TargetName="HIMS:dbo:vUserProgress" ActionCombination="4">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+            <FieldMapping FieldName="TaskName" TargetFieldName="TaskName" />
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" />
+            <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
+            <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+            <FieldMapping FieldName="UserName" TargetFieldName="UserName" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":VUserTask" TargetName="HIMS:dbo:vUserTask" ActionCombination="4">
+          <FieldMappings>
+            <FieldMapping FieldName="DeadlineDate" TargetFieldName="DeadlineDate" />
+            <FieldMapping FieldName="Description" TargetFieldName="Description" />
+            <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
+            <FieldMapping FieldName="State" TargetFieldName="State" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+            <FieldMapping FieldName="TaskName" TargetFieldName="TaskName" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":VUserTrack" TargetName="HIMS:dbo:vUserTrack" ActionCombination="4">
+          <FieldMappings>
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="TaskTrackId" />
+            <FieldMapping FieldName="TrackDate" TargetFieldName="TrackDate" />
+            <FieldMapping FieldName="TrackNote" TargetFieldName="TrackNote" />
+            <FieldMapping FieldName="UserId" TargetFieldName="UserId" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings>
+        <SPCallMapping SPCallName=":SampleEntriesAmount" TargetName="HIMS:dbo:SampleEntriesAmount">
+          <FieldMappings>
+            <FieldMapping FieldName="IsAdmin" TargetFieldName="@isAdmin" />
+            <FieldMapping FieldName="Result" TargetFieldName="@result" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpDeleteTask" TargetName="HIMS:dbo:spDeleteTask">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskId" TargetFieldName="@TaskId" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpDeleteTaskTrack" TargetName="HIMS:dbo:spDeleteTaskTrack">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskTrackId" TargetFieldName="@TaskTrackId" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpDeleteUser" TargetName="HIMS:dbo:spDeleteUser">
+          <FieldMappings>
+            <FieldMapping FieldName="UserId" TargetFieldName="@userId" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpSetUserTaskAsFail" TargetName="HIMS:dbo:spSetUserTaskAsFail">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskId" TargetFieldName="@TaskId" />
+            <FieldMapping FieldName="UserId" TargetFieldName="@UserId" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpSetUserTaskAsSuccess" TargetName="HIMS:dbo:spSetUserTaskAsSuccess">
+          <FieldMappings>
+            <FieldMapping FieldName="TaskId" TargetFieldName="@TaskId" />
+            <FieldMapping FieldName="UserId" TargetFieldName="@UserId" />
+          </FieldMappings>
+        </SPCallMapping>
+      </SPCallMappings>
+      <TvfCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>
