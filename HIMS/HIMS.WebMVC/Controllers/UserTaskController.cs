@@ -21,7 +21,7 @@ namespace HIMS.WebMVC.Controllers
 
         public ActionResult GetTasksForUser([Bind(Include ="id")]int id)
         {
-            var tasks = _userTaskService.GetAllUserTasks(id).ToList();
+            var tasks = _userTaskService.GetAllTasksForUser(id).ToList();
             return View(Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasks));
         }
 
@@ -29,8 +29,8 @@ namespace HIMS.WebMVC.Controllers
         public ActionResult SetTaskAsSuccess([Bind(Include = "userId, taskId, isSuccess")]int userId, int taskId, bool isSuccess)
         {
 
-            _userTaskService.UpdateUserTaskStatus(userId, taskId, isSuccess);
-            var tasks = _userTaskService.GetAllUserTasks(userId).ToList();
+            _userTaskService.UpdateTaskStatusForUser(userId, taskId, isSuccess);
+            var tasks = _userTaskService.GetAllTasksForUser(userId).ToList();
 
             return PartialView("_GetTasksForUser", Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasks));
         }
