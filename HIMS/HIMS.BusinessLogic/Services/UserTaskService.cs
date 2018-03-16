@@ -49,7 +49,7 @@ namespace HIMS.BusinessLogic.Services
 
         public void UpdateUserTask(UserTaskTransferModel userDTO)
         {
-            var userTask = Database.VUserTasks.Get(userDTO.userId, userDTO.taskId);
+            var userTask = Database.VUserTasks.Get(userDTO.UserId, userDTO.TaskId);
 
             if(userTask == null)
             {

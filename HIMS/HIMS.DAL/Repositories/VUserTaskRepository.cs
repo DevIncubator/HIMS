@@ -7,27 +7,27 @@ using System.Linq;
 
 namespace HIMS.DAL.Repositories
 {
-    class VUserTaskRepository : IVUserTaskRepository<VUserTask>
+    public class VUserTaskRepository : IVUserTaskRepository<VUserTask>
     {
-        private HIMSDataContext _db;
+        private HIMSDataContext db;
 
-        public VUserTaskRepository(HIMSDataContext context)
+        public VUserTaskRepository(HIMSDataContext ctx)
         {
-            _db = context;
+            db = ctx;
         }
 
         public void Create(VUserTask item)
         {
-            _db.Set<VUserTask>().Add(item);
+            db.Set<VUserTask>().Add(item);
         }
 
         public void Delete(int userId, int taskId)
         {
-            var userTask = _db.Set<VUserTask>().FirstOrDefault(ut => ut.TaskId == taskId && ut.UserId == userId);
+            var userTask = db.Set<VUserTask>().FirstOrDefault(ut =>ut.UserId == userId&& ut.TaskId == taskId);
 
-            if(userTask != null)
+            if (userTask != null)
             {
-                _db.Set<VUserTask>().Remove(userTask); 
+                db.Set<VUserTask>().Remove(userTask);
             }
         }
 
@@ -38,12 +38,12 @@ namespace HIMS.DAL.Repositories
 
         public IEnumerable<VUserTask> Find(Func<VUserTask, bool> predicate)
         {
-            return _db.Set<VUserTask>().Where(predicate);
+            return db.Set<VUserTask>().Where(predicate);
         }
 
         public VUserTask Get(int userId, int taskId)
         {
-            return _db.Set<VUserTask>().FirstOrDefault(ut => ut.TaskId == taskId && ut.UserId == userId);
+            return db.Set<VUserTask>().FirstOrDefault(ut => ut.UserId == userId&& ut.TaskId == taskId);
         }
 
         public VUserTask Get(int id)
@@ -53,7 +53,8 @@ namespace HIMS.DAL.Repositories
 
         public IEnumerable<VUserTask> GetAll()
         {
-            return _db.Set<VUserTask>();
+            return db.Set<VUserTask>();
         }
+
     }
 }
