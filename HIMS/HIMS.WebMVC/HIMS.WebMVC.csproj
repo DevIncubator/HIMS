@@ -218,6 +218,7 @@
     <Compile Include="Models\UserProfileGridViewModel.cs" />
     <Compile Include="Models\UserProgressListViewModel.cs" />
     <Compile Include="Models\UserProgressViewModel.cs" />
+    <Compile Include="Models\UserTasksListViewModel.cs" />
     <Compile Include="Models\UserTaskViewModel.cs" />
     <Compile Include="Models\VUserTrackViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,7 +310,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\UserTask\GetTasksForUser.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\UserProfile\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DirectionId.cshtml" />
@@ -322,6 +322,7 @@
     <Content Include="Views\TaskTrack\Delete.cshtml" />
     <Content Include="Views\TaskTrack\Edit.cshtml" />
     <Content Include="Views\UserProgress\Index.cshtml" />
+    <Content Include="Views\UserTask\GetTasksForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
