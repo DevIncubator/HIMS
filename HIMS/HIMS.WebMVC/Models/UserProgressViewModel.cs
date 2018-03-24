@@ -8,7 +8,7 @@ namespace HIMS.WebMVC.Models
         public int TaskId { get; set; }
         public string TaskName { get; set; }
         public string TrackNote { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy hh\\:mm}")]
         public DateTime TrackDate { get; set; }
     }
 }

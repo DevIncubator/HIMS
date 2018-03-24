@@ -6,24 +6,24 @@
 
     <h2>@($"{ViewBag.Title}:")</h2>
 
-    <table class="table table-bordered">
-        <thead>
+<table class="table table-striped">
+    <thead class="thead-dark">
             <tr>
-                <th class="text-center">#</th>
-                <th class="text-center">Task</th>
-                <th class="text-center">Note</th>
-                <th class="text-center">Date</th>
+                <th>#</th>
+                <th>Task</th>
+                <th>Note</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
             @for (int i = 0; i < Model.UserProgressList.Count(); i++)
             {
                 <tr>
-                    <td class="text-center">@(i + 1)</td>
+                    <th scope="row">@(i + 1)</th>
                     <!-- TODO: Make a valid ActionLink for task detail page by task id -->
-                    <td class="text-center">@Html.ActionLink(Model.UserProgressList.ElementAt(i).TaskName, "Details", new { id = Model.UserProgressList.ElementAt(i).TaskId })</td>
-                    <td class="text-center">@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackNote)</td>
-                    <td class="text-center">@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackDate)</td>
+                    <td>@Html.ActionLink(Model.UserProgressList.ElementAt(i).TaskName, "Details", new { id = Model.UserProgressList.ElementAt(i).TaskId })</td>
+                    <td>@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackNote)</td>
+                    <td>@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackDate)</td>
                 </tr>
             }
         </tbody>
