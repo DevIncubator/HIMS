@@ -1,8 +1,61 @@
-﻿@model IEnumerable<HIMS.WebMVC.Models.UserTaskViewModel>
+﻿@model HIMS.WebMVC.Models.UserTasksListViewModel
 
 @{
-    ViewBag.Title = "GetTasksForUser";
+    ViewBag.Title = "Tasks";
 }
 
-<h2>GetTasksForUser</h2>
+<h2>Hi! This is yourr current tasks:"</h2>
 
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                DeadLine
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+            <th>
+                (Available only for Admin)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.UserTasksList)
+        {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelitem => item.taskId)
+            </th>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { id = item.taskId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Track", "Edit", "TaskTrack", new { id = item.taskId }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("Success", "SetTaskAsSuccess", "UserTask", new { userId = item.userId, taskId = item.taskId, isSuccess = true}, new { @class = "btn btn-success" })
+                @Html.ActionLink("Fail", "SetTaskAsSuccess", "UserTask", new { userId = item.userId, taskId = item.taskId, isSuccess = false }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+        }
+</table>
