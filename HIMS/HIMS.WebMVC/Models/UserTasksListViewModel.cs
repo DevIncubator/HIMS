@@ -8,5 +8,6 @@ namespace HIMS.WebMVC.Models
     public class UserTasksListViewModel
     {
         public IEnumerable<UserTaskViewModel> UserTasksList { get; set; }
+        public string UserName { get; set; }
     }
 }

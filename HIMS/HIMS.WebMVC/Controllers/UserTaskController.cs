@@ -14,10 +14,13 @@ namespace HIMS.WebMVC.Controllers
     public class UserTaskController : Controller
     {
         private readonly IUserTaskService _service;
+        private readonly IUserProfileService _serviceU;
 
-        public UserTaskController(IUserTaskService service)
+        public UserTaskController(IUserTaskService service, IUserProfileService serviceU)
         {
             _service = service;
+            _serviceU = serviceU;
+
         }
 
         public ActionResult GetTasksForUser(int id)
@@ -25,9 +28,11 @@ namespace HIMS.WebMVC.Controllers
             if (id != null)
             {
                 IEnumerable<UserTaskTransferModel> userDtos = _service.GetAllTasksForUser(id);
+                var userName = _serviceU.GetUserProfile(id).Name.ToString();
                 var tasks = new UserTasksListViewModel
                 {
-                    UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos)
+                    UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos),
+                    UserName = userName
                 };
                 return View(tasks);
 
@@ -43,7 +48,7 @@ namespace HIMS.WebMVC.Controllers
             _service.UpdateTaskStatusForUser(userId, taskId, isSuccess);
             var tasksDTO = _service.GetAllTasksForUser(userId).ToList();
             var tasks = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasksDTO);
-            return PartialView("_GetTasksForUser", tasks);
+            return View("GetTasksForUser", tasks);
         }
        
     }
