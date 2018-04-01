@@ -23,7 +23,7 @@ namespace HIMS.DAL.Repositories
         public string GetUserNameById(int id)
         {
             var item = db.VUserProgresses.Where(p => p.UserId == id).FirstOrDefault();
-            return item != null ? item.UserName : null;
+            return item?.UserName;
         }
     }
 }
