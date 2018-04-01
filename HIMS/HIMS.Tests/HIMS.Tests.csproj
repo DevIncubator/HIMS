@@ -42,6 +42,9 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -113,10 +116,6 @@
     <ProjectReference Include="..\HIMS.BusinessLogic\HIMS.BusinessLogic.csproj">
       <Project>{956258F5-7CD6-4C8B-8C8E-670BFF76CBB3}</Project>
       <Name>HIMS.BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HIMS.DAL\HIMS.Data.csproj">
-      <Project>{61334E9F-8FD3-4A16-B216-27501963C799}</Project>
-      <Name>HIMS.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\HIMS.WebMVC\HIMS.WebMVC.csproj">
       <Project>{42c370f1-03f8-40ac-93ac-77d1f972faf6}</Project>
