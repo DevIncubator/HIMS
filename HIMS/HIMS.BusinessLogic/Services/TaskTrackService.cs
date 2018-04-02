@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HIMS.BusinessLogic.DTO;
 using HIMS.BusinessLogic.Interfaces;
 using HIMS.Data.Interfaces;
-using HIMS.DAL.Interfaces;
 using AutoMapper;
 using HIMS.BusinessLogic.Infrastructure;
 using HIMS.Data.EntityClasses;
@@ -16,39 +12,36 @@ namespace HIMS.BusinessLogic.Services
     public class TaskTrackService : ITaskTrackService
     {
         private IUnitOfWork Database { get; set; }
-        private IProcedureManager Pm { get; set; }
 
-        public TaskTrackService(IUnitOfWork uow, IProcedureManager pm)
+        public TaskTrackService(IUnitOfWork uow)
         {
             Database = uow;
-            Pm = pm;
         }
-        public IEnumerable<TaskTrackTransferModel> GetTaskTracks(int UserId)
-        {
-            
+        public IEnumerable<TaskTrackTransferModel> GetTaskTracks()
+        {    
             return Mapper.Map<IEnumerable<TaskTrack>, List<TaskTrackTransferModel>>(Database.TaskTracks.GetAll());
         }
 
-        public void SaveTaskTrack(TaskTrackTransferModel itemDTO)
+        public void SaveTaskTrack(TaskTrackTransferModel itemDto)
         {
             var item = new TaskTrack
             {
                 TrackDate = DateTime.Now,
-                TrackNote = itemDTO.TrackNote,
-                UserTaskId = itemDTO.UserTaskId
+                TrackNote = itemDto.TrackNote,
+                UserTaskId = itemDto.UserTaskId
             };
 
             Database.TaskTracks.Create(item);
             Database.Save();
         }
 
-        public void UpdateTaskTrack(TaskTrackTransferModel itemDTO)
+        public void UpdateTaskTrack(TaskTrackTransferModel itemDto)
         {
-            var item = Database.TaskTracks.Get(itemDTO.TaskTrackId);
+            var item = Database.TaskTracks.Get(itemDto.TaskTrackId);
 
             if (item != null)
             {
-                item = Mapper.Map<TaskTrackTransferModel, TaskTrack>(itemDTO);
+                item = Mapper.Map<TaskTrackTransferModel, TaskTrack>(itemDto);
                 Database.Save();
             }
         }
