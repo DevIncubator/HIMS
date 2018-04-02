@@ -94,9 +94,10 @@ namespace HIMS.BusinessLogic.Services
 
             //try to create user in the Identity DB
             UserTransferModel userDto = Mapper.Map<UserProfileTransferModel, UserTransferModel>(userProfileDto);
+            userDto.Role = "user";
             OperationDetails identityResult = userService.Create(userDto).Result;
 
-            if (identityResult.Succedeed == true)
+            if (identityResult.Succedeed)
             {
                 var userProfile = Mapper.Map<UserProfileTransferModel, UserProfile>(userProfileDto);
                 Database.UserProfiles.Create(userProfile);

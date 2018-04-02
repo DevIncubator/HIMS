@@ -15,7 +15,7 @@ namespace HIMS.BusinessLogic.Services
 {
     public class UserService : IUserService
     {
-        IUnitOfWork Database { get; set; }
+       private IUnitOfWork Database { get; set; }
 
         public UserService(IUnitOfWork uow)
         {
@@ -24,21 +24,17 @@ namespace HIMS.BusinessLogic.Services
 
         public async Task<OperationDetails> Create(UserTransferModel userDto)
         {
-            UserSecurity user = await Database.UserSecurityManager.FindByEmailAsync(userDto.Email);
+            UserSecurity user = Database.UserSecurityManager.FindByEmail(userDto.Email);
             if (user == null)
             {
                 user = new UserSecurity { Email = userDto.Email, UserName = userDto.Email };
-                var result = await Database.UserSecurityManager.CreateAsync(user, userDto.Password);
+                var result = Database.UserSecurityManager.Create(user, userDto.Password);
 
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
 
                 // add a role
-                await Database.UserSecurityManager.AddToRoleAsync(user.Id, userDto.Role);
-
-                // create user profile
-                //ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
-                //Database.ClientManager.Create(clientProfile);
+                Database.UserSecurityManager.AddToRole(user.Id, userDto.Role);
 
                 await Database.SaveAsync();
                 return new OperationDetails(true, "The registration was done successfully!", "");

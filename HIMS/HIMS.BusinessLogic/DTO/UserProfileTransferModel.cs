@@ -22,5 +22,6 @@ namespace HIMS.BusinessLogic.DTO
         public System.DateTime StartDate { get; set; }
         public Nullable<System.Double> UniversityAverageScore { get; set; }
         public System.Int32 UserId { get; set; }
+        public System.String Password { get; set; }
     }
 }
