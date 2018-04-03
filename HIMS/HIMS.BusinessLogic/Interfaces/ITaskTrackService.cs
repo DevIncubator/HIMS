@@ -7,7 +7,7 @@ namespace HIMS.BusinessLogic.Interfaces
 {
     public interface ITaskTrackService
     {
-        IEnumerable<TaskTrackTransferModel> GetTaskTracks(int UserId);
+        IEnumerable<TaskTrackTransferModel> GetTaskTracks();
         void SaveTaskTrack(TaskTrackTransferModel item);
         void UpdateTaskTrack(TaskTrackTransferModel item);
         void DeleteTaskTrack(int? id);

@@ -45,7 +45,7 @@ namespace HIMS.WebMVC.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditTaskTrack(int? id)//update TaskTrack
+        public ActionResult EditTaskTrack(int? id)
         {
             if (id == null)
             {

@@ -43,11 +43,11 @@ namespace HIMS.BusinessLogic.Services
             return Mapper.Map<VUserTrack, VUserTrackTransferModel>(Database.VUserTracks.GetByTaskTrackId(taskTrackId.Value).First());
         }
 
-        public IEnumerable<VUserTrackTransferModel> GetVUserTrack(int? UserId)
+        public IEnumerable<VUserTrackTransferModel> GetVUserTrack(int? userId)
         {
-            if(!UserId.HasValue)
+            if(!userId.HasValue)
                 throw  new ValidationException("The User's id value is not set", String.Empty);
-            return Mapper.Map<IEnumerable<VUserTrack>, List<VUserTrackTransferModel>>(Database.VUserTracks.GetByUserId(UserId.Value));
+            return Mapper.Map<IEnumerable<VUserTrack>, List<VUserTrackTransferModel>>(Database.VUserTracks.GetByUserId(userId.Value));
 
         }
 
