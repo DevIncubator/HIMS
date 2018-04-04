@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Web.Mvc;
@@ -68,7 +69,7 @@ namespace HIMS.Tests
             //setup itaskTrack mock
             iTaskTrackServiceMock.Setup(m => m.GetTaskTracks()).Returns(taskTracks);
             iTaskTrackServiceMock.Setup(m => m.GetTaskTrack(It.IsAny<int>()))
-                .Returns((int? id) => taskTracks.Single(tt => tt.TaskTrackId == id));
+                .Returns((int? id) => taskTracks.SingleOrDefault(tt => tt.TaskTrackId == id));
             iTaskTrackServiceMock.Setup(m => m.SaveTaskTrack(It.IsAny<TaskTrackTransferModel>())).Callback
             (
                 (TaskTrackTransferModel target) =>
@@ -105,9 +106,9 @@ namespace HIMS.Tests
             iVUserTrackServiceMock.Setup(m => m.GetVUserTrack(It.IsAny<int?>()))
                 .Returns((int id) => vUserTracks.Where(ut => ut.UserId == id));
             iVUserTrackServiceMock.Setup(m => m.Get(It.IsAny<int?>()))
-                .Returns((int id) => vUserTracks.Single(ut => ut.UserId == id));
+                .Returns((int id) => vUserTracks.SingleOrDefault(ut => ut.UserId == id));
             iVUserTrackServiceMock.Setup(m => m.GetByTaskTrack(It.IsAny<int?>()))
-                .Returns((int id) => vUserTracks.Single(ut => ut.TaskTrackId == id));
+                .Returns((int id) => vUserTracks.SingleOrDefault(ut => ut.TaskTrackId == id));
             iVUserTrackServiceMock.Setup(m => m.UpdateUserTrack(It.IsAny<VUserTrackTransferModel>())).Callback(
                 (VUserTrackTransferModel target) =>
                 {
@@ -165,22 +166,43 @@ namespace HIMS.Tests
 
         }
 
+        [TestMethod]
+        public void DeleteView_ValidId_ResultNotNull()
+        {
+            ViewResult result = _controller.Delete(2, false) as ViewResult;
+            VUserTrackViewModel model = result.Model as VUserTrackViewModel;
+            Assert.IsNotNull(model);
+        }
 
+        [TestMethod]
+        public void DeleteView_NegativeId_ResultIsHttpNotFound()
+        {
+            HttpNotFoundResult result = _controller.Delete(-1000, false) as HttpNotFoundResult;
+            Assert.IsNotNull(result);
+        }
 
-        //[TestMethod]
-        //public void EditView_ResultNotNull()
-        //{
-        //    // Arrange
-        //    int? id = 5;
+        [TestMethod]
+        public void DeleteView_NullId_ResultIsHttpNotFound()
+        {
+            HttpStatusCodeResult result = _controller.Delete(null, false) as HttpStatusCodeResult;
 
-        //    // Act
-        //    ViewResult result = _controller.Edit(id) as ViewResult;
+            Assert.AreEqual(result.StatusCode, 400);
+        }
 
-        //    // Assert 
-        //    Assert.IsNotNull(result.Model);
-        //}
+        [TestMethod]
+        public void DeletePost_ValidId_ResultRedirectToAction()
+        {
+            var result = (RedirectToRouteResult)_controller.Delete(2);
 
-        //[TestMethod]
-        //public void Edit
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+        }
+
+        [TestMethod]
+        public void DeletePost_InvalidId_ResultRedirectToAction()
+        {
+            HttpStatusCodeResult result = (HttpStatusCodeResult)_controller.Delete(-1000);
+
+            Assert.AreEqual(result.StatusCode, 400);
+        }
     }
 }
