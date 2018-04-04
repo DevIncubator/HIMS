@@ -99,12 +99,21 @@ namespace HIMS.WebMVC.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryTokenAttribute]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             try
             {
-                _taskTrackService.DeleteTaskTrack(id);
+                var item = _taskTrackService.GetTaskTrack(id);
+                if (item != null)
+                {
+                    _taskTrackService.DeleteTaskTrack(id);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                
             }
             catch (RetryLimitExceededException)
             {
