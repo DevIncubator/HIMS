@@ -126,6 +126,10 @@
       <Project>{42c370f1-03f8-40ac-93ac-77d1f972faf6}</Project>
       <Name>HIMS.WebMVC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\HIMS.Data.Model.csproj">
+      <Project>{C460D18B-5B7D-4AAE-8C7C-2CEBCBA1872D}</Project>
+      <Name>HIMS.Data.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
