@@ -17,12 +17,16 @@ namespace HIMS.WebMVC.Controllers
         private readonly ITaskTrackService _taskTrackService;
         private readonly IVUserTrackService _vUserTrackService;
         private readonly IVUserProfileService _vUserProfileService;
+        private readonly IUserTaskService _userTaskService;
+        private readonly IUserTaskTService _userTaskTService;
 
-        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService)
+        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService, IUserTaskService userTaskService, IUserTaskTService userTaskTService)
         {
             _taskTrackService = taskTrackService;
             _vUserTrackService = vUerTrackService;
             _vUserProfileService = vUserProfileService;
+            _userTaskService = userTaskService;
+            _userTaskTService = userTaskTService;
         }
 
         public ActionResult Edit(int? id) 
@@ -140,18 +144,34 @@ namespace HIMS.WebMVC.Controllers
             var taskTrack = Mapper.Map<VUserTrackTransferModel, TaskTrackEditViewModel>(taskTrackDto);
             return View(taskTrack);
         }
-
-        public ActionResult Create(/*UserTaskTransferModel model*/)
+        
+        public ActionResult Create(int? taskId)
         {
-            //ViewBag.TaskName = model.Name;
-            //TaskTrackViewModel viewModel = new TaskTrackViewModel();
-            //viewModel.UserTaskId = model.;
-            return View();
+            if (taskId != null)
+            {
+                var userIdentityName = User.Identity.Name;
+                var user = _vUserProfileService.GetVUserProfile(userIdentityName);
+                var task = _userTaskService.GetTaskForUser(user.UserId, taskId.Value);
+                var userTaskModel = _userTaskTService.Get(user.UserId, task.TaskId);
+                TaskTrackViewModel viewModel = new TaskTrackViewModel
+                {
+                    Name = task.Name,
+                    TrackDate = DateTime.Now,
+                    TaskId = task.TaskId,
+                    UserId = user.UserId,
+                    UserTaskId = userTaskModel.UserTaskId
+                };
+                return View(viewModel);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TrackNote")] TaskTrackViewModel taskTrack)
+        public ActionResult Create([Bind(Include = "TrackNote, UserTaskId")] TaskTrackViewModel taskTrack)
         {
             try
             {
