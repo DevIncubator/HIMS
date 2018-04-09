@@ -28,16 +28,15 @@ namespace HIMS.WebMVC.Controllers
             if (id != null)
             {
                 IEnumerable<UserTaskTransferModel> userDtos = _service.GetAllTasksForUser(id);
-                var userName = _serviceU.GetUserProfile(id).Name.ToString();
+                var userName = _serviceU.GetUserProfile(id).Name;
                 var tasks = new UserTasksListViewModel
-                {
-                    UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos),
-                    UserName = userName
-                };
+                    {
+                        UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos),
+                        UserName = userName
+                    };
                 return View(tasks);
-
             }
-            else { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
+            else return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
             
         }
 
