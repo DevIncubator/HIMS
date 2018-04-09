@@ -1,36 +1,52 @@
-﻿@model HIMS.WebMVC.Models.SampleViewModel
+﻿@model HIMS.WebMVC.Models.TaskViewModel
 
 @{
-    ViewBag.Title = "Edit the Sample entry";
+    /**/
+
+    ViewBag.Title = "Edit Task";
 }
 
-<h2>Edit the Sample record</h2>
+<h2>Task - @Model.Name</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
-        <h4>Sample</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.SampleId)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
+        
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Start, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Deadline, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.Label("Members", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4" style="OVERFLOW-Y:scroll; WIDTH:auto; HEIGHT:300px">
+            @foreach (var item in @ViewBag.UserList)
+            {
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               name="SelectedUsers"
+                               value="@item.Value" /> @item.Text
+                        </label>
+                    </div>
+                }
         </div>
 
         <div class="form-group">

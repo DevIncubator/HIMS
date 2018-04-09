@@ -1,14 +1,14 @@
-﻿@model HIMS.WebMVC.Models.SampleViewModel
+﻿@model HIMS.WebMVC.Models.TaskViewModel
 
 @{
-    ViewBag.Title = "Details page of the Sample entry";
+    ViewBag.Title = "Details task";
 }
 
 
-<h2>Details page</h2>
+<h2>Details</h2>
 
 <div>
-    <h4>Sample</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,7 +18,7 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-        
+
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
@@ -26,9 +26,23 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deadline)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SampleId }, new { @class = "btn btn-default" }) 
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaskId }, new { @class = "btn btn-default" }) 
     @Html.ActionLink("Back to Grid", "Index", null, new { @class = "btn btn-default" })
 </p>

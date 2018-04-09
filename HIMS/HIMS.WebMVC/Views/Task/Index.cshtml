@@ -21,9 +21,7 @@
             <th>
                 Name
             </th>
-            <th>
-                Description
-            </th>
+            
             <th>
                 Start
             </th>
@@ -43,9 +41,7 @@
             <td>
                 @Html.ActionLink(item.Name, "Details", new { id = item.TaskId })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Start)
             </td>
