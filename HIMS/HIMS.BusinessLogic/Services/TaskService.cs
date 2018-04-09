@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using AutoMapper;
 using HIMS.BusinessLogic.DTO;
 using HIMS.BusinessLogic.Infrastructure;
@@ -26,7 +25,7 @@ namespace HIMS.BusinessLogic.Services
 
         public void SaveTask(TaskTransferModel taskDTO)
         {
-            //Validation
+            
             if (taskDTO.Name.Length > 25)
                 throw new ValidationException($"The length of {nameof(taskDTO.Name)} must be less then 25"
                     , nameof(taskDTO.Name));
@@ -34,15 +33,8 @@ namespace HIMS.BusinessLogic.Services
                 throw new ValidationException($"The length of {nameof(taskDTO.Description)} must be less then 25"
                     , nameof(taskDTO.Description));
 
-            var task = new Task
-            {
-                Name = taskDTO.Name,
-                Description = taskDTO.Description,
-                StartDate = taskDTO.Start,
-                DeadlineDate = taskDTO.Deadline
 
-            };
-
+            var task = Mapper.Map<TaskTransferModel, Task>(taskDTO);
             Database.Tasks.Create(task);
             Database.Save();
 
@@ -99,10 +91,10 @@ namespace HIMS.BusinessLogic.Services
 
             return Mapper.Map<Task, TaskTransferModel>(task);
         }
-        public IEnumerable<TaskTransferModel> GetAllTasks(int taskId)
+        public IEnumerable<TaskTransferModel> GetAllTasks()
         {
-            var tasks = Database.Tasks.Find(ut => ut.TaskId == taskId).ToList();
-            return Mapper.Map<IEnumerable<Task>, List<TaskTransferModel>>(tasks);
+           
+            return Mapper.Map<IEnumerable<Task>, List<TaskTransferModel>>(Database.Tasks.GetAll());
         }
     }
 }

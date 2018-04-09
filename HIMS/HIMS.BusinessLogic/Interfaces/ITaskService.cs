@@ -12,7 +12,7 @@ namespace HIMS.BusinessLogic.Interfaces
         void SaveTask(TaskTransferModel taskDTO);
         void SetMember(UserTaskTransferModel userDTO);
         TaskTransferModel GetTask(int taskId);
-        IEnumerable<TaskTransferModel> GetAllTasks(int taskId);
+        IEnumerable<TaskTransferModel> GetAllTasks();
         void UpdateTask(TaskTransferModel taskDTO);
         void DeleteTask(int? taskId);
         void SetTaskStatusActive(int userId, int taskId);
