@@ -20,8 +20,7 @@
             {
                 <tr>
                     <th scope="row">@(i + 1)</th>
-                    <!-- TODO: Make a valid ActionLink for task detail page by task id -->
-                    <td>@Html.ActionLink(Model.UserProgressList.ElementAt(i).TaskName, "Details", new { id = Model.UserProgressList.ElementAt(i).TaskId })</td>
+                    <td>@Html.ActionLink(Model.UserProgressList.ElementAt(i).TaskName, "Details", "Task", new { id = Model.UserProgressList.ElementAt(i).TaskId }, null)</td>
                     <td>@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackNote)</td>
                     <td>@Html.DisplayFor(modelItem => Model.UserProgressList.ElementAt(i).TrackDate)</td>
                 </tr>
