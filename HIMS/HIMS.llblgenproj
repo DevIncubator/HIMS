@@ -90,7 +90,7 @@
   <CodeGenerationCyclePreferences>
     <OutputType Value="3">
       <LastUsedPreferences>
-        <DestinationRootFolder Value="D:\Projects\HIMS\HIMS" />
+        <DestinationRootFolder Value="D:\project\HIMS\HIMS" />
         <FrameworkName Value="Entity Framework v6" />
         <LanguageName Value="C#" />
         <PlatformName Value=".NET 4.5.2" />
@@ -201,13 +201,13 @@
           <Field Name="SampleId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="Task" ObjectID="b7abdb21-e602-4901-996e-b9c75e4d31bd">
+      <EntityDefinition Name="Task" ObjectID="00b2de52-3c9c-4c78-b545-e9317adc060c">
         <Fields>
           <Field Name="DeadlineDate" Type="datetime" />
           <Field Name="Description" Type="string" MaxLength="255" />
           <Field Name="Name" Type="string" MaxLength="50" />
           <Field Name="StartDate" Type="datetime" />
-          <Field Name="TaskId" Type="int" Precision="10" IsPrimaryKey="true" />
+          <Field Name="TaskId" Type="int" IsReadOnly="true" Precision="10" IsPrimaryKey="true" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="TaskState" ObjectID="aa5c0ae1-4301-4fd1-a315-4ea989a528ce">
@@ -395,10 +395,10 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-03-16T19:46:19.372788Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-04-09T20:40:49.7775344Z">
               <Tables>
                 <Table Name="__RefactorLog">
-                  <PkConstraintName Name="PK____Refact__D3AEFFDBEB4EB14F" />
+                  <PkConstraintName Name="PK____Refact__D3AEFFDBEE30E8E9" />
                   <Fields>
                     <Field Name="OperationKey" Ordinal="1" IsPrimaryKey="true" DbType="25" />
                   </Fields>
@@ -407,7 +407,7 @@
                   </CustomProperties>
                 </Table>
                 <Table Name="Direction">
-                  <PkConstraintName Name="PK__Directio__876847C6F3D965CE" />
+                  <PkConstraintName Name="PK__Directio__876847C64E933084" />
                   <Fields>
                     <Field Name="DirectionId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="2" DbType="12" Length="2147483647" />
@@ -423,9 +423,9 @@
                   </Fields>
                 </Table>
                 <Table Name="Task">
-                  <PkConstraintName Name="PK__Task__7C6949B139AA5757" />
+                  <PkConstraintName Name="PK_Task" />
                   <Fields>
-                    <Field Name="TaskId" Ordinal="1" IsPrimaryKey="true" DbType="8" Precision="10" />
+                    <Field Name="TaskId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
                     <Field Name="Description" Ordinal="3" DbType="12" Length="255" />
                     <Field Name="StartDate" Ordinal="4" DbType="28" />
@@ -440,7 +440,7 @@
                   </Fields>
                 </Table>
                 <Table Name="TaskTrack">
-                  <PkConstraintName Name="PK__TaskTrac__9041AE7B61784C9F" />
+                  <PkConstraintName Name="PK__TaskTrac__9041AE7B366827C0" />
                   <Fields>
                     <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="TrackDate" Ordinal="2" DbType="4" />
@@ -634,7 +634,7 @@
             <FieldMapping FieldName="Description" TargetFieldName="Description" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
             <FieldMapping FieldName="StartDate" TargetFieldName="StartDate" />
-            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" />
+            <FieldMapping FieldName="TaskId" TargetFieldName="TaskId" SequenceToUse="SCOPE_IDENTITY()" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":TaskState" TargetName="HIMS:dbo:TaskState">

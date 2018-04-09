@@ -57,6 +57,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="app.config">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </None>
@@ -69,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

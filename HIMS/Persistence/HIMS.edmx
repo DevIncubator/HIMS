@@ -3,7 +3,7 @@
 	<edmx:Runtime>
 		<edmx:StorageModels>
 			<Schema Namespace="HIMS.SQLServer.Store" Alias="Self" 
-					Provider="System.Data.SqlClient" ProviderManifestToken="2008"
+					Provider="System.Data.SqlClient" ProviderManifestToken="2012"
 					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
 				<EntityContainer Name="HIMSSQLServerContainer">
 					<EntitySet Name="Direction" EntityType="Self.Direction" Schema="dbo" />
@@ -61,7 +61,7 @@
 					<Key>
 						<PropertyRef Name="TaskId"/>
 					</Key>
-					<Property Name="TaskId" Type="int" Nullable="false"  />
+					<Property Name="TaskId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" DefaultValue="1"  />
 					<Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50"  />
 					<Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255"  />
 					<Property Name="StartDate" Type="date" Nullable="false"  />
@@ -508,11 +508,11 @@
 					<EntitySetMapping Name="Task">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Task)">
 							<MappingFragment StoreEntitySet="Task">
-								<ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
-								<ScalarProperty Name="Description" ColumnName="Description" />
-								<ScalarProperty Name="Name" ColumnName="Name" />
-								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
 								<ScalarProperty Name="TaskId" ColumnName="TaskId" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
+								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
+								<ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
