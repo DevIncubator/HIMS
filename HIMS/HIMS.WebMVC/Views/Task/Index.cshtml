@@ -1,0 +1,62 @@
+﻿@model HIMS.WebMVC.Models.TaskListViewModel
+
+@{
+    ViewBag.Title = "Task Page";
+}
+
+<h2>Tasks Manage Grid</h2>
+
+
+
+<p>
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-success" })
+</p>
+ 
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                Deadline
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Tasks)
+    {
+        <tr>
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.TaskId)
+            </th>
+            <td>
+                @Html.ActionLink(item.Name, "Details", new { id = item.TaskId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TaskId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.TaskId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</tbody>
+</table>

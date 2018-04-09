@@ -9,6 +9,7 @@ namespace HIMS.WebMVC.Utils
         public override void Load()
         {
             Bind<ISampleService>().To<SampleService>();
+            Bind<ITaskService>().To<TaskService>();
             Bind<IUserService>().To<UserService>();
             Bind<IUserTaskService>().To<UserTaskService>();
             Bind<IVUserProfileService>().To<VUserProfileService>();

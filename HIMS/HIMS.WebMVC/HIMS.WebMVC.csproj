@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TaskTrackController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\UserProgressController.cs" />
@@ -210,10 +211,12 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SampleViewModel.cs" />
     <Compile Include="Models\SmplesListViewModel.cs" />
+    <Compile Include="Models\TaskListViewModel.cs" />
     <Compile Include="Models\TaskTrackDeleteViewModel.cs" />
     <Compile Include="Models\TaskTrackEditViewModel.cs" />
     <Compile Include="Models\TaskTracksListViewModel.cs" />
     <Compile Include="Models\TaskTrackViewModel.cs" />
+    <Compile Include="Models\TaskViewModel.cs" />
     <Compile Include="Models\UserProfileDetailsViewModel.cs" />
     <Compile Include="Models\UserProfileGridViewModel.cs" />
     <Compile Include="Models\UserProgressListViewModel.cs" />
@@ -323,6 +326,11 @@
     <Content Include="Views\TaskTrack\Edit.cshtml" />
     <Content Include="Views\UserProgress\Index.cshtml" />
     <Content Include="Views\UserTask\GetTasksForUser.cshtml" />
+    <Content Include="Views\Task\Create.cshtml" />
+    <Content Include="Views\Task\Delete.cshtml" />
+    <Content Include="Views\Task\Details.cshtml" />
+    <Content Include="Views\Task\Edit.cshtml" />
+    <Content Include="Views\Task\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,7 +367,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>7322</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

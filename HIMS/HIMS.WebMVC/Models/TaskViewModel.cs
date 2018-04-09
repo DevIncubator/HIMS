@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
 
-namespace HIMS.BusinessLogic.DTO
+namespace HIMS.WebMVC.Models
 {
-    public class TaskTransferModel
+    public class TaskViewModel
     {
-       // public int UserId { get; set; }
         public int TaskId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Start { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Deadline { get; set; }
-    
     }
 }

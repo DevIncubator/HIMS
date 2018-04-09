@@ -80,7 +80,7 @@ namespace HIMS.BusinessLogic.Services
             Database.Tasks.Delete(taskId.Value);
             Database.Save();
         }
-        public TaskTransferModel GetTask(int taskId)
+        public TaskTransferModel GetTask(int? taskId)
         {
             var task = Database.Tasks.Find(ut => ut.TaskId == taskId).FirstOrDefault();
 
