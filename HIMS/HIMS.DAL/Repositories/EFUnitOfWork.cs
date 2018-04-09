@@ -155,6 +155,16 @@ namespace HIMS.Data.Repositories
             }
         }
 
+        public IRepository<UserTask> UserTasks
+        {
+            get
+            {
+                if (_userTaskRepository == null)
+                    _userTaskRepository = new UserTaskRepository(db);
+                return _userTaskRepository;
+            }
+        }
+
         public void Save()
         {
             db.SaveChanges();
