@@ -68,6 +68,7 @@
     <Compile Include="DTO\TaskTransferModel.cs" />
     <Compile Include="DTO\UserProfileTransferModel.cs" />
     <Compile Include="DTO\UserTaskTransferModel.cs" />
+    <Compile Include="DTO\UserTaskTTransferModel.cs" />
     <Compile Include="DTO\UserTransferModel.cs" />
     <Compile Include="DTO\VUserProfileTransferModel.cs" />
     <Compile Include="DTO\VUserProgressTransferModel.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Interfaces\ITaskTrackService.cs" />
     <Compile Include="Interfaces\IUserProfileService.cs" />
     <Compile Include="Interfaces\IUserTaskService.cs" />
+    <Compile Include="Interfaces\IUserTaskTService.cs" />
     <Compile Include="Interfaces\IVUserProgressService.cs" />
     <Compile Include="Interfaces\IVUserProfileService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\UserTaskService.cs" />
+    <Compile Include="Services\UserTaskTService.cs" />
     <Compile Include="Services\VUserProfileService.cs" />
     <Compile Include="Services\VUserProgressService.cs" />
     <Compile Include="Services\VUserTrackService.cs" />

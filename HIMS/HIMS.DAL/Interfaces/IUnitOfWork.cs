@@ -13,6 +13,7 @@ namespace HIMS.Data.Interfaces
 		IRepository<Task> Tasks { get; }
         IRepository<TaskTrack> TaskTracks { get; }
         IRepository<Direction> Directions { get; }
+        IRepository<UserTask> UserTasks { get; }
         IVUserProgressRepository VUserProgress { get; }
         IVUserTrackRepository<VUserTrack> VUserTracks { get; }
         void Save();
