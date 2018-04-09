@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Track", "Edit", "TaskTrack", new { id = item.taskId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Track", "Create", "TaskTrack", new { id = item.taskId }, new { @class = "btn btn-default" })
             </td>
             @if (User.IsInRole("admin"))
              {
