@@ -13,10 +13,10 @@ namespace HIMS.WebMVC.Controllers
 {
     public class UserTaskController : Controller
     {
-        private readonly IUserTaskService _service;
+        private readonly IVUserTaskService _service;
         private readonly IUserProfileService _serviceU;
 
-        public UserTaskController(IUserTaskService service, IUserProfileService serviceU)
+        public UserTaskController(IVUserTaskService service, IUserProfileService serviceU)
         {
             _service = service;
             _serviceU = serviceU;

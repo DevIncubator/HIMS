@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HIMS.BusinessLogic.Interfaces
 {
-    public interface IUserTaskService
+    public interface IVUserTaskService
     { 
         IEnumerable<UserTaskTransferModel> GetAllTasksForUser(int userId);
         UserTaskTransferModel GetTaskForUser(int userId, int taskId);        

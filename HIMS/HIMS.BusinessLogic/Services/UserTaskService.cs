@@ -10,12 +10,12 @@ using System.Linq;
 
 namespace HIMS.BusinessLogic.Services
 {
-    public class UserTaskService : IUserTaskService
+    public class VUserTaskService : IVUserTaskService
     {
         private IUnitOfWork Database { get; set; }
         private IProcedureManager Pm { get; set; }
 
-        public UserTaskService(IUnitOfWork uow, IProcedureManager pm)
+        public VUserTaskService(IUnitOfWork uow, IProcedureManager pm)
         {
             Database = uow;
             Pm = pm;

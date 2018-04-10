@@ -24,7 +24,7 @@ namespace HIMS.Tests
         [TestInitialize]
         public void Initialization()
         {
-            Mock<IUserTaskService> iUserTaskServiceMock = new Mock<IUserTaskService>();
+            Mock<IVUserTaskService> iUserTaskServiceMock = new Mock<IVUserTaskService>();
             Mock<IUserProfileService> iUserProfileServiceMock = new Mock<IUserProfileService>();
 
             List<UserTaskTransferModel> listDTO = new List<UserTaskTransferModel>
