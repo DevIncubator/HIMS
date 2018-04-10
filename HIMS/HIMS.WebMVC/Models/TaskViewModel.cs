@@ -12,8 +12,8 @@ namespace HIMS.WebMVC.Models
         public string Name { get; set; }
         public string Description { get; set; }
         [DataType(DataType.Date)]
-        public DateTime Start { get; set; }
+        public DateTime StartDate { get; set; }
         [DataType(DataType.Date)]
-        public DateTime Deadline { get; set; }
+        public DateTime DeadlineDate { get; set; }
     }
 }
