@@ -23,7 +23,7 @@ namespace HIMS.WebMVC.Controllers
 
         }
 
-        public ActionResult GetTasksForUser(int id)
+        public ActionResult GetTasksForUser(int? id)
         {
             if (id != null)
             {

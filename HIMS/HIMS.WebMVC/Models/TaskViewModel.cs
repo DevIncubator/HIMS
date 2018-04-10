@@ -15,5 +15,7 @@ namespace HIMS.WebMVC.Models
         public DateTime StartDate { get; set; }
         [DataType(DataType.Date)]
         public DateTime DeadlineDate { get; set; }
+
+        public List<string> SelectedUsers { get; set; }
     }
 }

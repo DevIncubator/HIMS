@@ -14,12 +14,18 @@ namespace HIMS.WebMVC.Controllers
     {
         private readonly ITaskService _taskService;
         private readonly IVUserProfileService _vUserProfileService;
+        private readonly IVUserTaskService _vUserTaskService;
+        private readonly IUserProfileService _userProfileService;
 
         public TaskController(ITaskService taskService,
-            IVUserProfileService vUserProfileService)
+             IVUserProfileService vUserProfileService,
+             IVUserTaskService vUserTaskService,
+             IUserProfileService userProfileService)
         {
             _taskService = taskService;
             _vUserProfileService = vUserProfileService;
+            _vUserTaskService = vUserTaskService;
+            _userProfileService = userProfileService;
         }
 
         [Authorize(Roles = "admin")]
@@ -43,12 +49,14 @@ namespace HIMS.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name, Description, Start, Deadline")]TaskViewModel task)
+        public ActionResult Create(TaskViewModel task)
+            //[Bind(Include = "Name, Description, StartDate, DeadlineDate")]TaskViewModel task)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    var users = string.Join(",", task.SelectedUsers);
                     var taskDto = Mapper.Map<TaskViewModel, TaskTransferModel>(task);
                     _taskService.SaveTask(taskDto);
                     return RedirectToAction("Index");
@@ -75,6 +83,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserList = GetUsers();
+            ViewBag.TaskUsers = GetTasksForUser(id);
             var task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
             return View(task);
         }
@@ -178,6 +187,19 @@ namespace HIMS.WebMVC.Controllers
                 selectItems.Add(new SelectListItem { Text = item.FullName, Value = item.UserId.ToString() });
             }
             return selectItems;
+        }
+
+        private List<SelectListItem> GetTasksForUser(int? id)
+        {
+            var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllTasksForUser(id));
+            List<SelectListItem> userIdTasks = new List<SelectListItem>();
+            foreach (var item in users)
+            {
+                userIdTasks.Add(new SelectListItem { Text = item.Name, Value = item.userId.ToString() });
+            }
+
+            return userIdTasks;
+
         }
     }
 }
