@@ -81,7 +81,7 @@
     <Compile Include="Interfaces\ITaskService.cs" />
     <Compile Include="Interfaces\ITaskTrackService.cs" />
     <Compile Include="Interfaces\IUserProfileService.cs" />
-    <Compile Include="Interfaces\IUserTaskTService.cs" />
+    <Compile Include="Interfaces\IUserTaskService.cs" />
     <Compile Include="Interfaces\IVUserProgressService.cs" />
     <Compile Include="Interfaces\IVUserProfileService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
@@ -95,7 +95,7 @@
     <Compile Include="Services\UserProfileService.cs" />
     <Compile Include="Services\VUserService.cs" />
     <Compile Include="Services\VUserTaskService.cs" />
-    <Compile Include="Services\UserTaskTService.cs" />
+    <Compile Include="Services\UserTaskService.cs" />
     <Compile Include="Services\VUserProfileService.cs" />
     <Compile Include="Services\VUserProgressService.cs" />
     <Compile Include="Services\VUserTrackService.cs" />

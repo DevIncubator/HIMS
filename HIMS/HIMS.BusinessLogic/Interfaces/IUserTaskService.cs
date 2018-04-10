@@ -2,7 +2,7 @@
 
 namespace HIMS.BusinessLogic.Interfaces
 {
-    public interface IVUserTaskTService
+    public interface IUserTaskService
     {
         UserTaskTTransferModel Get(int userId, int taskId);
     }

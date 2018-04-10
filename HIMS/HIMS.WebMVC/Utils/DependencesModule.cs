@@ -18,7 +18,7 @@ namespace HIMS.WebMVC.Utils
             Bind<ITaskTrackService>().To<TaskTrackService>();
             Bind<IVUserTrackService>().To<VUserTrackService>();
             Bind<IVUserProgressService>().To<VUserProgressService>();
-            //Bind<IVUserTaskTService>().To<UserTaskTService>();
+            Bind<IUserTaskService>().To<UserTaskService>();
         }
     }
 }

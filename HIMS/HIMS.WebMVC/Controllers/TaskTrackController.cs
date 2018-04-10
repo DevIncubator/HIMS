@@ -17,16 +17,16 @@ namespace HIMS.WebMVC.Controllers
         private readonly ITaskTrackService _taskTrackService;
         private readonly IVUserTrackService _vUserTrackService;
         private readonly IVUserProfileService _vUserProfileService;
-        private readonly IVUserTaskService _userTaskService;
-        private readonly IVUserTaskTService _userTaskTService;
+        private readonly IVUserTaskService _vUserTaskService;
+        private readonly IUserTaskService _userTaskTService;
 
-        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService, IVUserTaskService userTaskService, IVUserTaskTService userTaskTService)
+        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService, IVUserTaskService vUserTaskService, IUserTaskService userTaskService)
         {
             _taskTrackService = taskTrackService;
             _vUserTrackService = vUerTrackService;
             _vUserProfileService = vUserProfileService;
-            _userTaskService = userTaskService;
-            _userTaskTService = userTaskTService;
+            _vUserTaskService = vUserTaskService;
+            _userTaskTService = userTaskService;
         }
 
         public ActionResult Edit(int? id) 
@@ -151,7 +151,7 @@ namespace HIMS.WebMVC.Controllers
             {
                 var userIdentityName = User.Identity.Name;
                 var user = _vUserProfileService.GetVUserProfile(userIdentityName);
-                var task = _userTaskService.GetTaskForUser(user.UserId, taskId.Value);
+                var task = _vUserTaskService.GetTaskForUser(user.UserId, taskId.Value);
                 var userTaskModel = _userTaskTService.Get(user.UserId, task.TaskId);
                 TaskTrackViewModel viewModel = new TaskTrackViewModel
                 {

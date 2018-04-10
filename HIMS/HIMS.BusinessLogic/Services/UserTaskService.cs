@@ -8,12 +8,12 @@ using AutoMapper;
 
 namespace HIMS.BusinessLogic.Services
 {
-    public class UserTaskTService : IVUserTaskTService
+    public class UserTaskService : IUserTaskService
     {
         private IUnitOfWork Database { get; set; }
 
 
-        public UserTaskTService(IUnitOfWork uow)
+        public UserTaskService(IUnitOfWork uow)
         {
             Database = uow;
         }
@@ -21,8 +21,6 @@ namespace HIMS.BusinessLogic.Services
         {
             Database.Dispose();
         }
-
-        
 
         public UserTaskTTransferModel Get(int userId, int taskId)
         {
