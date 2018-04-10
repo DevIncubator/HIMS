@@ -3,7 +3,7 @@
 	<edmx:Runtime>
 		<edmx:StorageModels>
 			<Schema Namespace="HIMS.SQLServer.Store" Alias="Self" 
-					Provider="System.Data.SqlClient" ProviderManifestToken="2008"
+					Provider="System.Data.SqlClient" ProviderManifestToken="2012"
 					xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
 				<EntityContainer Name="HIMSSQLServerContainer">
 					<EntitySet Name="Direction" EntityType="Self.Direction" Schema="dbo" />
@@ -508,11 +508,11 @@
 					<EntitySetMapping Name="Task">
 						<EntityTypeMapping TypeName="IsTypeOf(HIMSModel.Task)">
 							<MappingFragment StoreEntitySet="Task">
-								<ScalarProperty Name="TaskId" ColumnName="TaskId" />
-								<ScalarProperty Name="Name" ColumnName="Name" />
-								<ScalarProperty Name="Description" ColumnName="Description" />
-								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
 								<ScalarProperty Name="DeadlineDate" ColumnName="DeadlineDate" />
+								<ScalarProperty Name="Description" ColumnName="Description" />
+								<ScalarProperty Name="Name" ColumnName="Name" />
+								<ScalarProperty Name="StartDate" ColumnName="StartDate" />
+								<ScalarProperty Name="TaskId" ColumnName="TaskId" />
 							</MappingFragment>
 						</EntityTypeMapping>
 					</EntitySetMapping>
