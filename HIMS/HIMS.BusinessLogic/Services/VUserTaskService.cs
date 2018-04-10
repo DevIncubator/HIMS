@@ -69,10 +69,19 @@ namespace HIMS.BusinessLogic.Services
 
         public void SaveTaskForUser(UserTaskTransferModel userDTO)
         {
+
             if (userDTO.Name.Length > 25)
                 throw new ValidationException($"The length of {nameof(userDTO.Name)} must be less then 25");
-            var userTask = Mapper.Map<UserTaskTransferModel, VUserTask>(userDTO);
-            Database.VUserTasks.Create(userTask);
+            var userTask = new UserTask
+            {
+                TaskId = userDTO.TaskId,
+                UserId = userDTO.UserId,
+                StateId = 1
+
+            };
+
+            //Mapper.Map<UserTaskTransferModel, UserTask>(userDTO);
+            Database.UserTasks.Create(userTask);
             Database.Save();
         }
     }

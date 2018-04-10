@@ -9,6 +9,7 @@ namespace HIMS.DAL.Interfaces
     public interface IProcedureManager
     {
         int GetSampleEntriesAmount(bool isAdmin);
+        int GetLastTaskId();
         int DeleteUser(int userId);
 		int DeleteTask(int taskId);
         int DeleteTaskTrack(int taskTrackId);
