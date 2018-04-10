@@ -21,7 +21,7 @@ namespace HIMS.BusinessLogic.Services
             Pm = pm;
         }
 
-        public IEnumerable<UserTaskTransferModel> GetAllTasksForUser(int userId)
+        public IEnumerable<UserTaskTransferModel> GetAllTasksForUser(int? userId)
         {
             var tasks = Database.VUserTasks.Find(f => f.UserId == userId).ToList();
             if (tasks == null)
