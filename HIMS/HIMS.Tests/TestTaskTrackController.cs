@@ -135,7 +135,7 @@ namespace HIMS.Tests
             Mapper.Reset();
             AutoMapperConfig.Initialize();
 
-            _controller = new TaskTrackController(iTaskTrackServiceMock.Object, iVUserTrackServiceMock.Object, iVUserProfileServiceMock.Object);
+            _controller = new TaskTrackController(iTaskTrackServiceMock.Object, iVUserTrackServiceMock.Object, iVUserProfileServiceMock.Object, null, null);
             _controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), _controller);
         }
 
