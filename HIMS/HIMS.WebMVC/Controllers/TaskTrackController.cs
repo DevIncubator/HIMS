@@ -18,9 +18,9 @@ namespace HIMS.WebMVC.Controllers
         private readonly IVUserTrackService _vUserTrackService;
         private readonly IVUserProfileService _vUserProfileService;
         private readonly IVUserTaskService _userTaskService;
-        private readonly IUserTaskTService _userTaskTService;
+        private readonly IVUserTaskTService _userTaskTService;
 
-        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService, IVUserTaskService userTaskService, IUserTaskTService userTaskTService)
+        public TaskTrackController(ITaskTrackService taskTrackService, IVUserTrackService vUerTrackService, IVUserProfileService vUserProfileService, IVUserTaskService userTaskService, IVUserTaskTService userTaskTService)
         {
             _taskTrackService = taskTrackService;
             _vUserTrackService = vUerTrackService;

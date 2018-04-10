@@ -79,17 +79,17 @@ namespace HIMS.Tests
             iUserTaskServiceMock.Setup(m => m.GetAllTasksForUser(It.IsAny<int>())).Returns((int id) => listDTO.Where(w => w.UserId == id));
             iUserTaskServiceMock.Setup(s => s.UpdateTaskStatusForUser(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<bool>())).Callback
                 (
-                     (int userid, int taskid, bool status)=>
+                     (int userid, int taskid, bool status) =>
                      {
-                         if(status == true)
+                         if (status == true)
                          {
-                             listDTO.FirstOrDefault(f => f.UserId == userid && f.TaskId == taskid).Status = "Success";
+                             var stat = listDTO.FirstOrDefault(f => f.UserId == userid && f.TaskId == taskid);
                          }
                          else
                          {
-                             listDTO.FirstOrDefault(f => f.UserId == userid && f.TaskId == taskid).Status = "Fail";
+                             var stat = listDTO.FirstOrDefault(f => f.UserId == userid && f.TaskId == taskid) ;
                          }
-                         
+
                      }
                 ).Verifiable();
             iUserProfileServiceMock.Setup(m => m.GetUserProfile(It.IsAny<int>())).Returns((int? id) => userDTO.SingleOrDefault(s => s.UserId == id));
@@ -122,7 +122,7 @@ namespace HIMS.Tests
         [TestMethod]
         public void Controller_Show_View_Name()
         {
-            var results = controller.SetTaskAsSuccess(1, 1, true) as ViewResult;
+            var results = controller.SetTaskAsSuccess(1,1,true) as ViewResult;
             Assert.AreEqual("GetTasksForUser", results.ViewName);
         }
 

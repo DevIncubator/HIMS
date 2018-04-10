@@ -8,7 +8,7 @@ using AutoMapper;
 
 namespace HIMS.BusinessLogic.Services
 {
-    public class UserTaskTService : IUserTaskTService
+    public class UserTaskTService : IVUserTaskTService
     {
         private IUnitOfWork Database { get; set; }
 

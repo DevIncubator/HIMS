@@ -10,7 +10,7 @@ namespace HIMS.BusinessLogic.DTO
     {
         public System.String Address { get; set; }
         public System.DateTime BirthDate { get; set; }
-        public System.Int32 DirectionId { get; set; }
+        public System.Int32 Direction { get; set; }
         public System.String Education { get; set; }
         public System.String Email { get; set; }
         public System.String LastName { get; set; }
