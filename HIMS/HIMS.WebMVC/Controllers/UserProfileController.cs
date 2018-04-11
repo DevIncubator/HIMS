@@ -135,7 +135,7 @@ namespace HIMS.WebMVC.Controllers
 
             var userProfile = Mapper.Map<UserProfileTransferModel, UserProfileDetailsViewModel>(userProfileDto);
 
-            var direction = Mapper.Map<DirectionTransferModel, DirectionViewModel>(_directionService.GetDirection(userProfileDto.Direction));
+            var direction = Mapper.Map<DirectionTransferModel, DirectionViewModel>(_directionService.GetDirection(userProfileDto.DirectionId));
             
             ViewBag.Direction = direction.Name;
 
@@ -162,7 +162,7 @@ namespace HIMS.WebMVC.Controllers
 
             var userProfile = Mapper.Map<UserProfileTransferModel, UserProfileDetailsViewModel>(userProfileDto);
 
-            var direction = Mapper.Map<DirectionTransferModel, DirectionViewModel>(_directionService.GetDirection(userProfileDto.Direction));
+            var direction = Mapper.Map<DirectionTransferModel, DirectionViewModel>(_directionService.GetDirection(userProfileDto.DirectionId));
 
             ViewBag.Direction = direction.Name;
 
