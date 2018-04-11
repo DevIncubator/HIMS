@@ -15,29 +15,47 @@ namespace HIMS.WebMVC.Controllers
     {
         private readonly IVUserTaskService _service;
         private readonly IUserProfileService _serviceU;
+        private readonly IVUserProfileService _vUserProfileService;
 
-        public UserTaskController(IVUserTaskService service, IUserProfileService serviceU)
+        public UserTaskController(IVUserTaskService service, IUserProfileService serviceU, IVUserProfileService vUserProfileService)
         {
             _service = service;
             _serviceU = serviceU;
+            _vUserProfileService = vUserProfileService;
 
         }
 
         public ActionResult GetTasksForUser(int? id)
         {
-            if (id != null)
+            UserTasksListViewModel tasks;
+
+            var userIdentityName = User.Identity.Name;
+            var user = _vUserProfileService.GetVUserProfile(userIdentityName);
+
+            if (id.HasValue)
             {
+                if (user.UserId != id.Value && !User.IsInRole("admin"))
+                    return new HttpStatusCodeResult(401);
+
                 IEnumerable<UserTaskTransferModel> userDtos = _service.GetAllTasksForUser(id);
                 var userName = _serviceU.GetUserProfile(id).Name;
-                var tasks = new UserTasksListViewModel
+                tasks = new UserTasksListViewModel
                     {
                         UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos),
                         UserName = userName
                     };
-                return View(tasks);
             }
-            else return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
-            
+            else
+            { 
+                IEnumerable<UserTaskTransferModel> userDtos = _service.GetAllTasksForUser(user.UserId);
+                var userName = user.FullName;
+                tasks = new UserTasksListViewModel
+                {
+                    UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(userDtos),
+                    UserName = userName
+                };
+            }
+            return View(tasks);
         }
 
         [Authorize(Roles = "admin")]

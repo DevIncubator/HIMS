@@ -23,7 +23,7 @@ namespace HIMS.BusinessLogic.Services
 
         public IEnumerable<UserTaskTransferModel> GetAllTasksForUser(int? userId)
         {
-            var tasks = Database.VUserTasks.Find(f => f.UserId == userId).ToList();
+            var tasks = Database.VUserTasks.Find(ut => ut.UserId == userId.Value).ToList();
             if (tasks == null)
                 throw new ValidationException($"The Tasks with id = {userId} was not found");
             return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks);
