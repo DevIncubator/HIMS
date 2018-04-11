@@ -42,7 +42,7 @@
                 @Html.DisplayFor(modelitem => item.taskId)
             </th>
             <td>
-                @Html.ActionLink(item.Name, "Details", new { id = item.taskId })
+                @Html.ActionLink(item.Name, "Details", "Task", new { id = item.taskId }, null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Start)
