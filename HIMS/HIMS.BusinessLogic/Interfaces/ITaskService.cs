@@ -10,6 +10,7 @@ namespace HIMS.BusinessLogic.Interfaces
     public interface ITaskService
     {
         void SaveTask(TaskTransferModel taskDTO);
+        int GetLastTaskId();
         void SetMember(UserTaskTransferModel userDTO);
         TaskTransferModel GetTask(int? taskId);
         IEnumerable<TaskTransferModel> GetAllTasks();

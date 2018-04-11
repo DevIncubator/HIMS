@@ -17,6 +17,12 @@ namespace HIMS.DAL.Repositories
             db = new HIMSDataContext(connectionString);
         }
 
+        public int GetLastTaskId()
+        {
+            int result = 0;
+            db.CallSpGetLastTaskId(ref result);
+            return result;
+        }
         public int GetSampleEntriesAmount(bool isAdmin)
         {
             int result = 0;

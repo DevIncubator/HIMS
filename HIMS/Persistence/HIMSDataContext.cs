@@ -111,6 +111,18 @@ namespace HIMS.Data
 			return toReturn;
 		}
 		
+		/// <summary>Calls the stored procedure '[dbo].[spGetLastTaskId]'</summary>
+		/// <param name="result">Parameter mapped onto the stored procedure parameter '@result'</param>
+		/// <returns>The number of rows affected, as reported by ADO.NET</returns>
+		public int CallSpGetLastTaskId(ref System.Int32 result)
+		{
+			var cmd = CreateStoredProcCallCommand("[dbo].[spGetLastTaskId]");
+			AddParameter(cmd, "@result", 0, ParameterDirection.InputOutput, result);
+			var toReturn = ExecuteNonQueryCommand(cmd);
+			result = GetParameterValue<System.Int32>(cmd.Parameters[0].Value);
+			return toReturn;
+		}
+		
 		/// <summary>Calls the stored procedure '[dbo].[spSetUserTaskAsFail]'</summary>
 		/// <param name="userId">Parameter mapped onto the stored procedure parameter '@UserId'</param>
 		/// <param name="taskId">Parameter mapped onto the stored procedure parameter '@TaskId'</param>

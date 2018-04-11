@@ -82,6 +82,7 @@
     <Build Include="StoredProcedures\SetUserTaskAsFail.sql" />
     <Build Include="Views\vUserProgress.sql" />
     <Build Include="StoredProcedures\SetUserTaskAsActive.sql" />
+    <Build Include="StoredProcedures\spGetLastTaskId.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="SeedData\InitialData.sql" />

@@ -39,7 +39,10 @@ namespace HIMS.BusinessLogic.Services
             Database.Save();
 
         }
-
+        public int GetLastTaskId()
+        {
+           return Pm.GetLastTaskId();
+        }
         public void UpdateTask(TaskTransferModel taskDTO)
         {
             if (taskDTO.Name.Length > 25)

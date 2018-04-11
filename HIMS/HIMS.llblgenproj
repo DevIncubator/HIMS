@@ -366,6 +366,11 @@
         <Parameter Name="UserId" Type="int" Precision="10" />
       </Parameters>
     </SPCallDefinition>
+    <SPCallDefinition Name="SpGetLastTaskId" ObjectID="26dd9227-7471-4fbc-bb00-8fd923a7a42b">
+      <Parameters>
+        <Parameter Name="Result" Type="int" Precision="10" Direction="3" />
+      </Parameters>
+    </SPCallDefinition>
     <SPCallDefinition Name="SpSetUserTaskAsFail" ObjectID="1c4580f4-c551-466c-9754-bf237a9d1938">
       <Parameters>
         <Parameter Name="TaskId" Type="int" Precision="10" />
@@ -395,10 +400,10 @@
       <Catalogs>
         <Catalog Name="HIMS">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-04-09T20:40:49.7775344Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2018-04-10T21:25:56.3903931Z">
               <Tables>
                 <Table Name="__RefactorLog">
-                  <PkConstraintName Name="PK____Refact__D3AEFFDBEE30E8E9" />
+                  <PkConstraintName Name="PK____Refact__D3AEFFDBA4669B5C" />
                   <Fields>
                     <Field Name="OperationKey" Ordinal="1" IsPrimaryKey="true" DbType="25" />
                   </Fields>
@@ -407,7 +412,7 @@
                   </CustomProperties>
                 </Table>
                 <Table Name="Direction">
-                  <PkConstraintName Name="PK__Directio__876847C64E933084" />
+                  <PkConstraintName Name="PK__Directio__876847C69C6F9110" />
                   <Fields>
                     <Field Name="DirectionId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="Name" Ordinal="2" DbType="12" Length="2147483647" />
@@ -440,7 +445,7 @@
                   </Fields>
                 </Table>
                 <Table Name="TaskTrack">
-                  <PkConstraintName Name="PK__TaskTrac__9041AE7B366827C0" />
+                  <PkConstraintName Name="PK__TaskTrac__9041AE7B6629714A" />
                   <Fields>
                     <Field Name="TaskTrackId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" DbType="8" Precision="10" />
                     <Field Name="TrackDate" Ordinal="2" DbType="4" />
@@ -563,6 +568,11 @@
                 <StoredProcedure Name="spDeleteUser">
                   <Parameters>
                     <Parameter Name="@userId" Direction="1" Ordinal="1" DbType="8" Precision="10" />
+                  </Parameters>
+                </StoredProcedure>
+                <StoredProcedure Name="spGetLastTaskId">
+                  <Parameters>
+                    <Parameter Name="@result" Direction="3" Ordinal="1" DbType="8" Precision="10" />
                   </Parameters>
                 </StoredProcedure>
                 <StoredProcedure Name="spSetUserTaskAsFail">
@@ -763,6 +773,11 @@
         <SPCallMapping SPCallName=":SpDeleteUser" TargetName="HIMS:dbo:spDeleteUser">
           <FieldMappings>
             <FieldMapping FieldName="UserId" TargetFieldName="@userId" />
+          </FieldMappings>
+        </SPCallMapping>
+        <SPCallMapping SPCallName=":SpGetLastTaskId" TargetName="HIMS:dbo:spGetLastTaskId">
+          <FieldMappings>
+            <FieldMapping FieldName="Result" TargetFieldName="@result" />
           </FieldMappings>
         </SPCallMapping>
         <SPCallMapping SPCallName=":SpSetUserTaskAsFail" TargetName="HIMS:dbo:spSetUserTaskAsFail">

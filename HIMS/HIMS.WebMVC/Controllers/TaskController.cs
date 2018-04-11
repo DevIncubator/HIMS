@@ -7,6 +7,7 @@ using HIMS.BusinessLogic.DTO;
 using HIMS.BusinessLogic.Interfaces;
 using HIMS.WebMVC.Models;
 using HIMS.WebMVC.Utils;
+using System;
 
 namespace HIMS.WebMVC.Controllers
 {
@@ -56,9 +57,30 @@ namespace HIMS.WebMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var users = string.Join(",", task.SelectedUsers);
+
+
                     var taskDto = Mapper.Map<TaskViewModel, TaskTransferModel>(task);
+
                     _taskService.SaveTask(taskDto);
+
+                    task.TaskId = _taskService.GetLastTaskId();
+
+
+                    foreach (var item in task.SelectedUsers)
+                    {
+                        var userTask = new UserTaskViewModel
+                        {
+                            userId = Convert.ToInt32(item),
+                            taskId = task.TaskId,
+                            Name = task.Name,
+                            Start = task.StartDate,
+                            Deadline = task.DeadlineDate,
+                            Status = "Active"
+
+                        };
+                        var userTaskDto = Mapper.Map<UserTaskViewModel, UserTaskTransferModel>(userTask);
+                        _vUserTaskService.SaveTaskForUser(userTaskDto);
+                    }
                     return RedirectToAction("Index");
                 }
             }
@@ -83,7 +105,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserList = GetUsers();
-            ViewBag.TaskUsers = GetTasksForUser(id);
+           // ViewBag.TaskUsers = GetTasksForUser(id);
             var task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
             return View(task);
         }
@@ -189,17 +211,17 @@ namespace HIMS.WebMVC.Controllers
             return selectItems;
         }
 
-        private List<SelectListItem> GetTasksForUser(int? id)
-        {
-            var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllTasksForUser(id));
-            List<SelectListItem> userIdTasks = new List<SelectListItem>();
-            foreach (var item in users)
-            {
-                userIdTasks.Add(new SelectListItem { Text = item.Name, Value = item.userId.ToString() });
-            }
+        //private List<SelectListItem> GetTasksForUser(int? id)
+        //{
+        //    var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllTasksForUser(id));
+        //    List<SelectListItem> userIdTasks = new List<SelectListItem>();
+        //    foreach (var item in users)
+        //    {
+        //        userIdTasks.Add(new SelectListItem { Text = item.Name, Value = item.userId.ToString() });
+        //    }
 
-            return userIdTasks;
+        //    return userIdTasks;
 
-        }
+        //}
     }
 }
