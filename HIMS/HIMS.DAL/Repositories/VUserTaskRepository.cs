@@ -23,11 +23,11 @@ namespace HIMS.DAL.Repositories
 
         public void Delete(int userId, int taskId)
         {
-            var userTask = db.Set<VUserTask>().FirstOrDefault(ut =>ut.UserId == userId&& ut.TaskId == taskId);
+            var userTask = db.Set<UserTask>().FirstOrDefault(ut =>ut.UserId == userId&& ut.TaskId == taskId);
 
             if (userTask != null)
             {
-                db.Set<VUserTask>().Remove(userTask);
+                db.Set<UserTask>().Remove(userTask);
             }
         }
 

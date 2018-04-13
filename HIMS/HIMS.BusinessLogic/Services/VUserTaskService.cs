@@ -7,6 +7,7 @@ using HIMS.Data.Interfaces;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System;
 
 namespace HIMS.BusinessLogic.Services
 {
@@ -27,6 +28,20 @@ namespace HIMS.BusinessLogic.Services
             if (tasks == null)
                 throw new ValidationException($"The Tasks with id = {userId} was not found");
             return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks);
+        }
+        public IEnumerable<UserTaskTransferModel> GetAllUsersForTask(int? taskId)
+        {
+            var users = Database.UserTasks.Find(f => f.TaskId == taskId).ToList();
+            if (users == null)
+                throw new ValidationException($"The Users with TaskId = {taskId} was not found");
+            //var usersDto = new List<UserTaskTransferModel>();
+            //foreach (var item in users)
+            //{
+            //    usersDto.
+
+            //}
+            //return
+            return Mapper.Map<IEnumerable<UserTask>, List<UserTaskTransferModel>>(users);
         }
 
         public UserTaskTransferModel GetTaskForUser(int userId, int taskId)
@@ -83,6 +98,18 @@ namespace HIMS.BusinessLogic.Services
             //Mapper.Map<UserTaskTransferModel, UserTask>(userDTO);
             Database.UserTasks.Create(userTask);
             Database.Save();
+        }
+        public void DeleteUserTask(int? userId, int? taskId)
+        {
+            if (!taskId.HasValue && !userId.HasValue)
+            {
+                throw new ValidationException("The UserTask's id value is not set");
+            }
+
+            Database.VUserTasks.Delete(userId.Value, taskId.Value);
+            Database.Save();
+               
+
         }
     }
 }

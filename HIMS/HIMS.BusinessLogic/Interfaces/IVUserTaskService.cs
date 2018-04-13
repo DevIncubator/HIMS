@@ -10,9 +10,11 @@ namespace HIMS.BusinessLogic.Interfaces
     public interface IVUserTaskService
     {
         IEnumerable<UserTaskTransferModel> GetAllTasksForUser(int? userId);
+        IEnumerable<UserTaskTransferModel> GetAllUsersForTask(int? taskId);
         UserTaskTransferModel GetTaskForUser(int userId, int taskId);
         void UpdateTaskForUser(UserTaskTransferModel userDTO);
         void UpdateTaskStatusForUser(int userId, int taskId, bool isSuccess = false);
         void SaveTaskForUser(UserTaskTransferModel userDTO);
+        void DeleteUserTask(int? userId, int? taskId);
     }
 }

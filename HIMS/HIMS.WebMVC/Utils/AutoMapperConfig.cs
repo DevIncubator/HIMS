@@ -18,7 +18,8 @@ namespace HIMS.WebMVC.Utils
                 cfg.CreateMap<Task, TaskTransferModel>();
                 cfg.CreateMap<TaskTransferModel, Task>();
                 cfg.CreateMap<TaskViewModel, TaskTransferModel>();
-                cfg.CreateMap<TaskTransferModel, TaskViewModel>().ForMember(x => x.SelectedUsers, opt => opt.Ignore());
+                cfg.CreateMap<TaskTransferModel, TaskViewModel>()
+                .ForMember(x => x.SelectedUsers, opt => opt.Ignore());
 
 
                 cfg.CreateMap<VUserProfile, VUserProfileTransferModel>();
@@ -30,6 +31,15 @@ namespace HIMS.WebMVC.Utils
                 cfg.CreateMap<UserProfileTransferModel, UserProfileDetailsViewModel>();
                 cfg.CreateMap<Direction, DirectionTransferModel>();
                 cfg.CreateMap<DirectionTransferModel, DirectionViewModel>();
+
+                cfg.CreateMap<UserTask, UserTaskTransferModel>()
+                    .ForMember(x => x.Name, opt => opt.Ignore())
+                     .ForMember(x => x.Deadline, opt => opt.Ignore())
+                      .ForMember(x => x.Start, opt => opt.Ignore())
+                      .ForMember(x=>x.Status,opt=>opt.Ignore());
+
+                //cfg.CreateMap<UserTaskTransferModel, UserTask>()
+                // .ForMember(x => x.StateId, opt => opt.Ignore());
 
                 cfg.CreateMap<VUserTask, UserTaskTransferModel>()
                     .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TaskName))
