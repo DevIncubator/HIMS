@@ -105,7 +105,7 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserList = GetUsers();
-           // ViewBag.TaskUsers = GetTasksForUser(id);
+            ViewBag.TaskUsers = GetUsersForTask(id);
             var task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
             return View(task);
         }
@@ -211,17 +211,18 @@ namespace HIMS.WebMVC.Controllers
             return selectItems;
         }
 
-        //private List<SelectListItem> GetTasksForUser(int? id)
-        //{
-        //    var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllTasksForUser(id));
-        //    List<SelectListItem> userIdTasks = new List<SelectListItem>();
-        //    foreach (var item in users)
-        //    {
-        //        userIdTasks.Add(new SelectListItem { Text = item.Name, Value = item.userId.ToString() });
-        //    }
+        private List<string> GetUsersForTask(int? id)
+        {
+            var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllUsersForTask(id));
+        
+           
+            List<string> usersIdTask = new List<string>();
+            foreach (var item in users)
+            {
+                usersIdTask.Add(item.userId.ToString());
+            }
+            return usersIdTask;
 
-        //    return userIdTasks;
-
-        //}
+        }
     }
 }

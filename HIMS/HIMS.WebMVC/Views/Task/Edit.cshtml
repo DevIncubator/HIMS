@@ -43,7 +43,9 @@
                     <label>
                         <input type="checkbox"
                                name="SelectedUsers"
-                               value="@item.Value" /> @item.Text
+                               value="@item.Value"
+                               @if(@ViewBag.TaskUsers.Contains(item.Value)){ <text>checked</text> }/> @item.Text
+                               @*@if(Model.SelectedFruits.Contains(item.Value)){ <text>checked</text> }/> @item.Text*@
                         </label>
                     </div>
                 }

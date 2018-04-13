@@ -28,6 +28,20 @@ namespace HIMS.BusinessLogic.Services
                 throw new ValidationException($"The Tasks with id = {userId} was not found");
             return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks);
         }
+        public IEnumerable<UserTaskTransferModel> GetAllUsersForTask(int? taskId)
+        {
+            var users = Database.UserTasks.Find(f => f.TaskId == taskId).ToList();
+            if (users == null)
+                throw new ValidationException($"The Users with TaskId = {taskId} was not found");
+            //var usersDto = new List<UserTaskTransferModel>();
+            //foreach (var item in users)
+            //{
+            //    usersDto.
+
+            //}
+            //return
+            return Mapper.Map<IEnumerable<UserTask>, List<UserTaskTransferModel>>(users);
+        }
 
         public UserTaskTransferModel GetTaskForUser(int userId, int taskId)
         {
