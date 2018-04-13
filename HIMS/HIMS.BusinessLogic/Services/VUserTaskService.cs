@@ -7,6 +7,7 @@ using HIMS.Data.Interfaces;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System;
 
 namespace HIMS.BusinessLogic.Services
 {
@@ -97,6 +98,18 @@ namespace HIMS.BusinessLogic.Services
             //Mapper.Map<UserTaskTransferModel, UserTask>(userDTO);
             Database.UserTasks.Create(userTask);
             Database.Save();
+        }
+        public void DeleteUserTask(int? userId, int? taskId)
+        {
+            if (!taskId.HasValue && !userId.HasValue)
+            {
+                throw new ValidationException("The UserTask's id value is not set");
+            }
+
+            Database.VUserTasks.Delete(userId.Value, taskId.Value);
+            Database.Save();
+               
+
         }
     }
 }

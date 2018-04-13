@@ -36,6 +36,7 @@ namespace HIMS.DAL.Repositories
             }
         }
 
+
         public IEnumerable<UserTask> Find(Func<UserTask, bool> predicate)
         {
             return db.UserTasks.Where(predicate).ToList();

@@ -15,5 +15,6 @@ namespace HIMS.BusinessLogic.Interfaces
         void UpdateTaskForUser(UserTaskTransferModel userDTO);
         void UpdateTaskStatusForUser(int userId, int taskId, bool isSuccess = false);
         void SaveTaskForUser(UserTaskTransferModel userDTO);
+        void DeleteUserTask(int? userId, int? taskId);
     }
 }
