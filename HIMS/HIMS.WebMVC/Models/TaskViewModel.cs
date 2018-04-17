@@ -12,8 +12,10 @@ namespace HIMS.WebMVC.Models
         public string Name { get; set; }
         public string Description { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DeadlineDate { get; set; }
 
         public List<string> SelectedUsers { get; set; }

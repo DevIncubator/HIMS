@@ -8,6 +8,7 @@ using HIMS.BusinessLogic.Interfaces;
 using HIMS.WebMVC.Models;
 using HIMS.WebMVC.Utils;
 using System;
+using System.Linq;
 
 namespace HIMS.WebMVC.Controllers
 {
@@ -16,17 +17,17 @@ namespace HIMS.WebMVC.Controllers
         private readonly ITaskService _taskService;
         private readonly IVUserProfileService _vUserProfileService;
         private readonly IVUserTaskService _vUserTaskService;
-        private readonly IUserProfileService _userProfileService;
+     
 
         public TaskController(ITaskService taskService,
              IVUserProfileService vUserProfileService,
-             IVUserTaskService vUserTaskService,
-             IUserProfileService userProfileService)
+             IVUserTaskService vUserTaskService)
+           
         {
             _taskService = taskService;
             _vUserProfileService = vUserProfileService;
             _vUserTaskService = vUserTaskService;
-            _userProfileService = userProfileService;
+           
         }
 
         [Authorize(Roles = "admin")]
@@ -105,14 +106,14 @@ namespace HIMS.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.UserList = GetUsers();
-           // ViewBag.TaskUsers = GetTasksForUser(id);
+            ViewBag.TaskUsers = GetUsersForTask(id);
             var task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
             return View(task);
         }
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult EditPost(int? id, TaskViewModel task)
         {
             if (id == null)
             {
@@ -120,6 +121,15 @@ namespace HIMS.WebMVC.Controllers
             }
 
             var taskDto = _taskService.GetTask(id);
+            var newUsers = new List<string>();
+            foreach (var item in task.SelectedUsers)
+            {
+                newUsers.Add(item);
+            }
+            var oldUsers = new List<string>();
+            oldUsers = GetUsersForTask(id);
+            var UsersForDeleteTask = oldUsers.Except(newUsers).ToList();
+            var UsersForAddTask = newUsers.Except(oldUsers).ToList();
 
             if (TryUpdateModel(taskDto))
                 //"",
@@ -127,7 +137,28 @@ namespace HIMS.WebMVC.Controllers
             {
                 try
                 {
+                  
                     _taskService.UpdateTask(taskDto);
+                    task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
+                    foreach (var item in UsersForAddTask)
+                    {
+                        var userTask = new UserTaskViewModel
+                        {
+                            userId = Convert.ToInt32(item),
+                            taskId = task.TaskId,
+                            Name = task.Name,
+                            Start = task.StartDate,
+                            Deadline = task.DeadlineDate,
+                            Status = "Active"
+
+                        };
+                        var userTaskDto = Mapper.Map<UserTaskViewModel, UserTaskTransferModel>(userTask);
+                        _vUserTaskService.SaveTaskForUser(userTaskDto);
+                    }
+                    foreach (var item in UsersForDeleteTask)
+                    {
+                        _vUserTaskService.DeleteUserTask(Convert.ToInt32(item), id);
+                    }
 
                     return RedirectToAction("Index");
                 }
@@ -137,8 +168,7 @@ namespace HIMS.WebMVC.Controllers
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
             }
-
-            var task = Mapper.Map<TaskTransferModel, TaskViewModel>(taskDto);
+           
             return View(task);
         }
 
@@ -211,17 +241,18 @@ namespace HIMS.WebMVC.Controllers
             return selectItems;
         }
 
-        //private List<SelectListItem> GetTasksForUser(int? id)
-        //{
-        //    var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllTasksForUser(id));
-        //    List<SelectListItem> userIdTasks = new List<SelectListItem>();
-        //    foreach (var item in users)
-        //    {
-        //        userIdTasks.Add(new SelectListItem { Text = item.Name, Value = item.userId.ToString() });
-        //    }
+        private List<string> GetUsersForTask(int? id)
+        {
+            var users = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(_vUserTaskService.GetAllUsersForTask(id));
+        
+           
+            List<string> usersIdTask = new List<string>();
+            foreach (var item in users)
+            {
+                usersIdTask.Add(item.userId.ToString());
+            }
+            return usersIdTask;
 
-        //    return userIdTasks;
-
-        //}
+        }
     }
 }
