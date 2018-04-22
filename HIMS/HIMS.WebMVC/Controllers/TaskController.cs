@@ -71,12 +71,12 @@ namespace HIMS.WebMVC.Controllers
                     {
                         var userTask = new UserTaskViewModel
                         {
-                            userId = Convert.ToInt32(item),
-                            taskId = task.TaskId,
-                            Name = task.Name,
-                            Start = task.StartDate,
-                            Deadline = task.DeadlineDate,
-                            Status = "Active"
+                            UserId = Convert.ToInt32(item),
+                            TaskId = task.TaskId,
+                            TaskName = task.Name,
+                            StartDate = task.StartDate,
+                            DeadlineDate = task.DeadlineDate,
+                            State = "Active"
 
                         };
                         var userTaskDto = Mapper.Map<UserTaskViewModel, UserTaskTransferModel>(userTask);
@@ -144,12 +144,12 @@ namespace HIMS.WebMVC.Controllers
                     {
                         var userTask = new UserTaskViewModel
                         {
-                            userId = Convert.ToInt32(item),
-                            taskId = task.TaskId,
-                            Name = task.Name,
-                            Start = task.StartDate,
-                            Deadline = task.DeadlineDate,
-                            Status = "Active"
+                            UserId = Convert.ToInt32(item),
+                            TaskId = task.TaskId,
+                            TaskName = task.Name,
+                            StartDate = task.StartDate,
+                            DeadlineDate = task.DeadlineDate,
+                            State = "Active"
 
                         };
                         var userTaskDto = Mapper.Map<UserTaskViewModel, UserTaskTransferModel>(userTask);
@@ -249,7 +249,7 @@ namespace HIMS.WebMVC.Controllers
             List<string> usersIdTask = new List<string>();
             foreach (var item in users)
             {
-                usersIdTask.Add(item.userId.ToString());
+                usersIdTask.Add(item.UserId.ToString());
             }
             return usersIdTask;
 

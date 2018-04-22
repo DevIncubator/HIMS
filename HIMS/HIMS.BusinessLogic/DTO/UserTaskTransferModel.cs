@@ -6,9 +6,9 @@ namespace HIMS.BusinessLogic.DTO
     {
         public int UserId { get; set; }
         public int TaskId { get; set; }
-        public string Name { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime Deadline { get; set; }
-        public string Status { get; set; }
+        public string TaskName { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime DeadlineDate { get; set; }
+        public string State { get; set; }
     }
 }

@@ -29,10 +29,10 @@ namespace HIMS.Tests
 
             List<UserTaskTransferModel> listDTO = new List<UserTaskTransferModel>
             {
-                new UserTaskTransferModel{UserId = 1, TaskId = 5, Name = "Write view", Start = new DateTime(2018,4,12), Deadline = new DateTime(2018,4,13), Status = "Active" },
-                new UserTaskTransferModel{UserId = 2, TaskId = 3, Name = "Write controller", Start = new DateTime(2018,4,13), Deadline = new DateTime(2018,4,15), Status = "Active" },
-                new UserTaskTransferModel{UserId = 3, TaskId = 1, Name = "Write four tests", Start = new DateTime(2018,4,11), Deadline = new DateTime(2018,4,12), Status = "Fail" },
-                new UserTaskTransferModel{UserId = 5, TaskId = 4, Name = "implement ViewModel", Start = new DateTime(2018,4,15), Deadline = new DateTime(2018,4,16), Status = "Active" },
+                new UserTaskTransferModel{UserId = 1, TaskId = 5, TaskName = "Write view", StartDate = new DateTime(2018,4,12), DeadlineDate = new DateTime(2018,4,13), State = "Active" },
+                new UserTaskTransferModel{UserId = 2, TaskId = 3, TaskName = "Write controller", StartDate = new DateTime(2018,4,13), DeadlineDate = new DateTime(2018,4,15), State = "Active" },
+                new UserTaskTransferModel{UserId = 3, TaskId = 1, TaskName = "Write four tests", StartDate = new DateTime(2018,4,11), DeadlineDate = new DateTime(2018,4,12), State = "Fail" },
+                new UserTaskTransferModel{UserId = 5, TaskId = 4, TaskName = "implement ViewModel", StartDate = new DateTime(2018,4,15), DeadlineDate = new DateTime(2018,4,16), State = "Active" },
             };
 
             List<UserProfileTransferModel> userDTO = new List<UserProfileTransferModel>
@@ -41,7 +41,7 @@ namespace HIMS.Tests
                 {
                      Address = "test",
                      BirthDate = new DateTime(1990,12,12),
-                     Direction = 1,
+                     DirectionId = 1,
                      Education = "test",
                      Email = "test",
                      LastName = "test",
@@ -59,7 +59,7 @@ namespace HIMS.Tests
                 {
                      Address = "test",
                      BirthDate = new DateTime(1990,12,13),
-                     Direction = 2,
+                     DirectionId = 2,
                      Education = "test",
                      Email = "test",
                      LastName = "test",
@@ -94,7 +94,7 @@ namespace HIMS.Tests
                 ).Verifiable();
             iUserProfileServiceMock.Setup(m => m.GetUserProfile(It.IsAny<int>())).Returns((int? id) => userDTO.SingleOrDefault(s => s.UserId == id));
 
-            controller = new UserTaskController(iUserTaskServiceMock.Object, iUserProfileServiceMock.Object);
+            //controller = new UserTaskController(iUserTaskServiceMock.Object, iUserProfileServiceMock.Object);
 
             Mapper.Reset();
             AutoMapperConfig.Initialize();

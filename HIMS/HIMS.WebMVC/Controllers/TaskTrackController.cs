@@ -155,7 +155,7 @@ namespace HIMS.WebMVC.Controllers
                 var userTaskModel = _userTaskTService.Get(user.UserId, task.TaskId);
                 TaskTrackViewModel viewModel = new TaskTrackViewModel
                 {
-                    Name = task.Name,
+                    Name = task.TaskName,
                     TrackDate = DateTime.Now,
                     TaskId = task.TaskId,
                     UserId = user.UserId,
