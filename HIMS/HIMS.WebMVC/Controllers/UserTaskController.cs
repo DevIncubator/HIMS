@@ -37,7 +37,7 @@ namespace HIMS.WebMVC.Controllers
                 if (user.UserId != id.Value && !User.IsInRole("admin"))
                     return new HttpStatusCodeResult(401);
 
-                IEnumerable<UserTaskTransferModel> userDtos = _service.GetAllTasksForUser(id);
+                var userDtos = _service.GetAllTasksForUser(id).ToList();
                 var userName = _serviceU.GetUserProfile(id).Name;
                 tasks = new UserTasksListViewModel
                     {
@@ -59,13 +59,21 @@ namespace HIMS.WebMVC.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        [HttpPost]
+        //[HttpPost]
         public ActionResult SetTaskAsSuccess(int userId, int taskId, bool isSuccess)
         {
             _service.UpdateTaskStatusForUser(userId, taskId, isSuccess);
             var tasksDTO = _service.GetAllTasksForUser(userId).ToList();
-            var tasks = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasksDTO);
-            return View("GetTasksForUser", tasks);
+
+            var userName = _serviceU.GetUserProfile(userId).Name;
+            var tasks = new UserTasksListViewModel
+            {
+                UserTasksList = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasksDTO),
+                UserName = userName
+            };
+
+            //var tasks = Mapper.Map<IEnumerable<UserTaskTransferModel>, List<UserTaskViewModel>>(tasksDTO);
+            return View("GetTasksForUser",tasks);
         }
        
     }

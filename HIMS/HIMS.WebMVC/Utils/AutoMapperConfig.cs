@@ -33,17 +33,17 @@ namespace HIMS.WebMVC.Utils
                 cfg.CreateMap<DirectionTransferModel, DirectionViewModel>();
 
                 cfg.CreateMap<UserTask, UserTaskTransferModel>()
-                    .ForMember(x => x.Name, opt => opt.Ignore())
-                     .ForMember(x => x.Deadline, opt => opt.Ignore())
-                      .ForMember(x => x.Start, opt => opt.Ignore())
-                      .ForMember(x=>x.Status,opt=>opt.Ignore());
+                    .ForMember(x => x.TaskName, opt => opt.Ignore())
+                     .ForMember(x => x.DeadlineDate, opt => opt.Ignore())
+                      .ForMember(x => x.StartDate, opt => opt.Ignore())
+                      .ForMember(x=>x.State,opt=>opt.Ignore());
 
                 //cfg.CreateMap<UserTaskTransferModel, UserTask>()
                 // .ForMember(x => x.StateId, opt => opt.Ignore());
 
                 cfg.CreateMap<VUserTask, UserTaskTransferModel>()
-                    .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.TaskName))
-                    .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.State));
+                    .ForMember(dest => dest.TaskName, opt => opt.MapFrom(src => src.TaskName))
+                    .ForMember(dest => dest.State, opt => opt.MapFrom(src => src.State));
                 cfg.CreateMap<UserTaskTransferModel, VUserTask>();
                 cfg.CreateMap<UserTaskTransferModel, UserTaskViewModel>();
                 cfg.CreateMap<UserTaskViewModel, UserTaskTransferModel>();

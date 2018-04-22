@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace HIMS.WebMVC.Models
 {
     public class UserTaskViewModel
     {
-        public int userId { get; set; }
-        public int taskId { get; set; }
-        public string Name { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime Deadline { get; set; }
-        public string Status { get; set; }
+        public int UserId { get; set; }
+        public int TaskId { get; set; }
+        public string TaskName { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy hh\\:mm}")]
+        public DateTime StartDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy hh\\:mm}")]
+        public DateTime DeadlineDate { get; set; }
+        public string State { get; set; }
     }
 }

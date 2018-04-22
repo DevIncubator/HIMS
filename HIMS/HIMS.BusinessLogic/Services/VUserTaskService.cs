@@ -27,7 +27,7 @@ namespace HIMS.BusinessLogic.Services
             var tasks = Database.VUserTasks.Find(ut => ut.UserId == userId.Value).ToList();
             if (tasks == null)
                 throw new ValidationException($"The Tasks with id = {userId} was not found");
-            return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks);
+            return Mapper.Map<IEnumerable<VUserTask>, List<UserTaskTransferModel>>(tasks); 
         }
         public IEnumerable<UserTaskTransferModel> GetAllUsersForTask(int? taskId)
         {
@@ -58,8 +58,8 @@ namespace HIMS.BusinessLogic.Services
 
         public void UpdateTaskForUser(UserTaskTransferModel userDTO)
         {
-            if (userDTO.Name.Length > 50)
-                throw new ValidationException($"The length of {nameof(userDTO.Name)} must be less then 50");
+            if (userDTO.TaskName.Length > 50)
+                throw new ValidationException($"The length of {nameof(userDTO.TaskName)} must be less then 50");
 
             var userTask = Database.VUserTasks.Get(userDTO.UserId, userDTO.TaskId);
 
@@ -85,8 +85,8 @@ namespace HIMS.BusinessLogic.Services
         public void SaveTaskForUser(UserTaskTransferModel userDTO)
         {
 
-            if (userDTO.Name.Length > 25)
-                throw new ValidationException($"The length of {nameof(userDTO.Name)} must be less then 25");
+            if (userDTO.TaskName.Length > 25)
+                throw new ValidationException($"The length of {nameof(userDTO.TaskName)} must be less then 25");
             var userTask = new UserTask
             {
                 TaskId = userDTO.TaskId,

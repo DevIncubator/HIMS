@@ -4,7 +4,7 @@
     ViewBag.Title = "Tasks";
 }
 
-<h2>Hi, dear @(User.IsInRole("admin") ? "administrator!": Model.UserName+"!This is your current task(s):") </h2>
+<h2>Hi, dear @(User.IsInRole("admin") ? "administrator!" : Model.UserName + "!This is your current task(s):") </h2>
 
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -25,45 +25,46 @@
                 Status
             </th>
             <th></th>
-            @if(User.IsInRole("admin"))
-                {
+            @if (User.IsInRole("admin"))
+            {
                     <th>
                         (Available only for Admin)
                     </th>
-                }
+            }
             
         </tr>
     </thead>
     <tbody>
+        @{int items = 0;} 
         @foreach (var item in Model.UserTasksList)
-        {
+    {
+            items++;
         <tr>
             <th scope="row">
-                @Html.DisplayFor(modelitem => item.taskId)
+                @items
             </th>
             <td>
-                @Html.ActionLink(item.Name, "Details", "Task", new { id = item.taskId }, null)
+                @Html.ActionLink(item.TaskName, "Details", "Task", new { id = item.TaskId }, null)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Start)
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deadline)
+                @Html.DisplayFor(modelItem => item.DeadlineDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
-                @Html.ActionLink("Track", "Create", "TaskTrack", new { taskId = item.taskId }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Track", "Create", "TaskTrack", new { taskId = item.TaskId }, new { @class = "btn btn-default" })
             </td>
             @if (User.IsInRole("admin"))
-             {
-                <td>
-                    @Html.ActionLink("Success", "SetTaskAsSuccess", "UserTask", new { userId = item.userId, taskId = item.taskId, isSuccess = true }, new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("Fail", "SetTaskAsSuccess", "UserTask", new { userId = item.userId, taskId = item.taskId, isSuccess = false }, new { @class = "btn btn-danger" })
-                </td>
-             }
-
+            {
+             <td>
+                 @Html.ActionLink("Success", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = true }, new { @class = "btn btn-success" })
+                 @Html.ActionLink("Fail", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = false }, new { @class = "btn btn-danger" })
+             </td>
+            }
         </tr>
-        }
+}
 </table>
