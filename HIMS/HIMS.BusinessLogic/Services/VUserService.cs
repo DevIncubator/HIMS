@@ -45,12 +45,13 @@ namespace HIMS.BusinessLogic.Services
             }
         }
 
+
         public async Task<OperationDetails> Delete(string email)
         {
-            UserSecurity user = await Database.UserSecurityManager.FindByEmailAsync(email);
+            UserSecurity user = Database.UserSecurityManager.FindByEmail(email);
             if (user != null)
             {
-                var result = await Database.UserSecurityManager.DeleteAsync(user);
+                var result = Database.UserSecurityManager.Delete(user);
 
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
@@ -63,6 +64,7 @@ namespace HIMS.BusinessLogic.Services
                 return new OperationDetails(false, "The user with such Email not found! Email: ", email);
             }
         }
+
 
         public async Task<ClaimsIdentity> Authenticate(UserTransferModel userDto)
         {
