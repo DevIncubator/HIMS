@@ -1,4 +1,4 @@
-﻿using HIMS.Data.Interfaces;
+using HIMS.Data.Interfaces;
 using System.Collections.Generic;
 
 namespace HIMS.DAL.Interfaces
