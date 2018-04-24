@@ -4,7 +4,7 @@
     ViewBag.Title = "Tasks";
 }
 
-<h2>Hi, dear @(User.IsInRole("admin") ? "administrator!" : Model.UserName + "!This is your current task(s):") </h2>
+<h2>Hi, dear @(User.IsInRole("admin") ? "administrator! This is current task(s) for "+ Model.UserName : Model.UserName + "!This is your current task(s):") </h2>
 
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -24,14 +24,17 @@
             <th>
                 Status
             </th>
-            <th></th>
+            @if (User.IsInRole("user"))
+             {
+                 <th></th>
+             }
+
             @if (User.IsInRole("admin"))
-            {
-                    <th>
-                        (Available only for Admin)
-                    </th>
-            }
-            
+             {
+                <th>
+                    (Available only for Admin)
+                </th>
+             }
         </tr>
     </thead>
     <tbody>
@@ -55,16 +58,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.State)
             </td>
-            <td>
-                @Html.ActionLink("Track", "Create", "TaskTrack", new { taskId = item.TaskId }, new { @class = "btn btn-default" })
-            </td>
+            @if (User.IsInRole("user"))
+             {
+                <td>
+                     @Html.ActionLink("Track", "Create", "TaskTrack", new { taskId = item.TaskId }, new { @class = "btn btn-default" })
+                </td>
+             }
+
             @if (User.IsInRole("admin"))
-            {
-             <td>
-                 @Html.ActionLink("Success", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = true }, new { @class = "btn btn-success" })
-                 @Html.ActionLink("Fail", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = false }, new { @class = "btn btn-danger" })
-             </td>
-            }
+    {
+        <td>
+            @Html.ActionLink("Success", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = true }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Fail", "SetTaskAsSuccess", "UserTask", new { userId = item.UserId, taskId = item.TaskId, isSuccess = false }, new { @class = "btn btn-danger" })
+        </td>
+}
         </tr>
 }
 </table>

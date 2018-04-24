@@ -36,6 +36,11 @@ namespace HIMS.DAL.Repositories
             throw new NotImplementedException();
         }
 
+        public IEnumerable<VUserTask> Find(int? id)
+        {
+            return db.VUserTasks.Where(w=>w.UserId==id);
+        }
+
         public IEnumerable<VUserTask> Find(Func<VUserTask, bool> predicate)
         {
             return db.Set<VUserTask>().Where(predicate);
