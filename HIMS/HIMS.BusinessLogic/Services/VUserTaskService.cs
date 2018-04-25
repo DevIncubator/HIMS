@@ -46,7 +46,8 @@ namespace HIMS.BusinessLogic.Services
 
         public UserTaskTransferModel GetTaskForUser(int userId, int taskId)
         {
-            var userTask = Database.VUserTasks.Find(f => f.UserId == userId && f.TaskId == taskId).FirstOrDefault();
+            //var userTask = Database.VUserTasks.Find(f => f.UserId == userId && f.TaskId == taskId).FirstOrDefault();
+            var userTask = Database.VUserTasks.Find(userId,taskId).FirstOrDefault();
 
             if (userTask == null)
             {

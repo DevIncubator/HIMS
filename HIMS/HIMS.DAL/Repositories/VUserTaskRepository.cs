@@ -41,9 +41,14 @@ namespace HIMS.DAL.Repositories
             return db.VUserTasks.Where(w=>w.UserId==id);
         }
 
+        public IEnumerable<VUserTask> Find(int userId, int taskId)
+        {
+            return db.VUserTasks.Where(w=>w.UserId==userId && w.TaskId==taskId);
+        }
+
         public IEnumerable<VUserTask> Find(Func<VUserTask, bool> predicate)
         {
-            return db.Set<VUserTask>().Where(predicate);
+            return db.VUserTasks.Where(predicate);
         }
 
         public VUserTask Get(int userId, int taskId)

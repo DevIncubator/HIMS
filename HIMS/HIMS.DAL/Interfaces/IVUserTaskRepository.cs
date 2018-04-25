@@ -8,5 +8,6 @@ namespace HIMS.DAL.Interfaces
         void Delete(int userId, int taskId);
         T Get(int userId, int taskId);
         IEnumerable<T> Find(int? id);
+        IEnumerable<T> Find(int userId, int taskId);
     }
 }
