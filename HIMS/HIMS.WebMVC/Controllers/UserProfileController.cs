@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HIMS.BusinessLogic.DTO;
+using HIMS.BusinessLogic.Infrastructure;
 using HIMS.BusinessLogic.Interfaces;
 using HIMS.WebMVC.Models;
 using System;
@@ -57,12 +58,13 @@ namespace HIMS.WebMVC.Controllers
                     _userProfileService.SaveUserProfile(userProfileDto);
                     return RedirectToAction("Index");
                 }
-                   
+
             }
             catch (RetryLimitExceededException /* dex */)
             {
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
+            catch (ValidationException ex) { ModelState.AddModelError("Email", ex.Message); };
             ViewBag.DirectionId = GetDirections();
             return View(userProfile);
         }

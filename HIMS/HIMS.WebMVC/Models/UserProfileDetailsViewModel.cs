@@ -26,7 +26,8 @@ namespace HIMS.WebMVC.Models
 
         [Required]
         [EmailAddress]
-        [StringLength(125, ErrorMessage = "Email must be maximum 125 characters long.")]
+        [StringLength(125, MinimumLength = 5, ErrorMessage = "Email must be maximum 125 characters long.")]
+        [RegularExpression(@"[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Incorrect email address(Example: name.lastname@gmail.com).")]
         public System.String Email { get; set; }
 
         [Required]
@@ -43,7 +44,7 @@ namespace HIMS.WebMVC.Models
         public System.String Education { get; set; }
 
         //not required
-        [Range(0, 10, ErrorMessage = "Math Score must be in range from 0 to 10")]
+        [Range(0, 10, ErrorMessage = "Math Score must be in range from 0 to 10.")]
         [Display(Name = "Math Score")]
         public Nullable<System.Double> MathScore { get; set; }
 
@@ -53,6 +54,7 @@ namespace HIMS.WebMVC.Models
 
         [Required]
         [StringLength(1, ErrorMessage = "Please, enter sex in format M(Male) or F(Female)")]
+        [RegularExpression(@"[M,L]", ErrorMessage = "Please, enter sex in format M(Male) or F(Female)")]
         public System.String Sex { get; set; }
 
         //not required
@@ -70,7 +72,7 @@ namespace HIMS.WebMVC.Models
         public Nullable<System.Double> UniversityAverageScore { get; set; }
 
         [Required]
-        [StringLength(15, MinimumLength = 3, ErrorMessage = "Password must be from 3 to 15 characters long")]
+        [StringLength(15, MinimumLength = 6, ErrorMessage = "Password must be from 6 to 15 characters long")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
